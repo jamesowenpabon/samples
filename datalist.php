@@ -3,20 +3,32 @@
 	header('content-type: application/json; charset=utf-8');
 	$dataSet=$_GET["dataSet"]; 
 	$data=$_POST;
+	
+	//ScaredChicken DB Info
+	$servername = getenv('IP');
 	$database="jamesowe_frontendsampledata";
 	$username="jamesowe_fesd";
 	$password="!2#4%6&8(0";
+	$conn = mysqli_connect($servername,$username,$password,$database);
 	
-	mysql_connect(localhost,$username,$password);
-	@mysql_select_db($database) or die( "Unable to select database");
+	//Cloud 9
+	//$servername = getenv('IP');
+    //$username = getenv('C9_USER');
+    //$password = "";
+    //$database = "c9";
+    //$dbport = 3306;
+    //$conn = mysqli_connect($servername, $username, $password, $database, $dbport);
+	
+	
+	
+	@mysqli_select_db($conn, $database) or die( "Unable to select database");
 	
 	
 	if ($_SERVER['REQUEST_METHOD'] === 'GET' && $dataSet != "") {
-		$test_data = mysql_query("select * FROM ".$dataSet)
-		or die(mysql_error()); 
-		
+		$test_data = mysqli_query($conn, "select * FROM ".$dataSet)
+		or die(mysqli_error()); 
 
-		while ($row = mysql_fetch_assoc($test_data)) {
+		while ($row = mysqli_fetch_assoc($test_data)) {
 			$testDataArray[] = $row;
 		}
 		
@@ -34,6 +46,7 @@
 		}
 		$json_output .= ']}';
 		echo $json_output;
+		
 	}
 	
 	if ($_SERVER['REQUEST_METHOD'] === 'POST')	{
@@ -45,24 +58,24 @@
 			$cleanSQL = preg_replace('#[^A-Za-z0-9\s]#', '', $sqlData);
 			
 			if($cleanSQL['action'] == 'update')	{
-				$sql = mysql_query("UPDATE ".$cleanSQL['collection']." 
+				$sql = mysqli_query($conn, "UPDATE ".$cleanSQL['collection']." 
 				SET name='".$cleanSQL['name']."',rating='".$cleanSQL['rating']."' WHERE ID=".$cleanSQL['ID']) 
-				or die(mysql_error());
+				or die(mysqli_error());
 			}
 			
 			if($cleanSQL['action'] == 'insert')	{
-				$sql = mysql_query("INSERT INTO ".$cleanSQL['collection']." (name, rating) 
+				$sql = mysqli_query($conn, "INSERT INTO ".$cleanSQL['collection']." (name, rating) 
 				VALUES ('".$cleanSQL['name']."','".$cleanSQL['rating']."')") 
-				or die(mysql_error());
+				or die(mysqli_error());
 				
 				
-				$lastID = mysql_query("SELECT ID FROM ".$cleanSQL['collection']." 
+				$lastID = mysqli_query($conn, "SELECT ID FROM ".$cleanSQL['collection']." 
 				WHERE ID=(SELECT max(ID) FROM ".$cleanSQL['collection'].")")
 				 
-				or die(mysql_error());
+				or die(mysqli_error());
 				
 				
-				while ($row = mysql_fetch_assoc($lastID)) {
+				while ($row = mysqli_fetch_assoc($lastID)) {
 					$lastIDRow[] = $row;
 				}
 				
@@ -75,12 +88,12 @@
 				//echo "in remove---";
 				$sql = "DELETE FROM ".$cleanSQL['collection']." WHERE ID=".$cleanSQL['ID'];
 				//echo $sql;
-				mysql_query($sql);
+				mysqli_query($conn, $sql);
 			}
 		}
 	} 
 	
-	mysql_close();
+	mysqli_close($conn);
 	
 	
 
