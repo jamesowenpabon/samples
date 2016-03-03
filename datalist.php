@@ -4,22 +4,22 @@
 	$dataSet=$_GET["dataSet"]; 
 	$data=$_POST;
 	
-	//comment here nnn
+	//Change to Dynamically pull right DB info
 	
 	//ScaredChicken DB Info
-	$servername = getenv('IP');
-	$database="jamesowe_frontendsampledata";
-	$username="jamesowe_fesd";
-	$password="!2#4%6&8(0";
-	$conn = mysqli_connect($servername,$username,$password,$database);
+	//$servername = getenv('IP');
+	//$database="jamesowe_frontendsampledata";
+	//$username="jamesowe_fesd";
+	//$password="!2#4%6&8(0";
+	//$conn = mysqli_connect($servername,$username,$password,$database);
 	
 	//Cloud 9
-	//$servername = getenv('IP');
-    //$username = getenv('C9_USER');
-    //$password = "";
-    //$database = "c9";
-    //$dbport = 3306;
-    //$conn = mysqli_connect($servername, $username, $password, $database, $dbport);
+	$servername = getenv('IP');
+    	$username = getenv('C9_USER');
+    	$password = "";
+    	$database = "c9";
+    	$dbport = 3306;
+    	$conn = mysqli_connect($servername, $username, $password, $database, $dbport);
 	
 	
 	
