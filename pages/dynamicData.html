@@ -1,0 +1,133 @@
+<!-- dynamic-data.html -->
+   
+<div class="container"> 
+<div class="container modalLink" id="sourceLink" data-toggle="modal" data-target="#commonModal" 
+ ex-src="dynamicData">View Example Source</div>
+ 
+<h2>Dynamic Loading and Display of Editable Data Table</h2>
+<p>Angular JQuery Ajax JSON Bootstrap PHP MySQL CSS3 HTML5</p>
+<div class="bodyContainer">
+	<div class="col-c-3 tablebox">
+		<table dynamic-selector-list class="table table-hover">
+		
+		<caption><h4>Data Selection List</h4></caption>
+		
+			<tbody>
+			<tr><td class="dataListItem" ng-click="dataLoader('movies')">Movies</td></tr>
+			<tr><td class="dataListItem" ng-click="dataLoader('food')">Food</td></tr>
+			<tr><td class="dataListItem" ng-click="dataLoader('cars')">Cars</td></tr>
+			</tbody>
+		
+		</table>
+	</div>
+	<div class="col-c-1"></div>
+	<div class="col-c-8 tablebox" id="tableDisplayBox">
+	<div id="innerTableDisplayBox">
+		<div class="table"> 
+		<div class="table-caption"><h4>Data Display Table</h4>
+		<h5>(Click fields to edit)(Click heads to order)</h5></div> 
+			<div dynamic-display-list class="table-header-group">
+			<div class="table-row">
+			
+			<div class="tcol2 table-cell">
+			<div class="data-display-header" ng-click="orderController('ID')">
+			<div class="buttonBox">
+				<button class="btn btn-sm btn-primary" type="button">ID 
+				<span class="caretBox"></span></button>
+			</div>
+			</div>
+			</div>
+			
+			<div class="tcol7 table-cell">
+			<div class="data-display-header" ng-click="orderController('name')">
+			<div class="buttonBox">
+				<button class="btn btn-sm btn-primary" type="button">Name 
+				<span class="caretBox"></span></button>
+			</div>
+			</div>
+			</div>
+			
+			<div class="tcol2 table-cell">
+			<div class="data-display-header" ng-click="orderController('rating')">
+			<div class="buttonBox">
+				<button class="btn btn-sm btn-primary" type="button">Rating 
+				<span class="caretBox"></span></button>
+			</div>
+			</div>
+			</div> 
+			
+			<div class="tcol1 table-cell"></div> 
+			
+			</div>
+			</div>
+			<div class="table-row-group">
+			<form name="editForm" 
+			on-last-repeat="['innerTableDisplayBox','tableDisplayBox']" 
+			ng-repeat="dataItem in dataList | orderBy:selectedOrder:reverse" 
+			class="table-row" ng-submit="editing = false; dataPoster(dataItem,'update')">
+			
+			<div class="tcol2 table-cell" ng-hide="editing">{{dataItem.ID}}</div> 
+			<div class="tcol2 table-cell" ng-show="editing">
+				<button class="btn table-btn" type="submit">Save</button>
+			</div>
+			
+			<div class="tcol7 table-cell" ng-hide="editing" 
+			ng-click="setEditState(dataItem); editing = true">{{dataItem.name}}</div>
+			<div class="tcol7 table-cell" ng-show="editing">
+				<input name="name" type="text" ng-model="dataItem.name" 
+				ng-class="{'has-error':editForm.name.$invalid && editForm.name.$touched}"
+				class="ddInput" placeholder="{{dataItem.name}}" required />
+			</div>
+
+			<div class="tcol2 table-cell" ng-hide="editing" 
+			ng-click="setEditState(dataItem); editing = true">{{dataItem.rating}}</div>
+			<div class="tcol2 table-cell" ng-show="editing">
+				<input name="rating" type="number" min="0" max="10" ng-model="dataItem.rating" 
+				ng-class="{'has-error':editForm.rating.$invalid && editForm.rating.$touched}"
+				class="ddInput" placeholder="{{dataItem.rating}}" required />
+			</div>
+			
+			<div class="tcol1 table-cell" ng-hide="editing">
+				<span ng-click="dataPoster(dataItem, 'remove')" 
+				class="deleteRowBtn fa fa-times"></span>
+			</div>
+			<div class="tcol1 table-cell" ng-show="editing">
+				<span ng-click="cancelAction(dataItem); editing = false" 
+				class="deleteRowBtn fa fa-ban"></span>
+			</div>
+				
+			</form>
+			<form name="addForm" class="table-row" ng-show="tableLoaded" 
+			ng-submit="adding = false; dataPoster(newDataItem,'insert')">
+				
+			<div ng-init="setForm(addForm);" 
+			class="tcol2 table-cell action-cell-left" ng-hide="adding" 
+			ng-click="newRecord(); adding = true">Click to Add</div>
+			<div class="tcol2 table-cell action-cell" ng-show="adding">
+				<button class="btn table-btn" type="submit">Save</button> 
+			</div>
+			
+			<div class="tcol7 table-cell action-cell" ng-show="adding">
+				<input name="name" type="text" ng-model="newDataItem.name" 
+				ng-class="{'has-error':addForm.name.$invalid && addForm.name.$touched}"
+				class="ddInput" placeholder="Name" required /> 
+			</div>
+			
+			<div class="tcol2 table-cell action-cell" ng-show="adding">
+				<input name="rating" type="number" min="0" max="10" ng-model="newDataItem.rating" 
+				ng-class="{'has-error':addForm.rating.$invalid && addForm.rating.$touched}"
+				class="ddInput" placeholder="Rating" required /> 
+			</div>
+			
+			<div class="tcol1 table-cell action-cell" ng-show="adding">
+				<span ng-click="adding=false" class="deleteRowBtn fa fa-ban"></span>
+			</div>
+			
+			</form>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+

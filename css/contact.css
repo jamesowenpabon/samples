@@ -1,0 +1,143 @@
+/* Contact Page   */ 
+
+.start	{
+	overflow:hidden;
+	white-space: nowrap;
+	border-right:solid 2px #ddd;
+}
+
+.boxStart{
+	float:right;
+	min-height:100%;
+	width:25%;
+}
+
+#blank-top {
+    width: 0px;
+    animation-name: contactInfo;
+    animation-duration: 4s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;
+	animation-delay: 1s;
+	-webkit-animation-name: contactInfo;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-delay: 1s
+}
+
+#name {
+    width: 0px;
+    animation-name: contactInfo;
+    animation-duration: 4s;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+	animation-delay: .5s;
+	-webkit-animation-name: contactInfo;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: .5s
+}
+
+#location {
+    width: 0px;
+    animation-name: contactInfo;
+    animation-duration: 4s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease;
+	animation-delay: 1s;
+	-webkit-animation-name: contactInfo;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-delay: 1s
+}
+
+#email {
+    width: 0px;
+    animation-name: contactInfo;
+    animation-duration: 4s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in;
+	animation-delay: .5s;
+	-webkit-animation-name: contactInfo;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in;
+	-webkit-animation-delay: .5s
+}
+
+#linkedIn {
+    width: 0px;
+	animation-name: contactInfo;
+    animation-duration: 4s;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+	animation-delay: .5s;
+	-webkit-animation-name: contactInfo;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: .5s
+}
+#blank-bottom {
+    width: 0px;
+    animation-name: contactInfo;
+    animation-duration: 4s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in-out;
+	animation-delay: 1s;
+	-webkit-animation-name: contactInfo;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 1s
+}
+
+#contactBox {
+    background-color: #ffffff;
+    animation-name: contactInfoBox;
+    animation-duration: 4s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in-out;
+	animation-delay: 5s;
+	-webkit-animation-name: contactInfoBox;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-delay: 5s
+}
+
+@-webkit-keyframes contactInfo {
+    from {width: 0;}
+    to {width: 75%;}
+}
+
+@keyframes contactInfo {
+    from {width: 0;}
+    to {width: 75%;}
+}
+
+@-webkit-keyframes contactInfoBox {
+    from {background-color: #ffffff;}
+    to {background-color: #428bca;}
+}
+
+@keyframes contactInfoBox {
+    from {background-color: #ffffff;}
+    to {background-color: #428bca;}
+}
+
+.contactContainer	{
+	min-height:100px;
+	margin:50px auto;
+	width:300px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	vertical-align:middle;
+}
+
+.alt-container	{
+	padding-right:0;
+	height:120px;
+}

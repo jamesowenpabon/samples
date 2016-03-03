@@ -1,0 +1,24 @@
+<!-- Modal -->
+<div id="commonModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal">&times;</button>
+	  <ul class="modalNav nav navbar-nav navbar-left">
+			<li><span ng-click="exSrcType = 'html';"><i class="fa fa-html5"></i>HTML</span></li>
+			<li><span ng-click="exSrcType = 'js';"><i class="fa fa-file-o"></i>JavaScript</a></span>
+			<li><span ng-click="exSrcType = 'css';"><i class="fa fa-css3"></i>CSS</span></li>
+		</ul>
+      </div>
+      <div class="modal-body">
+		<div>{{codeSource}}</div>
+        <pre class="viewCode"><xmp ng-include="getTemplateUrl(exSrcType)"></xmp></pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
