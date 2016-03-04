@@ -1,303 +1,48 @@
-@import url("contact.css");
-@import url("dynamicData.css");
-@import url("responsive.css");
-@import url("svgPolyline.css");
-
-* {
-
-	box-sizing: border-box;
-
-}
-
-.row:after {
-
-	content: "";
-
-	clear: both;
-
-	display: block;
-
-}
-
-
-
-[class*="col-c-"] {
-
-	float: left;
-
-	padding: 15px;
-
-}
-
-
-
-/* For mobile phones: */
-
-[class*="col-c-"] {
-
-	width: 100%;
-
-}
-
-
-
-@media only screen and (min-width: 275px) {
-
-	.navbar-nav>li {
-
-		float:left;
-
-	}
-
-}
-
-
-
-@media only screen and (max-width: 376px) {
-
-	#tableDisplayBox{
-
-		font-size:11px;
-
-	}
-
-	.buttonBox button	{
-
-		width:60px;
-
-	}
-
-}
-
-
-
-@media only screen and (min-width: 600px) {
-
-	/* For tablets: */
-
-	.col-c-1 {width: 8.33%;}
-
-	.col-c-2 {width: 16.66%;}
-
-	.col-c-3 {width: 25%;}
-
-	.col-c-4 {width: 33.33%;}
-
-	.col-c-5 {width: 41.66%;}
-
-	.col-c-6 {width: 50%;}
-
-	.col-c-7 {width: 58.33%;}
-
-	.col-c-8 {width: 66.66%;}
-
-	.col-c-9 {width: 75%;}
-
-	.col-c-10 {width: 83.33%;}
-
-	.col-c-11 {width: 91.66%;}
-
-	.col-c-12 {width: 100%;}
-
-	
-
-	.tcol1 {width: 8.33%;}
-
-	.tcol2 {width: 16.66%;}
-
-	.tcol3 { width:25%;}
-
-	.tcol7 {width: 58.33%;}
-
-	
-
-	.buttonBox button	{width:80px;}
-
-	
-
-	.navbar-right {
-
-		float: right!important;
-
-	}
-
-}
-
-
-
-@media only screen and (max-width: 767px) {
-
-	.navbar-nav .open .dropdown-menu {
-
-		position: absolute;
-
-		float: left;
-
-		width: inherit;
-
-		margin-top: 2px;
-
-		background-color: #fff;
-
-		border: 1px solid rgba(0,0,0,0.15);
-
-		box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-
-	}
-
-	
-
-	#navBarContainer div	{
-
-		margin:0;
-
-		padding-top:0;
-
-		padding-bottom:0;
-
-	}
-
-	
-
-	.navbar-brand	{
-
-		padding-top:0;
-
-		padding-bottom:0;
-
-	}
-
-}
-
-
-
-@media only screen and (min-width: 768px) {
-
-	/* For desktop: */
-
-	.modal-dialog {width: 700px;}
-
-}
-
-
-
-
-
-h2	{
-
-	margin-top:0;
-
-}
-
-
-
-p:first-of-type	{
-
-	border-bottom:1px solid #ccc;
-
-	padding-bottom:5px;
-
-}
-
-
-
-.bannerJumbo .panel	{
-
-	margin:0;
-
-}
-
-
-
-#sourceLink	{
-
-	cursor:pointer;
-
-}
-
-
-
-pre.viewCode	{
-
-	font-size:10px;
-
-}
-
-
-
-.modalNav li span	{
-
-	padding: 0 10px 0 0;
-
-	cursor:pointer;
-
-}
-
-
-
-.modal-header .navbar-nav	{
-
-	margin:0;
-
-}
-
-
-
-.modal-header	{
-
-	height: 51px;
-
-}
-
-
-
-.modalLink	{
-
-	text-align:right;
-
-	color:red;
-
-	text-decoration:underline;
-
-	float:right;
-
-}
-
-
-
-.navbar-nav	{
-
-	padding:8px 0 0 0;
-
-}
-
-
-
-.alt-active	{
-
-	background-color:#f5f5f5;
-
-	font-weight:bold;
-
-}
-
-
-
-.relative	{
-
-	position:relative;
-
-	margin:0;
-
-	padding:0;
-
-}
-
-
-
-xmp	{
-
-	white-space:pre-wrap;
-
-}
-
+/*
+Error: Invalid CSS after "url("contact.css")": expected media query list, was ";"
+        on line 1 of /home/ubuntu/workspace/css/main.css
+
+1: @import url("contact.css");
+2: @import url("dynamicData.css");
+3: @import url("responsive.css");
+4: @import url("svgPolyline.css");
+5: 
+6: * {
+
+Backtrace:
+/home/ubuntu/workspace/css/main.css:1
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:1161:in `expected'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:1097:in `expected'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:66:in `parse_media_query_list'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:1019:in `parse_import_arg'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:986:in `block in parse_import_directive'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:985:in `loop'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:985:in `parse_import_directive'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:798:in `parse_directive'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:645:in `parse_line'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:535:in `build_tree'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:554:in `block in append_children'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:553:in `each'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:553:in `append_children'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:406:in `_to_tree'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/plugin.rb:82:in `update_stylesheets'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/exec/sass_scss.rb:361:in `watch_or_update'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/exec/base.rb:52:in `parse'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/exec/base.rb:19:in `parse!'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/bin/scss:13:in `<top (required)>'
+/usr/local/rvm/gems/ruby-2.2.1/bin/scss:23:in `load'
+/usr/local/rvm/gems/ruby-2.2.1/bin/scss:23:in `<main>'
+/usr/local/rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `eval'
+/usr/local/rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"url(\"contact.css\")\": expected media query list, was \";\"\A         on line 1 of /home/ubuntu/workspace/css/main.css\A \A 1: @import url(\"contact.css\");\A 2: @import url(\"dynamicData.css\");\A 3: @import url(\"responsive.css\");\A 4: @import url(\"svgPolyline.css\");\A 5: \A 6: * {"; }
