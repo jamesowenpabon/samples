@@ -1,14 +1,8 @@
 //Application Definition//
 
-
-
-var app = angular.module('codingExamples', ['ngRoute','ng.deviceDetector']);
-
-
+var app = angular.module('codingExamples', ['ngRoute','ng.deviceDetector'])
 
 //Routes//
-
-
 
 app.config(function($routeProvider, $locationProvider){
 

@@ -1,126 +1,102 @@
-/* Dynamic Data Page   */ 
-
-.table{
-	display:table;
-}
-
-.table-caption	{
-	display:table-caption;
-	background-color: #f8f8f8;
-    border-radius: 25px 25px 0 0;
-	text-align:center;
-	vertical-align:middle;
-	border-bottom: 1px solid #ddd;
-}
-
-.table-header-group{
-	display:table-header-group;
-}
-
-.table-row-group{
-	display:table-row-group;
-}
-
-.table-row{
-	display:table-row;
-}
-
-.table-row:hover{
-	background-color: #f5f5f5;
-}
-
-.table-cell{
-	display:table-cell;
-	text-align:center;
-	vertical-align:middle;
-	padding:8px;
-	border-bottom: 1px solid #ddd;
-	overflow:hidden;
-	white-space: nowrap;
-}
-
-.table-cell input	{
-	width:50%;
-	height:18px;
-	padding:0;
-	margin:0;
-	line-height: 1;
-	border:solid 1px #428bca;
-}
-
-.table-btn	{
-	height:18px;
-	padding:0 12px;
-	margin:0;
-	line-height: 1;
-	border:solid 1px #428bca;
-}
-
-.table-form	{
-	visibility:hidden;
-}
-
-.action-cell-left	{
-	background-color: #428bca;
-	border-right:1px solid #ddd;
-	color:white;
-	border-bottom:0;
-}
-
-.action-cell	{
-	background-color: #f8f8f8;
-}
-
-.ddInput{
-	background-color: white;
-	transition:1s
-}
-
-.has-error{
-    background-color: pink;
-}
-
-.caretBox{
-	width:9px;
-}
-
-.strong{
-	font-weight:bold;
-}
-
-.dataListItem	{
-	cursor:pointer;
-}
-
-div.tablebox	{
-	border:solid 1px black;
-	border-radius: 25px;
-	padding:0;
-}
-
-.bodyContainer	{
-	padding:30px 0;
-}
-
-table, th	{
-	text-align:center;
-}
-
-caption{
-	background-color:#f8f8f8;
-	border-radius: 25px 25px 0 0;
-}
-
-#tableDisplayBox	{
-	height:65px;
-	overflow:hidden;
-	transition: height 1s;
-	margin:0 0 50px 0;
-}
-
-.addTable	{
-	position:absolute;
-	bottom:0;
-	margin:0;
-	padding:0;
-}
+/* Dynamic Data Page   */
+.table {
+  display: table; }
+
+.table-caption {
+  display: table-caption;
+  background-color: #f8f8f8;
+  border-radius: 25px 25px 0 0;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd; }
+
+.table-header-group {
+  display: table-header-group; }
+
+.table-row-group {
+  display: table-row-group; }
+
+.table-row {
+  display: table-row; }
+
+.table-row:hover {
+  background-color: #f5f5f5; }
+
+.table-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  white-space: nowrap; }
+
+.table-cell input {
+  width: 50%;
+  height: 18px;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  border: solid 1px #428bca; }
+
+.table-btn {
+  height: 18px;
+  padding: 0 12px;
+  margin: 0;
+  line-height: 1;
+  border: solid 1px #428bca; }
+
+.table-form {
+  visibility: hidden; }
+
+.action-cell-left {
+  background-color: #428bca;
+  border-right: 1px solid #ddd;
+  color: white;
+  border-bottom: 0; }
+
+.action-cell {
+  background-color: #f8f8f8; }
+
+.ddInput {
+  background-color: white;
+  transition: 1s; }
+
+.has-error {
+  background-color: pink; }
+
+.caretBox {
+  width: 9px; }
+
+.strong {
+  font-weight: bold; }
+
+.dataListItem {
+  cursor: pointer; }
+
+div.tablebox {
+  border: solid 1px black;
+  border-radius: 25px;
+  padding: 0; }
+
+.bodyContainer {
+  padding: 30px 0; }
+
+table, th {
+  text-align: center; }
+
+caption {
+  background-color: #f8f8f8;
+  border-radius: 25px 25px 0 0; }
+
+#tableDisplayBox {
+  height: 65px;
+  overflow: hidden;
+  transition: height 1s;
+  margin: 0 0 50px 0; }
+
+.addTable {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 0; }
