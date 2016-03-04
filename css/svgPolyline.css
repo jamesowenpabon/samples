@@ -1,145 +1,116 @@
-/* SVGPolyline Page   */ 
-
-/* IE Hack for SVG scaling */
-@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-   .graphContainer{
-	height: 0;
-	padding-top: 50%;
-	position: relative;
-	}
-	svg {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-	.ieClass	{
-		height: 0;
-		padding-top: 50%;
-	}
-	.centerBox	{
-		position:absolute; 
-		top: 50%; 
-		left:50%;
-		transform: translate(-50%,-50%);
-	}
-	
-	.bodyContainer	{
-		padding:0!important;
-	}
-}    
-
-/* IE Hack for SVG scaling */
-
-@media(min-width:768px) {
-	.dataInput	{
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-webkit-align-items: center;
-		-webkit-justify-content: center;
-		-ms-align-items: center;
-		-ms-justify-content: center;
-		align-items: center;
-		justify-content: center;
-	}
-}
-
-.graph .labels.x-labels {
-  text-anchor: middle;
-}
-
-.graph .labels.y-labels {
-  text-anchor: end;
-}
-
-.graph .labels.yr-labels {
-  text-anchor: start;
-}
-
-.graph .grid {
-  xstroke: #ccc;
-  stroke-dasharray: 0;
-  xstroke-width: 1;
-}
-
-.labels {
-  font-size: 13px;
-}
-
-.label-title {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 12px;
-  fill: black;
-}
-
-.data {
-  fill: red;
-  stroke-width: 1; 
-}
-
-div#dataButtonToggle button{
-	border:solid 1px #428bca;
-	background-color:#e7e7e7;
-	border-radius:5px;
-	padding:2px 5px;
-	margin-right:5px;
-}
-
-input[type="number"]	{
-	width:42px;
-	border-radius:15px;
-	padding-left:5px;
-	margin-right:1px;
-	border:1px solid #ccc;
-	outline:none;
-	box-shadow: none;
-	font-size:9px;
-}
-input[type="number"]:focus	{
-	outline:none;
-    box-shadow: 0 0 0 1pt lightblue;
-}
-
-input[type="number"]:blur	{
-	outline:none;
-}
-	
-fieldset	{
-	font-size:9px;
-	width:290px;
-	margin:0 auto 15px auto;
-}
-
-#dataButtonToggle	{
-	font-size:10px;
-	margin:0 auto 15px auto;
-	width:290px;
-}
-
-fieldset legend	{
-	font-size:11px;
-	margin-bottom:5px;
-	font-weight:bold;
-}
-
-input[type=number] {
-	-moz-appearance: textfield;
-}
-
-input[type="number"]:hover,
-input[type="number"]:focus {
-	-moz-appearance: number-input;
-}
-
-input:invalid {
-  box-shadow: none;
-}
-
-input:-moz-submit-invalid {
-  box-shadow: none;
-}
-
-input:-moz-ui-invalid {
-  box-shadow:none;
-}
+/* SVGPolyline Page   */
+/* IE Hack for SVG scaling */
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .graphContainer {
+    height: 0;
+    padding-top: 50%;
+    position: relative; }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+
+  .ieClass {
+    height: 0;
+    padding-top: 50%; }
+
+  .centerBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+  .bodyContainer {
+    padding: 0 !important; } }
+/* IE Hack for SVG scaling */
+@media (min-width: 768px) {
+  .dataInput {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -ms-align-items: center;
+    -ms-justify-content: center;
+    align-items: center;
+    justify-content: center; } }
+/*SASS Nesting*/
+.graph .labels.x-labels {
+  text-anchor: middle; }
+.graph .labels.y-labels {
+  text-anchor: end; }
+.graph .labels.yr-labels {
+  text-anchor: start; }
+.graph .grid {
+  xstroke: #ccc;
+  stroke-dasharray: 0;
+  xstroke-width: 1; }
+
+.labels {
+  font-size: 13px; }
+
+.label-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  fill: black; }
+
+.data {
+  fill: red;
+  stroke-width: 1; }
+
+div#dataButtonToggle button {
+  border: solid 1px #428bca;
+  background-color: #e7e7e7;
+  border-radius: 5px;
+  padding: 2px 5px;
+  margin-right: 5px; }
+
+input[type="number"] {
+  width: 42px;
+  border-radius: 15px;
+  padding-left: 5px;
+  margin-right: 1px;
+  border: 1px solid #ccc;
+  outline: none;
+  box-shadow: none;
+  font-size: 9px; }
+
+input[type="number"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 1pt lightblue; }
+
+input[type="number"]:blur {
+  outline: none; }
+
+fieldset {
+  font-size: 9px;
+  width: 290px;
+  margin: 0 auto 15px auto; }
+
+#dataButtonToggle {
+  font-size: 10px;
+  margin: 0 auto 15px auto;
+  width: 290px; }
+
+fieldset legend {
+  font-size: 11px;
+  margin-bottom: 5px;
+  font-weight: bold; }
+
+input[type=number] {
+  -moz-appearance: textfield; }
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -moz-appearance: number-input; }
+
+input:invalid {
+  box-shadow: none; }
+
+input:-moz-submit-invalid {
+  box-shadow: none; }
+
+input:-moz-ui-invalid {
+  box-shadow: none; }
