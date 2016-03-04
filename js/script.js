@@ -298,7 +298,7 @@ app.controller('AppCtrl', function($scope, $http, $window) {
 
 					"js"	:	"js/script.js",
 
-					"css"	:	"css/main.css",
+					"css"	:	"css/styles.css",
 
 					"none"	:	"pages/home.html"	
 
