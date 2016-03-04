@@ -3,25 +3,25 @@
 	header('content-type: application/json; charset=utf-8');
 	$dataSet=$_GET["dataSet"]; 
 	$data=$_POST;
+	$host  = $_SERVER['HTTP_HOST'];
+	$domain = strstr($host, '.');
 	
-	//Change to Dynamically pull right DB info
-	
-	//ScaredChicken DB Info
-	//$servername = getenv('IP');
-	//$database="jamesowe_frontendsampledata";
-	//$username="jamesowe_fesd";
-	//$password="!2#4%6&8(0";
-	//$conn = mysqli_connect($servername,$username,$password,$database);
-	
-	//Cloud 9
-	$servername = getenv('IP');
-    	$username = getenv('C9_USER');
-    	$password = "";
-    	$database = "c9";
-    	$dbport = 3306;
-    	$conn = mysqli_connect($servername, $username, $password, $database, $dbport);
-	
-	
+	if ($domain == '.com')	{
+		//ScaredChicken DB Info
+		$servername = getenv('IP');
+		$database="jamesowe_frontendsampledata";
+		$username="jamesowe_fesd";
+		$password="!2#4%6&8(0";
+		$conn = mysqli_connect($servername,$username,$password,$database);
+	} else if ($domain == '.c9users.io')	{
+		//Cloud 9
+		$servername = getenv('IP');
+		$username = getenv('C9_USER');
+		$password = "";
+		$database = "c9";
+		$dbport = 3306;
+		$conn = mysqli_connect($servername, $username, $password, $database, $dbport);
+	}
 	
 	@mysqli_select_db($conn, $database) or die( "Unable to select database");
 	
@@ -48,7 +48,6 @@
 		}
 		$json_output .= ']}';
 		echo $json_output;
-		
 	}
 	
 	if ($_SERVER['REQUEST_METHOD'] === 'POST')	{
