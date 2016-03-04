@@ -4,9 +4,7 @@
 @import url("svgPolyline.css");
 
 * {
-
 	box-sizing: border-box;
-
 }
 
 .row:after {
