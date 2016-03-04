@@ -1,111 +1,56 @@
 <!-- index.html -->
+<!DOCTYPE html >
 
-    <!DOCTYPE html >
+<!-- define angular app -->
+<html ng-app="codingExamples">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- load bootstrap and fontawesome -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<!-- load angular Bootstrap JQuery -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+		<script src="js/ng-device-detector.js"></script>
+		<script src="js/re-tree.js"></script>
+		<script src="js/script.js"></script>
+		<base href="/">
+	</head>
 
-
-
-    <!-- define angular app -->
-
-    <html ng-app="codingExamples">
-
-		<head>
-
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-
-			<!-- load bootstrap and fontawesome -->
-
-			<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-
-			<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
-
-			<link rel="stylesheet" href="css/styles.css" />
-
-			<!-- load angular Bootstrap JQuery -->
-
-			<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
-			<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-			<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-
-			<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
-
-			<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
-
-			<script src="js/ng-device-detector.js"></script>
-
-			<script src="js/re-tree.js"></script>
-
-			<script src="js/script.js"></script>
-
-			<base href="/">
-
-		</head>
-
-
-
-		<!-- define angular controller -->
-
-		<body ng-controller="AppCtrl">
-
-		<!-- HEADER AND NAVBAR -->
-
-			<header>
-
-				<nav class="navbar navbar-default" site-navigation-buttons>
-
-				<div class="container">
-
-					<div class="navbar-header col-c-5">
-
-						<a class="navbar-brand" href="#/">James Owen Pabon - Coding Examples</a> 
-
-					</div>
-
-					<div id="navBarContainer" class="col-c-7">
-
-					<div class="btn-group navbar-nav navbar-right" id="site-nav-buttons">
-
-						 <a href="#/" id="home" class="btn btn-primary site-nav-link"><i class="fa fa-home"></i> Home</a>
-
-						<div class="btn-group">
-
-						  <button id="examples" type="button" class="btn btn-primary dropdown-toggle site-nav-link-button" data-toggle="dropdown">
-
-						  <i class="fa fa-html5"></i> Examples <span class="caret"></span></button>
-
-						  <ul class="dropdown-menu" role="menu">
-
-							<li><a id="dynamic-data" href="#examples/dynamic-data"class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Dynamic Data</a></li>
-
-							<li><a id="responsive" href="#examples/responsive"class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Responsive Design</a></li>
-
-							<li><a id="svg-polyline" href="#examples/svg-polyline"class="site-nav-link-dropdown"><i class="fa fa-html5"></i> SVG Polyline Graphs</a></li>
-
-						  </ul>
-
-						</div>
-
-						<a href="#contact" id="contact" class="btn btn-primary site-nav-link"><i class="fa fa-comment"></i> Contact</a>
-
-					</div>
-
-					</div>
-
+	<!-- define angular controller -->
+	<body ng-controller="AppCtrl as ap">
+	<!-- HEADER AND NAVBAR -->
+		<header>
+			<nav class="navbar navbar-default" site-navigation-buttons>
+			<div class="container">
+				<div class="navbar-header col-c-5">
+					<a class="navbar-brand" href="#/">James Owen Pabon - Coding Examples</a> 
 				</div>
-
-				</nav>
-
-			</header>
-
-			<div id="contentView">
-
-			<ng-view></ng-view>
-
+				<div id="navBarContainer" class="col-c-7">
+				<div class="btn-group navbar-nav navbar-right" id="site-nav-buttons">
+					<a href="#/" id="home" class="btn btn-primary site-nav-link"><i class="fa fa-home"></i> Home</a>
+					<div class="btn-group">
+					<button id="examples" type="button" class="btn btn-primary dropdown-toggle site-nav-link-button" data-toggle="dropdown">
+					<i class="fa fa-html5"></i> Examples <span class="caret"></span></button>
+					<ul class="dropdown-menu" role="menu">
+					<li><a id="dynamic-data" href="#examples/dynamic-data"class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Dynamic Data</a></li>
+					<li><a id="responsive" href="#examples/responsive"class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Responsive Design</a></li>
+					<li><a id="svg-polyline" href="#examples/svg-polyline"class="site-nav-link-dropdown"><i class="fa fa-html5"></i> SVG Polyline Graphs</a></li>
+					</ul>
+					</div>
+					<a href="#contact" id="contact" class="btn btn-primary site-nav-link"><i class="fa fa-comment"></i> Contact</a>
+				</div>
+				</div>
 			</div>
-
-			<modal-window></modal-window>
-
-		</body>
-
-    </html>
+			</nav>
+		</header>
+		<div id="contentView">
+		<ng-view></ng-view>
+		</div>
+		<modal-window></modal-window>
+	</body>
+</html>
