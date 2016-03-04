@@ -11,9 +11,9 @@ data-target="#commonModal" ex-src="svgPolyline">View Example Source</div>
 	<div class="col-sm-5 col-md-4 ieClass">
 	<div class="centerBox">
 	<div id="dataButtonToggle">
-		<button ng-click="pg.setGraphData(2)">Your Data</button>
-		<button ng-click="pg.setGraphData(1)">NFL Sacks</button>
-		<button ng-click="pg.setGraphData(0)">NFL Passing</button>
+		<button ng-click="pg.graphSwitch(pg.yourData)">Your Data</button>
+		<button ng-click="pg.graphSwitch(pg.nflSacks)">NFL Sacks</button>
+		<button ng-click="pg.graphSwitch(pg.nflPassing)">NFL Passing</button>
 	</div>
 	<fieldset ng-repeat="graphDataSet in pg.graphData.data track by $index">
 	<legend>{{pg.graphData.data[$index].dataSetLabel}}</legend>
@@ -33,19 +33,19 @@ data-target="#commonModal" ex-src="svgPolyline">View Example Source</div>
 	<g class="grid x-grid" id="xGrid">
 		<line ng-repeat="n in [].constructor(pg.graphData.xIncriment+1) track by $index"
 		ng-attr-style="stroke:{{pg.graphData.graphVisualColor}};stroke-width:{{pg.graphData.graphStrokeWidth}}"
-		ng-attr-x1="{{pg.graphData.leftMargin + (pg.graphData.xBoxWidth * $index)}}"
+		ng-attr-x1="{{pg.graphData.leftMargin + (pg.graphData.xBoxWidth() * $index)}}"
 		ng-attr-y1="{{pg.graphData.headHeight }}"
-		ng-attr-x2="{{pg.graphData.leftMargin + (pg.graphData.xBoxWidth * $index)}}" 
-		ng-attr-y2="{{pg.graphData.headHeight + pg.graphData.dataFieldHeight}}">
+		ng-attr-x2="{{pg.graphData.leftMargin + (pg.graphData.xBoxWidth() * $index)}}" 
+		ng-attr-y2="{{pg.graphData.headHeight + pg.graphData.dataFieldHeight()}}">
 		</line>
 	</g>
 	<g class="grid y-grid" id="yGrid">
 		<line ng-repeat="n in [].constructor(pg.graphData.yIncriment+1) track by $index"
 		ng-attr-style="stroke:{{pg.graphData.graphVisualColor}};stroke-width:{{pg.graphData.graphStrokeWidth}}"
 		ng-attr-x1="{{pg.graphData.leftMargin}}"
-		ng-attr-y1="{{pg.graphData.headHeight + (pg.graphData.yBoxHeight * $index)}}"
-		ng-attr-x2="{{pg.graphData.leftMargin + pg.graphData.dataFieldWidth}}" 
-		ng-attr-y2="{{pg.graphData.headHeight + (pg.graphData.yBoxHeight * $index)}}">
+		ng-attr-y1="{{pg.graphData.headHeight + (pg.graphData.yBoxHeight() * $index)}}"
+		ng-attr-x2="{{pg.graphData.leftMargin + pg.graphData.dataFieldWidth()}}" 
+		ng-attr-y2="{{pg.graphData.headHeight + (pg.graphData.yBoxHeight() * $index)}}">
 		</line>
 	</g>
 	<g class="labels x-labels">
@@ -60,27 +60,27 @@ data-target="#commonModal" ex-src="svgPolyline">View Example Source</div>
 	<g class="labels y-labels">
 	  <text ng-repeat="n in [].constructor(pg.graphData.yIncriment+1) track by $index"
 	  ng-attr-x="{{pg.graphData.leftMargin-10}}" 
-	  ng-attr-y="{{pg.graphData.headHeight + (pg.graphData.yBoxHeight * $index)}}">
+	  ng-attr-y="{{pg.graphData.headHeight + (pg.graphData.yBoxHeight() * $index)}}">
 		{{(pg.graphData.yMaxValue)-((pg.graphData.yMaxValue/pg.graphData.yIncriment)*($index))}}
 	  </text>
 	  <text x="50" ng-attr-y="{{pg.graphData.graphHeight/2}}" class="label-title">{{pg.graphData.yTitle}}</text>
 	</g>
 	<g class="data" data-setname="graphDataSet" 
-	ng-attr-transform="translate(0 {{pg.graphData.transOffset}}) scale(1, -1)">
+	ng-attr-transform="translate(0 {{pg.graphData.transOffset()}}) scale(1, -1)">
 		<polyline ng-repeat="graphOutput in pg.graphData.data track by $index"
 		polyline-config 
 		ng-attr-style="fill:none;stroke:{{graphOutput.visualColor}};stroke-width:{{graphOutput.strokeWidth}}" 
-		ng-attr-points="90,{{graphOutput.dataValues[0]*pg.graphData.ym}} 
-		246,{{graphOutput.dataValues[1]*pg.graphData.ym}} 
-		402,{{graphOutput.dataValues[2]*pg.graphData.ym}} 
-		558,{{graphOutput.dataValues[3]*pg.graphData.ym}} 
-		714,{{graphOutput.dataValues[4]*pg.graphData.ym}}"/>
+		ng-attr-points="90,{{graphOutput.dataValues[0]*pg.graphData.ym()}} 
+		246,{{graphOutput.dataValues[1]*pg.graphData.ym()}} 
+		402,{{graphOutput.dataValues[2]*pg.graphData.ym()}} 
+		558,{{graphOutput.dataValues[3]*pg.graphData.ym()}} 
+		714,{{graphOutput.dataValues[4]*pg.graphData.ym()}}"/>
 		<g class="labels yr-labels">
 		<text ng-repeat="graphLabelOutput in pg.graphData.data track by $index"
-		ng-attr-x="{{pg.graphData.leftMargin + pg.graphData.dataFieldWidth + 5}}" 
+		ng-attr-x="{{pg.graphData.leftMargin + pg.graphData.dataFieldWidth() + 5}}" 
 		y="0" 
 		class="label-title" 
-		ng-attr-transform="translate(0 {{graphLabelOutput.dataValues[4]*pg.graphData.ym}}) scale(1, -1)">
+		ng-attr-transform="translate(0 {{graphLabelOutput.dataValues[4]*pg.graphData.ym()}}) scale(1, -1)">
 		{{graphLabelOutput.graphDataLabel}}</text>
 	  </g>
 	</g>
