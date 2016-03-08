@@ -13,8 +13,8 @@
   		</ul>
       </div>
       <div class="modal-body">
-	    <div>{{ap.codeSource}}</div>
-      <pre class="viewCode"><xmp ng-include="ap.getTemplateUrl(exSrcType)"></xmp></pre>
+	    <div>{{ap.modalSourceObject[ap.modalCollection][exSrcType]}}</div>
+      <pre class="viewCode"><xmp ng-include="ap.modalSourceObject[ap.modalCollection][exSrcType]"></xmp></pre>
       </div>
       <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

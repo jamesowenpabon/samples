@@ -23,8 +23,6 @@
 		$conn = mysqli_connect($servername, $username, $password, $database, $dbport);
 	}
 	
-	@mysqli_select_db($conn, $database) or die( "Unable to select database");
-	
 	
 	if ($_SERVER['REQUEST_METHOD'] === 'GET' && $dataSet != "") {
 		$test_data = mysqli_query($conn, "select * FROM ".$dataSet)

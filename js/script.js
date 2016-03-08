@@ -25,15 +25,16 @@ app.config(function($routeProvider, $locationProvider){
 		//Contact
 		.when("/contact",{
 		  templateUrl: "pages/contact.html",
-		})
-})
+		});
+});
 
 //Services//
 
 app.factory('srcCollection', function() {
+	var exSrcValue;
 	return { 
 		setExSrcValue : function(arg)	{
-			exSrcValue = arg	
+			exSrcValue = arg;	
 		},
 		getExSrcValue : function()	{
 			return exSrcValue;		
@@ -59,25 +60,28 @@ app.directive('siteNavigationButtons', function($location)	{
 			angular.element(this).addClass('active').siblings()
 			.removeClass('active');
 		});
-		var str = $location.path();
-		if(str == "/")	{
-			element.find('#home').addClass("active");
-		} else if ( str.search("examples") != -1 )	{
-			element.find('#examples').addClass("active");
-		} else	{
-			var searchID = str.slice(str.lastIndexOf("/")+1);
-			element.find('#'+searchID).addClass("active");
-		}		
+		scope.$on('$viewContentLoaded', function() {
+			var str = $location.path();
+			
+			if(str == "/")	{
+				element.find('#home').addClass("active");
+			} else if ( str.search("examples") != -1 )	{
+				element.find('#examples').addClass("active");
+			} else	{
+				var searchID = str.slice(str.lastIndexOf("/")+1);
+				element.find('#'+searchID).addClass("active");
+			}	
+		});		
 	}
-	}
-})
+	};
+});
 
 //modalWindow Directive
 app.directive('modalWindow', function() {
 	return {
 		templateUrl : "modalWindow.html"
 	};
-})
+});
 
 //exSrc Directive
 app.directive('exSrc', ['srcCollection', function() {
@@ -85,8 +89,8 @@ app.directive('exSrc', ['srcCollection', function() {
 		controller: function($scope, $element, $attrs, srcCollection)	{
 			srcCollection.setExSrcValue($attrs.exSrc);
 		}
-	}
-}])
+	};
+}]);
 
 //Dynamic Data OnLastRepeat Data Box Size Directive
 app.directive('onLastRepeat', function() {
@@ -100,7 +104,7 @@ app.directive('onLastRepeat', function() {
 		}
 	}		
 	};
-})
+});
 
 //dynamicSelectorList Directive
 app.directive('dynamicSelectorList', function()	{
@@ -111,8 +115,8 @@ app.directive('dynamicSelectorList', function()	{
 			angular.element(this).addClass('alt-active');
 		});
 	}
-	}
-})
+	};
+});
 
 //dynamicDisplayList Directive
 app.directive('dynamicDisplayList', function()	{
@@ -139,83 +143,58 @@ app.directive('dynamicDisplayList', function()	{
 			scope.dd.lastDisplayTarget = event.currentTarget;
 		});
 	}
-	}
-})
+	};
+});
 
 //Controllers//
 
 //Main Application Controller
 app.controller('AppCtrl', function($scope, $http, $window, srcCollection) {
 	var ap = this;
-	var modalCollection;
-	
+
 	$scope.$on('$viewContentLoaded', function() {
-		modalCollection = srcCollection.getExSrcValue();
-	 })
-	
-	//Get Template URL for Modal
-	ap.getTemplateUrl = function(type) {
-		switch(modalCollection)	{
-			case 'home' :
-				var srcOptions = {
-					"html"	: 	"pages/home.html",
-					"js"	:	"js/script.js",
-					"css"	:	"css/styles.css",
-					"none"	:	"pages/home.html"	
-				}
-				ap.codeSource = srcOptions[type] ? 
-				srcOptions[type] : srcOptions["none"];
-				break;
-			case 'dynamicData' :
-				var srcOptions = {
-					"html"	: 	"pages/dynamicData.html",
-					"js"	:	"js/script.js",
-					"css"	:	"css/dynamicData.css",
-					"none"	:	"pages/dynamicData.html"	
-				}
-				ap.codeSource = srcOptions[type] ? 
-				srcOptions[type] : srcOptions["none"];
-				break;
-			case 'responsive' :
-				var srcOptions = {
-					"html"	: 	"pages/responsive.html",
-					"js"	:	"js/script.js",
-					"css"	:	"css/responsive.css",
-					"none"	:	"pages/responsive.html"	
-				}
-				ap.codeSource = srcOptions[type] ? 
-				srcOptions[type] : srcOptions["none"];
-				break;
-			case 'svgPolyline' :
-				var srcOptions = {
-					"html"	: 	"pages/svgPolyline.html",
-					"js"	:	"js/script.js",
-					"css"	:	"css/svgPolyline.css",
-					"none"	:	"pages/svgPolyline.html"	
-				}
-				ap.codeSource = srcOptions[type] ? 
-				srcOptions[type] : srcOptions["none"];
-				break;
-			case 'contact' :
-				var srcOptions = {
-					"html"	: 	"pages/contact.html",
-					"js"	:	"js/script.js",
-					"css"	:	"css/contact.css",
-					"none"	:	"pages/contact.html"	
-				}
-				ap.codeSource = srcOptions[type] ? 
-				srcOptions[type] : srcOptions["none"];
-				break;
-		}
-		return ap.codeSource;
-	}	
-	
+		ap.modalCollection = srcCollection.getExSrcValue();
+	 });
+	 
+	 	ap.modalSourceObject = 	{
+	 		'home' : 		{
+		 						"html"	: 	"pages/home.html",
+								"js"	:	"js/script.js",
+								"css"	:	"css/styles.css",
+								undefined	:	"pages/home.html"	
+	 		},
+	 		'dynamicData':	{
+		 						"html"	: 	"pages/dynamicData.html",
+								"js"	:	"js/script.js",
+								"css"	:	"css/dynamicData.css",
+								undefined	:	"pages/dynamicData.html"
+	 		},
+	 		'responsive' :	{
+					 			"html"	: 	"pages/responsive.html",
+								"js"	:	"js/script.js",
+								"css"	:	"css/responsive.css",
+								undefined	:	"pages/responsive.html"	
+	 		},
+	 		'svgPolyline' :	{
+				 				"html"	: 	"pages/svgPolyline.html",
+								"js"	:	"js/script.js",
+								"css"	:	"css/svgPolyline.css",
+								undefined	:	"pages/svgPolyline.html"
+	 		},
+	 		'contact' :		{
+				 				"html"	: 	"pages/contact.html",
+								"js"	:	"js/script.js",
+								"css"	:	"css/contact.css",
+								undefined	:	"pages/contact.html"
+	 		}
+	 	};
+	 	
 	console.log("--------$scope---------");
 	console.log($scope);
 	console.log("-----ap Controller Scope-----");
 	console.log(ap);
 	
-})
+});
 
 //Dynamic Data Controller
 app.controller('dynamicdata',function($scope, $http, $window, srcCollection){
@@ -375,13 +354,15 @@ app.controller('detect',['deviceDetector',function(deviceDetector){
 	console.log("-----bd Controller Scope-----");
 	console.log(bd);
 	
-}])
+}]);
 
 //SVGPolyline Controller
 app.controller('graphs', function()	{
 	var pg = this;
+
+	pg.graphData = (function()	{
 	
-	function graphData(obj) {
+		function graphdata(obj) {
 	    this.graphTitle = obj.graphTitle;
 		this.xTitle = obj.xTitle;
 		this.yTitle = obj.yTitle;
@@ -404,33 +385,39 @@ app.controller('graphs', function()	{
 		this.graphVisualColor = obj.graphVisualColor;
 		this.graphStrokeWidth = obj.graphStrokeWidth;
 		this.data = obj.data;
-	}
+		}
+		
+		graphdata.prototype.dataFieldHeight = function() {
+			return this.graphHeight - (this.headHeight + this.footHeight);
+		};
+		
+		graphdata.prototype.dataFieldWidth = function() {
+			return this.graphWidth - (this.leftMargin + this.rightMargin);
+		};
+		
+		graphdata.prototype.ym = function() {
+			return this.dataFieldHeight() / this.yMaxValue;
+		};
+		
+		graphdata.prototype.transOffset = function() {
+			return this.dataFieldHeight() + this.headHeight;
+		};
+		
+		graphdata.prototype.xBoxWidth = function() {
+			return this.dataFieldWidth() / this.xIncriment;
+		};
+				
+		graphdata.prototype.yBoxHeight = function() {
+			return this.dataFieldHeight() / this.yIncriment;
+		};		
+		
+		return graphdata;
+		
+	})();
 	
-	graphData.prototype.dataFieldHeight = function() {
-		return this.graphHeight - (this.headHeight + this.footHeight);
-	};
 	
-	graphData.prototype.dataFieldWidth = function() {
-		return this.graphWidth - (this.leftMargin + this.rightMargin);
-	};
-	
-	graphData.prototype.ym = function() {
-		return this.dataFieldHeight() / this.yMaxValue;
-	};
-	
-	graphData.prototype.transOffset = function() {
-		return this.dataFieldHeight() + this.headHeight;
-	};
-	
-	graphData.prototype.xBoxWidth = function() {
-		return this.dataFieldWidth() / this.xIncriment;
-	};
 			
-	graphData.prototype.yBoxHeight = function() {
-		return this.dataFieldHeight() / this.yIncriment;
-	};		
-			
-	pg.nflPassing = new graphData(
+	pg.nflPassing = new pg.graphData(
 	{
 		'graphTitle':'NFL Quarterback Passing Yards',
 		'xTitle':'Year',
@@ -485,7 +472,7 @@ app.controller('graphs', function()	{
 	}
 	);
 	
-	pg.nflSacks = new graphData(
+	pg.nflSacks = new pg.graphData(
 	{
 		'graphTitle':'NFL Quarterback Sacks',
 		'xTitle':'Year',
@@ -549,7 +536,7 @@ app.controller('graphs', function()	{
 	}	
 	);
 	
-	pg.yourData = new graphData(
+	pg.yourData = new pg.graphData(
 	{
 		'graphTitle':'Your Data Chart',
 		'xTitle':'X-Axis',
