@@ -159,31 +159,31 @@ app.controller('AppCtrl', function($scope, $http, $window, srcCollection) {
 	 	ap.modalSourceObject = 	{
 	 		'home' : 		{
 		 						"html"	: 	"pages/home.html",
-								"js"	:	"js/script.js",
+								"js"	:	"js/app/app.js",
 								"css"	:	"css/styles.css",
 								undefined	:	"pages/home.html"	
 	 		},
 	 		'dynamicData':	{
 		 						"html"	: 	"pages/dynamicData.html",
-								"js"	:	"js/script.js",
+								"js"	:	"js/app/app.js",
 								"css"	:	"css/dynamicData.css",
 								undefined	:	"pages/dynamicData.html"
 	 		},
 	 		'responsive' :	{
 					 			"html"	: 	"pages/responsive.html",
-								"js"	:	"js/script.js",
+								"js"	:	"js/app/app.js",
 								"css"	:	"css/responsive.css",
 								undefined	:	"pages/responsive.html"	
 	 		},
 	 		'svgPolyline' :	{
 				 				"html"	: 	"pages/svgPolyline.html",
-								"js"	:	"js/script.js",
+								"js"	:	"js/app/app.js",
 								"css"	:	"css/svgPolyline.css",
 								undefined	:	"pages/svgPolyline.html"
 	 		},
 	 		'contact' :		{
 				 				"html"	: 	"pages/contact.html",
-								"js"	:	"js/script.js",
+								"js"	:	"js/app/app.js",
 								"css"	:	"css/contact.css",
 								undefined	:	"pages/contact.html"
 	 		}
