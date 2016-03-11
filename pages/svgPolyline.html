@@ -1,16 +1,16 @@
 <!-- SVGPolyline.html.html -->
 <div class="container"> 
-<div class="container modalLink" id="sourceLink" data-toggle="modal" 
+<div class="container modal-link" id="source-link" data-toggle="modal" 
 data-target="#commonModal" ex-src="svgPolyline">View Example Source</div>
 <h2>SVG Polyline Graphs</h2>
 <p>Angular Bootstrap SVG CSS3 HTML5</p>
 
-<div id="exampleContainer" class="bodyContainer">
+<div id="exampleContainer" class="body-Container">
 <div id="polylineContainer">
-	<div class="row dataInput">
+	<div class="row data-input">
 	<div class="col-sm-5 col-md-4 ieClass">
-	<div class="centerBox">
-	<div id="dataButtonToggle">
+	<div class="box-center">
+	<div id="data-button-toggle">
 		<button ng-click="pg.graphSwitch(pg.yourData)">Your Data</button>
 		<button ng-click="pg.graphSwitch(pg.nflSacks)">NFL Sacks</button>
 		<button ng-click="pg.graphSwitch(pg.nflPassing)">NFL Passing</button>
@@ -28,7 +28,7 @@ data-target="#commonModal" ex-src="svgPolyline">View Example Source</div>
 	
 	</div>
 	
-	<div class="graphContainer col-sm-7 col-md-8">
+	<div class="graph-container col-sm-7 col-md-8">
 	<svg svg xmlns="http://www.w3.org/2000/svg" version="1.2"  viewbox="0 0 800 500" class="graph">
 	<g class="grid x-grid" id="xGrid">
 		<line ng-repeat="n in [].constructor(pg.graphData.xIncriment+1) track by $index"

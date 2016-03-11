@@ -6,7 +6,7 @@
 
 @media all and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
-	.graphContainer{
+	.graph-container{
 
 		height: 0;
 	
@@ -34,7 +34,7 @@
 
 	}
 
-	.centerBox	{
+	.box-center	{
 
 		position:absolute; 
 
@@ -48,7 +48,7 @@
 
 	
 
-	.bodyContainer	{
+	.body-Container	{
 
 		padding:0!important;
 
@@ -64,7 +64,7 @@
 
 @media(min-width:768px) {
 
-	.dataInput	{
+	.data-input	{
 
 		display: -webkit-flex;
 
@@ -156,8 +156,17 @@
 }
 
 
+#data-button-toggle	{
 
-div#dataButtonToggle button{
+	font-size:10px;
+
+	margin:0 auto 15px auto;
+
+	width:290px;
+
+}
+
+div#data-button-toggle button{
 
 	border:solid 1px #428bca;
 
@@ -220,20 +229,6 @@ fieldset	{
 	margin:0 auto 15px auto;
 
 }
-
-
-
-#dataButtonToggle	{
-
-	font-size:10px;
-
-	margin:0 auto 15px auto;
-
-	width:290px;
-
-}
-
-
 
 fieldset legend	{
 

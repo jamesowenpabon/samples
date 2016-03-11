@@ -2,7 +2,7 @@
 
 
 
-.contentBlock	{
+.content-block	{
 
 	border:solid 1px black;
 
@@ -28,7 +28,7 @@
 
 
 
-.bodyContainer	{
+.body-container	{
 
 	padding:30px 0;
 
@@ -44,7 +44,7 @@
 
 
 
-.firstRow{
+.row--first{
 
 	background-color:orange;
 
@@ -52,7 +52,7 @@
 
 
 
-.secondRow{
+.row--second{
 
 	background-color:yellow;
 
@@ -60,7 +60,7 @@
 
 
 
-.thirdRow{
+.row--third{
 
 	background-color:lightblue;
 
@@ -68,7 +68,7 @@
 
 
 
-.fourthRow{
+.row--fourth{
 
 	background-color:#cccccc;
 
@@ -78,25 +78,25 @@
 
 @media(max-width:767px){
 
-	.firstRow span:before	{
+	.row--first span:before	{
 
 		content: "100% @ 767px or smaller";
 
 	}
 
-	.secondRow span:before	{
+	.row--second span:before	{
 
 		content: "100% @ 767px or smaller";
 
 	}
 
-	.thirdRow span:before	{
+	.row--third span:before	{
 
 		content: "100% @ 767px or smaller";
 
 	}
 
-	.fourthRow span:before	{
+	.row--fourth span:before	{
 
 		content: "100% @ 767px or smaller";
 
@@ -104,13 +104,13 @@
 
 	
 
-	.firstRow{height:50px;}
+	.row--first{height:50px;}
 
-	.secondRow{height:200px;}
+	.row--second{height:200px;}
 
-	.thirdRow{height:100px;}
+	.row--third{height:100px;}
 
-	.fourthRow{height:75px;}
+	.row--fourth{height:75px;}
 
 }
 
@@ -118,13 +118,13 @@
 
 @media(min-width:768px) and (max-width:991px){
 
-	.firstRow span:before	{
+	.row--first span:before	{
 
 		content: "50% @ 768px or larger";
 
 	}
 
-	.secondRow span:before	{
+	.row--second span:before	{
 
 		content: "50% @ 768px - 991px";
 
@@ -132,7 +132,7 @@
 
 	
 
-	.row div:last-of-type div.thirdRow:before	{
+	.row div:last-of-type div.row--third:before	{
 
 		content: "100% @ 768px - 991px";
 
@@ -140,7 +140,7 @@
 
 	
 
-	.row div:not(:last-child) .thirdRow span:before	{
+	.row div:not(:last-child) .row--third span:before	{
 
 		content: "50% @ 768px - 991px";
 
@@ -148,7 +148,7 @@
 
 	
 
-	.fourthRow span:before	{
+	.row--fourth span:before	{
 
 		content: "50% @ 768px - 991px";
 
@@ -156,17 +156,17 @@
 
 	
 
-	.firstRow{height:50px;}
+	.row--first{height:50px;}
 
-	.secondRow{height:300px;}
+	.row--second{height:300px;}
 
-	.thirdRow{height:148px;}
+	.row--third{height:148px;}
 
-	.fourthRow{height:75px;}
+	.row--fourth{height:75px;}
 
 	
 
-	.row div:last-of-type div.thirdRow	{
+	.row div:last-of-type div.row--third	{
 
 		height:100px;
 
@@ -182,25 +182,25 @@
 
 @media(min-width:992px){
 
-	.firstRow span:before	{
+	.row--first span:before	{
 
 		content: "50% @ 992px or larger";
 
 	}
 
-	.secondRow span:before	{
+	.row--second span:before	{
 
 		content: "100% @ 992px or larger";
 
 	}
 
-	.thirdRow span:before	{
+	.row--third span:before	{
 
 		content: "33% @ 992px or larger";
 
 	}
 
-	.fourthRow span:before	{
+	.row--fourth span:before	{
 
 		content: "25% @ 992px or larger";
 
@@ -208,7 +208,7 @@
 
 	
 
-	#responsiveContainer.container {
+	#responsive-container.container {
 
 		max-width: 750px;
 
@@ -216,13 +216,13 @@
 
 	
 
-	.firstRow{height:50px;}
+	.row--first{height:50px;}
 
-	.secondRow{height:300px;}
+	.row--second{height:300px;}
 
-	.thirdRow{height:200px;}
+	.row--third{height:200px;}
 
-	.fourthRow{height:150px;}
+	.row--fourth{height:150px;}
 
 	
 

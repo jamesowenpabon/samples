@@ -81,23 +81,23 @@ angular.module('directivesMod', [])
 .directive('dynamicDisplayList', function()	{
 	return{
 	link: function(scope,element,attrs)	{
-		element.find('div.data-display-header').on('click',  function (event) {
+		element.find('div.table-data-display-header').on('click',  function (event) {
 			if(scope.dd.reverse == false)	{
-				event.currentTarget.querySelector('.buttonBox')
-				.className = "dropdown buttonBox";
+				event.currentTarget.querySelector('.button-box')
+				.className = "dropdown button-box";
 			}
 			else if(scope.dd.reverse == true)	{
-				event.currentTarget.querySelector('.buttonBox')
-				.className = "dropup buttonBox";
+				event.currentTarget.querySelector('.button-box')
+				.className = "dropup button-box";
 			}
-			event.currentTarget.querySelector('.caretBox')
-			.className = "caret caretBox";
+			event.currentTarget.querySelector('.caret-box')
+			.className = "caret caret-box";
 			if(scope.dd.lastDisplayTarget != '' && scope.dd.lastDisplayTarget 
 			!= event.currentTarget)	{
-				scope.dd.lastDisplayTarget.querySelector('.buttonBox')
-				.className = "buttonBox";
-				scope.dd.lastDisplayTarget.querySelector('.caretBox')
-				.className = "caretBox";
+				scope.dd.lastDisplayTarget.querySelector('.button-box')
+				.className = "button-box";
+				scope.dd.lastDisplayTarget.querySelector('.caret-box')
+				.className = "caret-box";
 			}
 			scope.dd.lastDisplayTarget = event.currentTarget;
 		});

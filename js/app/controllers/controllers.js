@@ -118,12 +118,12 @@ angular.module('controllersMod', ['ng.deviceDetector'])
 			'rating':parseInt(data.rating),
 			'collection':data.collection
 		});
-		dd.dataBoxResize('innerTableDisplayBox','tableDisplayBox',(39));
+		dd.dataBoxResize('table-box--display-inner','table-box--display',(39));
 		}
 		if (action == "remove")	{
 			var index = dd.dataList.indexOf(data);
 			dd.dataList.splice(index, 1);
-			dd.dataBoxResize('innerTableDisplayBox','tableDisplayBox',(-35));
+			dd.dataBoxResize('table-box--display-inner','table-box--display',(-35));
 		}
 		})
 		.error(function (rdata, status, header, config) {

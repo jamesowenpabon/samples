@@ -1,5 +1,16 @@
 /* Contact Page */
-.start, #blank-top, #name, #location, #email, #linkedIn, #blank-bottom {
+.contact-container {
+  min-height: 100px;
+  margin: 50px auto;
+  width: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  vertical-align: middle; }
+
+.container-short {
+  padding-right: 0;
+  height: 120px; }
+
+.animation-line, #blank-top, #name, #location, #email, #linkedIn, #blank-bottom {
   width: 0px;
   overflow: hidden;
   white-space: nowrap;
@@ -17,7 +28,7 @@
   -ms-animation-fill-mode: forwards;
   animation-fill-mode: forwards; }
 
-.boxStart {
+.animation-box {
   float: right;
   min-height: 100%;
   width: 25%; }
@@ -82,7 +93,7 @@
   -ms-animation-delay: 1s;
   animation-delay: 1s; }
 
-#contactBox {
+#contact-box {
   -webkit-animation-name: contactInfoBox;
   -moz-animation-name: contactInfoBox;
   -ms-animation-name: contactInfoBox;
@@ -125,13 +136,3 @@
     background-color: #ffffff; }
   to {
     background-color: #428bca; } }
-.contactContainer {
-  min-height: 100px;
-  margin: 50px auto;
-  width: 300px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  vertical-align: middle; }
-
-.alt-container {
-  padding-right: 0;
-  height: 120px; }

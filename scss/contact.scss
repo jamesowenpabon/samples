@@ -38,7 +38,34 @@
 }
 
 
-.start	{
+.contact-container	{
+
+	min-height:100px;
+
+	margin:50px auto;
+
+	width:300px;
+
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+	vertical-align:middle;
+
+}
+
+
+
+.container-short	{
+
+	padding-right:0;
+
+	height:120px;
+
+}
+
+
+
+
+.animation-line	{
 	
 	width: 0px;
 
@@ -58,7 +85,7 @@
 
 
 
-.boxStart{
+.animation-box{
 
 	float:right;
 
@@ -72,7 +99,7 @@
 
 #blank-top {
     
-    @extend .start;
+    @extend .animation-line;
     
     @include animation-timing-function(ease-out);
 
@@ -84,7 +111,7 @@
 
 #name {
     
-    @extend .start;
+    @extend .animation-line;
     
     @include animation-timing-function(linear);
 
@@ -96,7 +123,7 @@
 
 #location {
     
-    @extend .start;
+    @extend .animation-line;
     
     @include animation-timing-function(ease);
 
@@ -108,7 +135,7 @@
 
 #email {
 
-	@extend .start;
+	@extend .animation-line;
     
     @include animation-timing-function(ease-in);
 
@@ -120,7 +147,7 @@
 
 #linkedIn {
 
-	@extend .start;
+	@extend .animation-line;
     
     @include animation-timing-function(linear);
 
@@ -130,7 +157,7 @@
 
 #blank-bottom {
 
-	@extend .start;
+	@extend .animation-line;
     
     @include animation-timing-function(ease-in-out);
 
@@ -140,7 +167,7 @@
 
 
 
-#contactBox {
+#contact-box {
 	
 	
 	@include animation-name(contactInfoBox);
@@ -199,26 +226,3 @@
 
 
 
-.contactContainer	{
-
-	min-height:100px;
-
-	margin:50px auto;
-
-	width:300px;
-
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-	vertical-align:middle;
-
-}
-
-
-
-.alt-container	{
-
-	padding-right:0;
-
-	height:120px;
-
-}

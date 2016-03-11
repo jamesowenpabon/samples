@@ -30,10 +30,10 @@
 }
 
 @media only screen and (max-width: 376px) {
-	#tableDisplayBox{
+	#table-box--display{
 		font-size:11px;
 	}
-	.buttonBox button	{
+	.button-box button	{
 		width:60px;
 	}
 }
@@ -58,7 +58,7 @@
 	.tcol3 { width:25%;}
 	.tcol7 {width: 58.33%;}
 
-	.buttonBox button	{width:80px;}
+	.button-box button	{width:80px;}
 
 	.navbar-right {
 		float: right!important;
@@ -76,7 +76,7 @@
 		box-shadow: 0 6px 12px rgba(0,0,0,0.175);
 	}
 
-	#navBarContainer div	{
+	#nav-bar-container div	{
 		margin:0;
 		padding-top:0;
 		padding-bottom:0;
@@ -102,19 +102,15 @@ p:first-of-type	{
 	padding-bottom:5px;
 }
 
-.bannerJumbo .panel	{
+.banner--jumbo .panel	{
 	margin:0;
 }
 
-#sourceLink	{
-	cursor:pointer;
-}
-
-pre.viewCode	{
+pre.view-code	{
 	font-size:10px;
 }
 
-.modalNav li span	{
+.nav-modal li span	{
 	padding: 0 10px 0 0;
 	cursor:pointer;
 }
@@ -127,7 +123,8 @@ pre.viewCode	{
 	height: 51px;
 }
 
-.modalLink	{
+.modal-link	{
+	cursor:pointer;
 	text-align:right;
 	color:red;
 	text-decoration:underline;

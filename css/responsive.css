@@ -1,5 +1,5 @@
 /* Responsive Page   */
-.contentBlock {
+.content-block {
   border: solid 1px black;
   border-radius: 25px;
   margin-bottom: 5px;
@@ -11,102 +11,102 @@
   align-items: center;
   justify-content: center; }
 
-.bodyContainer {
+.body-container {
   padding: 30px 0; }
 
 .row {
   margin-bottom: 15px; }
 
-.firstRow {
+.row--first {
   background-color: orange; }
 
-.secondRow {
+.row--second {
   background-color: yellow; }
 
-.thirdRow {
+.row--third {
   background-color: lightblue; }
 
-.fourthRow {
+.row--fourth {
   background-color: #cccccc; }
 
 @media (max-width: 767px) {
-  .firstRow span:before {
+  .row--first span:before {
     content: "100% @ 767px or smaller"; }
 
-  .secondRow span:before {
+  .row--second span:before {
     content: "100% @ 767px or smaller"; }
 
-  .thirdRow span:before {
+  .row--third span:before {
     content: "100% @ 767px or smaller"; }
 
-  .fourthRow span:before {
+  .row--fourth span:before {
     content: "100% @ 767px or smaller"; }
 
-  .firstRow {
+  .row--first {
     height: 50px; }
 
-  .secondRow {
+  .row--second {
     height: 200px; }
 
-  .thirdRow {
+  .row--third {
     height: 100px; }
 
-  .fourthRow {
+  .row--fourth {
     height: 75px; } }
 @media (min-width: 768px) and (max-width: 991px) {
-  .firstRow span:before {
+  .row--first span:before {
     content: "50% @ 768px or larger"; }
 
-  .secondRow span:before {
+  .row--second span:before {
     content: "50% @ 768px - 991px"; }
 
-  .row div:last-of-type div.thirdRow:before {
+  .row div:last-of-type div.row--third:before {
     content: "100% @ 768px - 991px"; }
 
-  .row div:not(:last-child) .thirdRow span:before {
+  .row div:not(:last-child) .row--third span:before {
     content: "50% @ 768px - 991px"; }
 
-  .fourthRow span:before {
+  .row--fourth span:before {
     content: "50% @ 768px - 991px"; }
 
-  .firstRow {
+  .row--first {
     height: 50px; }
 
-  .secondRow {
+  .row--second {
     height: 300px; }
 
-  .thirdRow {
+  .row--third {
     height: 148px; }
 
-  .fourthRow {
+  .row--fourth {
     height: 75px; }
 
-  .row div:last-of-type div.thirdRow {
+  .row div:last-of-type div.row--third {
     height: 100px; } }
 @media (min-width: 992px) {
-  .firstRow span:before {
+  .row--first span:before {
     content: "50% @ 992px or larger"; }
 
-  .secondRow span:before {
+  .row--second span:before {
     content: "100% @ 992px or larger"; }
 
-  .thirdRow span:before {
+  .row--third span:before {
     content: "33% @ 992px or larger"; }
 
-  .fourthRow span:before {
+  .row--fourth span:before {
     content: "25% @ 992px or larger"; }
 
-  #responsiveContainer.container {
+  #responsive-container.container {
     max-width: 750px; }
 
-  .firstRow {
+  .row--first {
     height: 50px; }
 
-  .secondRow {
+  .row--second {
     height: 300px; }
 
-  .thirdRow {
+  .row--third {
     height: 200px; }
 
-  .fourthRow {
+  .row--fourth {
     height: 150px; } }

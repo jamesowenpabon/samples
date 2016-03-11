@@ -1,6 +1,12 @@
 /* Dynamic Data Page   */ 
 
 
+table, th	{
+
+	text-align:center;
+
+}
+
 
 .table{
 
@@ -78,7 +84,23 @@
 
 }
 
+.table-cell-action	{
 
+	background-color: #f8f8f8;
+
+}
+
+.table-cell-action-left	{
+
+	background-color: #428bca;
+
+	border-right:1px solid #ddd;
+
+	color:white;
+
+	border-bottom:0;
+
+}
 
 .table-cell input	{
 
@@ -120,31 +142,33 @@
 
 }
 
+div.table-box	{
 
+	border:solid 1px black;
 
-.action-cell-left	{
+	border-radius: 25px;
 
-	background-color: #428bca;
+	padding:0;
 
-	border-right:1px solid #ddd;
+}
 
-	color:white;
+#table-box--display	{
 
-	border-bottom:0;
+	height:65px;
+
+	overflow:hidden;
+
+	transition: height 1s;
+
+	margin:0 0 50px 0;
 
 }
 
 
 
-.action-cell	{
-
-	background-color: #f8f8f8;
-
-}
 
 
-
-.ddInput{
+.form-input{
 
 	background-color: white;
 
@@ -162,7 +186,7 @@
 
 
 
-.caretBox{
+.caret-box{
 
 	width:9px;
 
@@ -178,7 +202,7 @@
 
 
 
-.dataListItem	{
+.table-datalist-item	{
 
 	cursor:pointer;
 
@@ -186,31 +210,15 @@
 
 
 
-div.tablebox	{
-
-	border:solid 1px black;
-
-	border-radius: 25px;
-
-	padding:0;
-
-}
 
 
-
-.bodyContainer	{
+.body-container	{
 
 	padding:30px 0;
 
 }
 
 
-
-table, th	{
-
-	text-align:center;
-
-}
 
 
 
@@ -223,29 +231,3 @@ caption{
 }
 
 
-
-#tableDisplayBox	{
-
-	height:65px;
-
-	overflow:hidden;
-
-	transition: height 1s;
-
-	margin:0 0 50px 0;
-
-}
-
-
-
-.addTable	{
-
-	position:absolute;
-
-	bottom:0;
-
-	margin:0;
-
-	padding:0;
-
-}

@@ -6,7 +6,7 @@
     <div class="modal-content">
       <div class="modal-header">
   	  <button type="button" class="close" data-dismiss="modal">&times;</button>
-  	  <ul class="modalNav nav navbar-nav navbar-left">
+  	  <ul class="nav-modal nav navbar-nav navbar-left">
   			<li><span ng-click="exSrcType = 'html';"><i class="fa fa-html5"></i>HTML</span></li>
   			<li><span ng-click="exSrcType = 'css';"><i class="fa fa-css3"></i>CSS</span></li>
   				<li><span ng-click="exSrcType = 'app';"><i class="fa fa-dot-circle-o"></i>App JS</a></span>
@@ -18,7 +18,7 @@
       </div>
       <div class="modal-body">
 	    <div>{{ap.modalSourceObject[ap.modalCollection][exSrcType]}}</div>
-      <pre class="viewCode"><xmp ng-include="ap.modalSourceObject[ap.modalCollection][exSrcType]"></xmp></pre>
+      <pre class="view-code"><xmp ng-include="ap.modalSourceObject[ap.modalCollection][exSrcType]"></xmp></pre>
       </div>
       <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

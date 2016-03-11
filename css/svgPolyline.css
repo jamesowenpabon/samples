@@ -1,7 +1,7 @@
 /* SVGPolyline Page   */
 /* IE Hack for SVG scaling */
 @media all and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .graphContainer {
+  .graph-container {
     height: 0;
     padding-top: 50%;
     position: relative; }
@@ -15,17 +15,17 @@
     height: 0;
     padding-top: 50%; }
 
-  .centerBox {
+  .box-center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
 
-  .bodyContainer {
+  .body-Container {
     padding: 0 !important; } }
 /* IE Hack for SVG scaling */
 @media (min-width: 768px) {
-  .dataInput {
+  .data-input {
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
@@ -60,7 +60,12 @@
   fill: red;
   stroke-width: 1; }
 
-div#dataButtonToggle button {
+#data-button-toggle {
+  font-size: 10px;
+  margin: 0 auto 15px auto;
+  width: 290px; }
+
+div#data-button-toggle button {
   border: solid 1px #428bca;
   background-color: #e7e7e7;
   border-radius: 5px;
@@ -88,11 +93,6 @@ fieldset {
   font-size: 9px;
   width: 290px;
   margin: 0 auto 15px auto; }
-
-#dataButtonToggle {
-  font-size: 10px;
-  margin: 0 auto 15px auto;
-  width: 290px; }
 
 fieldset legend {
   font-size: 11px;

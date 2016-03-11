@@ -1,4 +1,7 @@
 /* Dynamic Data Page   */
+table, th {
+  text-align: center; }
+
 .table {
   display: table; }
 
@@ -31,6 +34,15 @@
   overflow: hidden;
   white-space: nowrap; }
 
+.table-cell-action {
+  background-color: #f8f8f8; }
+
+.table-cell-action-left {
+  background-color: #428bca;
+  border-right: 1px solid #ddd;
+  color: white;
+  border-bottom: 0; }
+
 .table-cell input {
   width: 50%;
   height: 18px;
@@ -49,54 +61,36 @@
 .table-form {
   visibility: hidden; }
 
-.action-cell-left {
-  background-color: #428bca;
-  border-right: 1px solid #ddd;
-  color: white;
-  border-bottom: 0; }
+div.table-box {
+  border: solid 1px black;
+  border-radius: 25px;
+  padding: 0; }
 
-.action-cell {
-  background-color: #f8f8f8; }
+#table-box--display {
+  height: 65px;
+  overflow: hidden;
+  transition: height 1s;
+  margin: 0 0 50px 0; }
 
-.ddInput {
+.form-input {
   background-color: white;
   transition: 1s; }
 
 .has-error {
   background-color: pink; }
 
-.caretBox {
+.caret-box {
   width: 9px; }
 
 .strong {
   font-weight: bold; }
 
-.dataListItem {
+.table-datalist-item {
   cursor: pointer; }
 
-div.tablebox {
-  border: solid 1px black;
-  border-radius: 25px;
-  padding: 0; }
-
-.bodyContainer {
+.body-container {
   padding: 30px 0; }
-
-table, th {
-  text-align: center; }
 
 caption {
   background-color: #f8f8f8;
   border-radius: 25px 25px 0 0; }
-
-#tableDisplayBox {
-  height: 65px;
-  overflow: hidden;
-  transition: height 1s;
-  margin: 0 0 50px 0; }
-
-.addTable {
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  padding: 0; }
