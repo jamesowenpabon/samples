@@ -33,9 +33,6 @@
 	#table-box--display{
 		font-size:11px;
 	}
-	.button-box button	{
-		width:60px;
-	}
 }
 
 @media only screen and (min-width: 600px) {
@@ -91,6 +88,9 @@
 @media only screen and (min-width: 768px) {
 	/* For desktop: */
 	.modal-dialog {width: 700px;}
+	.modal-header	{
+		height:60px;
+	}
 }
 
 #contentView {
@@ -136,14 +136,11 @@ pre.view-code	{
 .nav-modal li span	{
 	padding: 0 10px 0 0;
 	cursor:pointer;
+	font-size:13px;
 }
 
 .modal-header .navbar-nav	{
 	margin:0;
-}
-
-.modal-header	{
-	height: 51px;
 }
 
 .modal-link	{

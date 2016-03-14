@@ -23,10 +23,7 @@
     float: left; } }
 @media only screen and (max-width: 376px) {
   #table-box--display {
-    font-size: 11px; }
-
-  .button-box button {
-    width: 60px; } }
+    font-size: 11px; } }
 @media only screen and (min-width: 600px) {
   /* For tablets: */
   .col-c-1 {
@@ -103,7 +100,10 @@
 @media only screen and (min-width: 768px) {
   /* For desktop: */
   .modal-dialog {
-    width: 700px; } }
+    width: 700px; }
+
+  .modal-header {
+    height: 60px; } }
 #contentView {
   position: relative;
   min-height: 300px; }
@@ -139,13 +139,11 @@ pre.view-code {
 
 .nav-modal li span {
   padding: 0 10px 0 0;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 13px; }
 
 .modal-header .navbar-nav {
   margin: 0; }
-
-.modal-header {
-  height: 51px; }
 
 .modal-link {
   cursor: pointer;

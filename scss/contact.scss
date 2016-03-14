@@ -1,13 +1,11 @@
 /* Contact Page */ 
 
-
 @mixin animation-name($aniName) {
 	-webkit-animation-name: $aniName;
 	-moz-animation-name: $aniName;
 	-ms-animation-name: $aniName;
 	animation-name: $aniName;
 }
-
 
 @mixin animation-duration($duration) {
 	-webkit-animation-duration: $duration;
@@ -37,191 +35,98 @@
 	animation-delay:$delay;
 }
 
-
 .contact-container	{
-
 	min-height:100px;
-
 	margin:50px auto;
-
 	width:300px;
-
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 	vertical-align:middle;
-
 }
-
-
 
 .container-short	{
-
 	padding-right:0;
-
 	height:120px;
-
 }
-
-
-
 
 .animation-line	{
-	
 	width: 0px;
-
 	overflow:hidden;
-
 	white-space: nowrap;
-
 	border-right:solid 2px #ddd;
-	
 	@include animation-name(contactInfo);
-
-    @include animation-duration(4s);
-    
-    @include animation-fill-mode(forwards);
-
+	@include animation-duration(4s);
+	@include animation-fill-mode(forwards);
 }
-
-
 
 .animation-box{
-
 	float:right;
-
 	min-height:100%;
-
 	width:25%;
-
 }
-
-
 
 #blank-top {
-    
-    @extend .animation-line;
-    
-    @include animation-timing-function(ease-out);
-
+	@extend .animation-line;
+	@include animation-timing-function(ease-out);
 	@include animation-delay(1s);
-
 }
-
-
 
 #name {
-    
-    @extend .animation-line;
-    
-    @include animation-timing-function(linear);
-
+	@extend .animation-line;
+	@include animation-timing-function(linear);
 	@include animation-delay(.5s);
-
 }
-
-
 
 #location {
-    
-    @extend .animation-line;
-    
-    @include animation-timing-function(ease);
-
+	@extend .animation-line;
+	@include animation-timing-function(ease);
 	@include animation-delay(1s);
-
 }
-
-
 
 #email {
-
 	@extend .animation-line;
-    
-    @include animation-timing-function(ease-in);
-
+	@include animation-timing-function(ease-in);
 	@include animation-delay(.5s);
-
 }
 
-
-
 #linkedIn {
-
 	@extend .animation-line;
-    
-    @include animation-timing-function(linear);
-
+	@include animation-timing-function(linear);
 	@include animation-delay(.5s);
-	
 }
 
 #blank-bottom {
-
 	@extend .animation-line;
-    
-    @include animation-timing-function(ease-in-out);
-
+	@include animation-timing-function(ease-in-out);
 	@include animation-delay(1s);
-
 }
-
-
 
 #contact-box {
-	
-	
 	@include animation-name(contactInfoBox);
-
-    @include animation-duration(4s);
-    
-    @include animation-fill-mode(forwards);
-    
-    @include animation-timing-function(ease-in-out);
-
+	@include animation-duration(4s);
+	@include animation-fill-mode(forwards);
+	@include animation-timing-function(ease-in-out);
 	@include animation-delay(5s);
-
-    background-color: #ffffff;
-
+	background-color: #ffffff;
 }
-
-
 
 @-webkit-keyframes contactInfo {
-
     from {width: 0;}
-
     to {width: 75%;}
-
 }
-
-
 
 @keyframes contactInfo {
-
     from {width: 0;}
-
     to {width: 75%;}
-
 }
-
-
 
 @-webkit-keyframes contactInfoBox {
-
     from {background-color: #ffffff;}
-
     to {background-color: #428bca;}
-
 }
 
-
-
 @keyframes contactInfoBox {
-
     from {background-color: #ffffff;}
-
     to {background-color: #428bca;}
-
 }
 
 
