@@ -1,17 +1,19 @@
 //Main JS - Require JS config
 require.config({
     "paths" : {
-        "angular" : "//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min",
-        "angular-route" : "//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route",
-        "angular-animate" : "//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate",
-        "jquery" : "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min",
-        "bootstrap" : "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min",
+        "angular" : "../lib/angular.min",
+        "angular-route" : "../lib/angular-route.min",
+        "jquery" : "../lib/jquery.min",
+        "bootstrap" : "../lib/bootstrap.min",
         "app" : "app",
-        "controllers" : "./controllers/controllers",
+        "coreController" : "./controllers/coreController",
+        "detectController" : "./controllers/detectController",
+        "graphController" : "./controllers/graphController",
+        "dynamicdataController" : "./controllers/dynamicdataController",
         "services" : "./services/services",
         "directives" : "./directives/directives",
         "ng-device-detector" : "../lib/ng-device-detector",
-		"re-tree" : "../lib/re-tree"
+        "re-tree" : "../lib/re-tree"
     },
     "shim"  : {
         "angular" : {
@@ -23,16 +25,22 @@ require.config({
         "angular-route" : {
             "deps" : ['angular']
         },
-        "angular-animate" : {
-            "deps" : ['angular']
-        },
         "ng-device-detector" : {
             "deps" : ['angular','re-tree']
         },
          "app" : {
-            "deps" : ['angular','controllers','services','directives']
+            "deps" : ['angular','coreController','services','directives']
         },
-         "controllers" : {
+         "coreController" : {
+            "deps" : ['angular','graphController','dynamicdataController','detectController']
+        },
+         "graphController" : {
+            "deps" : ['angular']
+        },
+        "dynamicdataController" : {
+            "deps" : ['angular']
+        },
+        "detectController" : {
             "deps" : ['angular']
         },
          "services" : {

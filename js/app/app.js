@@ -4,7 +4,7 @@ define (['angular-route'], function(){
 angular.module('codingExamples', 
 				['ngRoute',
 				'ng.deviceDetector',
-				'controllersMod',
+				'coreControllerMod',
 				'servicesMod', 
 				'directivesMod'])
 
