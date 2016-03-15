@@ -1,7 +1,6 @@
 define (function(){
 angular.module('graphMod', [])
 
-
 //SVGPolyline Controller
 .controller('graphs', function()	{
 	var pg = this;

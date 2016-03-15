@@ -1,7 +1,7 @@
 //Controllers Mod Definition//
 
 define (function(){
-angular.module('coreControllerMod', ['graphMod','dynamicdataMod','detectMod'])
+angular.module('coreControllerMod', ['graphMod','dynamicdataMod','detectMod','htmlMod'])
 
 //Controllers//
 //Main Application Controller

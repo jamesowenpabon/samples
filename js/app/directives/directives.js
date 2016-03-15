@@ -103,7 +103,89 @@ angular.module('directivesMod', [])
 		});
 	}
 	};
-});
+})
+
+// draggableItem Directive
+.directive('draggableItem', ['$document', function($document){
+	
+	return	{
+		link: function(scope,element,attrs)	{
+			
+			element.on('dragstart', function(event) {
+					console.log($('#'+event.target.id).parent().attr('id'));
+					
+					var sc = $('#'+event.target.id).parent().attr('id')
+					
+				var	targetSrcPrefix = sc.slice(0,2);
+				var	targetSrcsuffix = sc.slice(2);
+				
+				console.log($('#'+event.target.id).parent().attr('id'));
+					
+				 event.originalEvent.dataTransfer.setData("text", event.target.id)
+				 
+				 if(targetSrcPrefix != 'r1')	{
+				 	console.log('moved from column');
+				 		$( "#c2" + targetSrcsuffix).attr('class','box--off') 	;
+				 }
+        
+      		});
+		}
+	};
+	
+}])
+
+// draggableItem Directive
+.directive('dropableItem', function(){
+	
+	return	{
+		link: function(scope,element,attrs)	{
+			element.on('drop', function(event) {
+				event.preventDefault();
+				
+			    var data = event.originalEvent.dataTransfer.getData("text");
+			    var targetDiv = event.target.id;
+			    var tagetSuffix = targetDiv.slice(2);
+			    
+			    event.target.appendChild($('#'+data)[0]);
+			    
+			    console.log("Dragged Div: "+data);
+			    console.log("Target Div: "+targetDiv);
+			    console.log("Target Pre: "+tagetSuffix);
+			      
+			    var co = $( "#c1" + tagetSuffix + " span:first-of-type" ).attr('id');
+			    var ct = $( "#c3" + tagetSuffix + " span:first-of-type" ).attr('id');
+			    
+			    var compairOne = co ? co.slice(0,1) : 'empty';
+			   	var compairTwo = ct ? ct.slice(0,1) : 'empty';
+		
+			    console.log("compairOne Pre: "+compairOne);
+			    console.log("compairTwo Pre: "+compairTwo);
+			    
+			    if(compairOne != "empty" && compairTwo != "empty")	{
+			    
+			    if(compairOne == compairTwo)	{
+			    	console.log($( "#c2" + tagetSuffix).attr('class'));
+			    	$( "#c2" + tagetSuffix).attr('class','box--match') 	;	
+			    	console.log($( "#c2" + tagetSuffix).attr('class'));
+			    }else if (compairOne != compairTwo)	{
+			    	console.log($( "#c2" + tagetSuffix).attr('class'));
+			    	$( "#c2" + tagetSuffix).attr('class','box--mismatch') 	;	
+			    	console.log($( "#c2" + tagetSuffix).attr('class'));
+			    }
+			    
+			    }
+			    
+			})
+			element.on('dragover', function(event) {
+				  event.preventDefault();
+			})
+		}
+	}
+	
+})
+
+
+
 });
 
 
