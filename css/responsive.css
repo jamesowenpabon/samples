@@ -7,8 +7,12 @@
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
-  -webkit-justify-content: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
   align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
   justify-content: center; }
 
 .body-container {

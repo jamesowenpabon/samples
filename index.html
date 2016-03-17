@@ -2,7 +2,7 @@
 <!DOCTYPE html >
 
 <!-- define angular app -->
-<html>
+<html ng-controller="AppCtrl as ap">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,15 +10,12 @@
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
 		<link rel="stylesheet" href="css/styles.css" />
-		
+		<link rel="stylesheet" ng-href="{{ap.modalSourceObject[ap.modalCollection]['css']['psrc']}}" />
 		<script src="js/lib/require.js" data-main="js/app/main.js" ></script>
-		
 		<base href="/">
-		
 	</head>
-
 	<!-- define angular controller -->
-	<body ng-controller="AppCtrl as ap">
+	<body>
 	<!-- HEADER AND NAVBAR -->
 		<header>
 			<nav class="navbar navbar-default" site-navigation-buttons>
@@ -33,20 +30,19 @@
 					<button id="examples" type="button" class="btn btn-primary dropdown-toggle site-nav-link-button" data-toggle="dropdown">
 					<i class="fa fa-html5"></i> Examples <span class="caret"></span></button>
 					<ul class="dropdown-menu" role="menu">
-					
 					<li class="dropdown-submenu">
                 		<a><i class="fa fa-html5"></i> HTML5 API</a>
                 		<ul class="dropdown-menu">
-                  			<li><a href="#examples/htmlapi/drag-drop">Drag & Drop</a></li>
-                  			<li><a href="#">Local Storage</a></li>
-                  			<li><a href="#">Geo Locate</a></li>
-                  			<li><a href="#">Web Workers</a></li>
-                  			<li><a href="#">Server Sent Events</a></li>
+                  			<li><a class="site-nav-link-dropdown" href="#examples/htmlapi/drag-drop">Drag & Drop</a></li>
+                  			<!--li><a class="site-nav-link-dropdown" href="#">Local Storage</a></li>
+                  			<li><a class="site-nav-link-dropdown" href="#">Geo Locate</a></li>
+                  			<li><a class="site-nav-link-dropdown" href="#">Web Workers</a></li>
+                  			<li><a class="site-nav-link-dropdown" href="#">Server Sent Events</a></li-->
 						</ul>
 					</li>
-					<li><a id="dynamic-data" href="#examples/dynamic-data"class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Dynamic Data</a></li>
-					<li><a id="responsive" href="#examples/responsive"class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Responsive Layout</a></li>
-					<li><a id="svg-polyline" href="#examples/svg-polyline"class="site-nav-link-dropdown"><i class="fa fa-html5"></i> SVG Polyline Graphs</a></li>
+					<li><a id="dynamic-data" href="#examples/dynamic-data" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Dynamic Data</a></li>
+					<li><a id="responsive" href="#examples/responsive" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Responsive Layout</a></li>
+					<li><a id="svg-polyline" href="#examples/svg-polyline" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> SVG Polyline Graphs</a></li>
 					</ul>
 					</div>
 					<a href="#contact" id="contact" class="btn btn-primary site-nav-link"><i class="fa fa-comment"></i> Contact</a>

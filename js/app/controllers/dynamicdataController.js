@@ -49,7 +49,9 @@ angular.module('dynamicdataMod', [])
 			'rating':parseInt(data.rating),
 			'collection':data.collection
 		});
-		dd.dataBoxResize('table-box--display-inner','table-box--display',(39));
+		console.log('before call');
+		dd.dataBoxResize('table-box--display-inner','table-box--display');
+		console.log('after call');
 		}
 		if (action == "remove")	{
 			var index = dd.dataList.indexOf(data);
@@ -94,7 +96,7 @@ angular.module('dynamicdataMod', [])
 	
 	//Resize Data Box
 	dd.dataBoxResize = function(dataBox, containerBox, offset)	{
-		var offset = (!offset) ? -5 : offset;
+		var offset = (!offset) ? 0 : offset;
 		var dataBoxHeight = angular.element('#'+dataBox).prop('offsetHeight')+offset
 		angular.element('#'+containerBox).css('height',dataBoxHeight);
 	}

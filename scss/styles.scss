@@ -1,7 +1,4 @@
-@import url("contact.css");
-@import url("dynamicData.css");
-@import url("responsive.css");
-@import url("svgPolyline.css");
+/* Core Styles   */ 
 
 * {
 	box-sizing: border-box;
@@ -18,11 +15,11 @@
 	padding: 15px;
 }
 
-/* For mobile phones: 
+/* For mobile phones: */
 [class*="col-c-"] {
 	width: 100%;
 }
-*/
+
 
 @media only screen and (min-width: 275px) {
 	.navbar-nav>li {
@@ -31,9 +28,10 @@
 }
 
 @media only screen and (max-width: 376px) {
-	#table-box--display{
+	#table-box--display, .row{
 		font-size:11px;
 	}
+	
 }
 
 @media only screen and (min-width: 600px) {
@@ -116,16 +114,6 @@ h2	{
 	margin-top:0;
 }
 
-pre {
-	word-break: normal;
-	word-wrap: normal;
-}
-
-p:first-of-type	{
-	border-bottom:1px solid #ccc;
-	padding-bottom:5px;
-}
-
 .banner--jumbo .panel	{
 	margin:0;
 }
@@ -179,7 +167,7 @@ xmp	{
     top: 0;
     left: 100%;
     margin-top: -6px;
-    margin-left: -1px;
+    margin-left: -10px;
     -webkit-border-radius: 0 4px 4px 4px;
     -moz-border-radius: 0 4px 4px;
     border-radius: 0 4px 4px 4px;

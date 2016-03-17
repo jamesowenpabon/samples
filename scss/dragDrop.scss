@@ -1,0 +1,82 @@
+/*   Drag & Drop Page */
+
+@mixin align-items($alignValue) {
+	-webkit-align-items: $alignValue;
+	-moz-align-items: $alignValue;
+	-ms-align-items: $alignValue;
+	align-items: $alignValue;
+}
+
+@mixin justify-content($justifyValue) {
+	-webkit-justify-content: $justifyValue;
+	-moz-justify-content: $justifyValue;
+	-ms-justify-content: $justifyValue;
+	justify-content: $justifyValue;
+}
+
+.box {
+    height:35px;
+    margin-top: 15px;
+    border:none;
+    border-radius:10px;
+}
+
+.box--empty {
+    @extend .box;
+    border:1px dashed #aaaaaa;
+}
+
+.box--inline{
+    @extend .box;
+    display:inline;
+    padding:0;
+}
+
+.box--inline--empty{
+    @extend .box--inline;
+    border:1px dashed #aaaaaa;
+}
+
+.box--noresult {
+    @extend .box;
+    background-image:url('/images/arrow.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+
+.box--match {
+    @extend .box;
+    background-image:url('/images/right.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+.box--mismatch {
+    @extend .box;
+    background-image:url('/images/wrong.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+    
+.box--draggable {
+    @extend .box;
+    text-align:center;
+    display: -webkit-flex;
+    display: flex;
+    @include align-items(center);
+    @include justify-content(center);
+    margin:0;
+    border:1px solid #aaaaaa;
+    cursor:pointer;
+}
+
+.row {
+    margin-bottom:15px;    
+};
+
+.body-container {
+    margin-top:30px;
+}

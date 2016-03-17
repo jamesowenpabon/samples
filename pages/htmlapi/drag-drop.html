@@ -1,64 +1,53 @@
 <!-- contact.html -->
 
-<style>
-.box, .box--off, .box--match, .box--mismatch {height:35px;padding:10px;border:1px solid #aaaaaa;text-align:center;margin-bottom: 5px}
-.box--inline{display:inline;}
-.box--off {
-    border:none;
-}
-.box--match {
-    border:solid 2px green;
-}
-.box--mismatch {
-    border:solid 2px red;
-}
-
-
-
-
-
-</style>
-
 <div class="container"> 
 <div class="container modal-link" id="source-link" data-toggle="modal" 
 data-target="#commonModal" ex-src="dragDrop">View Example Source</div>
 
-<header>
 <h2>HTML5 API - Drag & Drop</h2>
-<p>Angular HTML5 CSS3 SASS Bootstrap</p>
-</header>
-{{ha.test}}
-
-{{ha.testfunc()}}
+<p>Angular HTML5 CSS3 SASS Bootstrap <strong>(No touchscreen support for now)</strong></p>
 
 <div class="body-container">
+    <h4>Drag synonyms across from each other to make a match</h4>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-xs-5 col-sm-5 col-md-4">
-            <div dropable-item id="c1r1" class="box"></div>
-            <div dropable-item id="c1r2" class="box"></div>
-            <div dropable-item id="c1r3" class="box"></div>
+            <div dropable-item id="c1r1" class="box--empty"></div>
+            <div dropable-item id="c1r2" class="box--empty"></div>
+            <div dropable-item id="c1r3" class="box--empty"></div>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2">
-            <div class="box--off" id="c2r1"></div>
-            <div class="box--off" id="c2r2"></div>
-            <div class="box--off" id="c2r3"></div>
+            <div class="box--noresult" id="c2r1"></div>
+            <div class="box--noresult" id="c2r2"></div>
+            <div class="box--noresult" id="c2r3"></div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-4">
-            <div dropable-item id="c3r1" class="box"></div>
-            <div dropable-item id="c3r2" class="box"></div>
-            <div dropable-item id="c3r3" class="box"></div>
+            <div dropable-item id="c3r1" class="box--empty"></div>
+            <div dropable-item id="c3r2" class="box--empty"></div>
+            <div dropable-item id="c3r3" class="box--empty"></div>
         </div>
         <div class="col-md-1"></div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div dropable-item id="r1d1" class="col-xs-2 col-sm-2 col-md-2 box box--inline"><span draggable-item draggable="true" id="A1">Gregarious</span></div>
-            <div dropable-item id="r1d2" class="col-xs-2 col-sm-2 col-md-2 box box--inline"><span draggable-item draggable="true" id="B1">Apostolic</span></div>
-            <div dropable-item id="r1d3" class="col-xs-2 col-sm-2 col-md-2 box box--inline"><span draggable-item draggable="true" id="C1">Conjugate</span></div>
-            <div dropable-item id="r1d4" class="col-xs-2 col-sm-2 col-md-2 box box--inline"><span draggable-item draggable="true" id="B2">Parsonish</span></div>
-            <div dropable-item id="r1d5" class="col-xs-2 col-sm-2 col-md-2 box box--inline"><span draggable-item draggable="true" id="C2">Affix</span></div>
-            <div dropable-item id="r1d6" class="col-xs-2 col-sm-2 col-md-2 box box--inline"><span draggable-item draggable="true" id="A2">Convivial</span></div>
+            <div dropable-item id="r4c1" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span class="box--draggable" draggable-item draggable="true" id="da1" height="31">Gregarious</span>
+            </div>
+            <div dropable-item id="r4c2" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span class="box--draggable" draggable-item draggable="true" id="db1">Apostolic</span>
+            </div>
+            <div dropable-item id="r4c3" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span class="box--draggable" draggable-item draggable="true" id="dc1">Conjugate</span>
+            </div>
+            <div dropable-item id="r4c4" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span class="box--draggable" draggable-item draggable="true" id="db2">Parsonish</span>
+            </div>
+            <div dropable-item id="r4c5" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span class="box--draggable" draggable-item draggable="true" id="dc2">Affix</span>
+            </div>
+            <div dropable-item id="r4c6" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span class="box--draggable" draggable-item draggable="true" id="da2">Convivial</span>
+            </div>
         </div>
     </div>
 </div>

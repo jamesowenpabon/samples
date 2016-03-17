@@ -47,7 +47,48 @@ angular.module('coreControllerMod', ['graphMod','dynamicdataMod','detectMod','ht
 	},
 	"css" : {
 				"label":"SCSS", 
-				"src":"scss/styles.scss", 
+				"src":"scss/home.scss", 
+				"psrc":"css/home.css",
+				"icon":"fa fa-css3"
+	}
+ 	},
+ 	'dragDrop':	{
+ 	"html" : {	"label":"HTML", 
+ 				"src":"pages/htmlapi/drag-drop.html", 
+ 				"icon":"fa fa-html5"
+ 	},
+ 	"main" : {	"label":"MainJS", 
+ 				"src":"js/app/main.js", 
+ 				"icon":"fa fa-dot-circle-o"
+ 	},
+ 	"app" : {	"label":"AppJS", 
+ 				"src":"js/app/app.js", 
+ 				"icon":"fa fa-dot-circle-o"
+ 	},
+	"coreController" : {	
+				"label":"CoreCtrlr", 
+				"src":"js/app/controllers/coreController.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"htmlAPIController" : {
+				"label":"htmlAPICtrlr", 
+				"src":"js/app/controllers/htmlAPIController.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"directives" : {
+				"label":"Directives", 
+				"src":"js/app/directives/directives.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"services" : {
+				"label":"Services", 
+				"src":"js/app/services/services.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"css" : {
+				"label":"SCSS", 
+				"src":"scss/dragDrop.scss", 
+				"psrc":"css/dragDrop.css",
 				"icon":"fa fa-css3"
 	}
  	},
@@ -87,6 +128,7 @@ angular.module('coreControllerMod', ['graphMod','dynamicdataMod','detectMod','ht
 	"css" : {
 				"label":"SCSS", 
 				"src":"scss/dynamicData.scss", 
+				"psrc":"css/dynamicData.css",
 				"icon":"fa fa-css3"
 	}
  	},
@@ -121,6 +163,7 @@ angular.module('coreControllerMod', ['graphMod','dynamicdataMod','detectMod','ht
 	"css" : {
 				"label":"SCSS", 
 				"src":"scss/responsive.scss", 
+				"psrc":"css/responsive.css", 
 				"icon":"fa fa-css3"
 	}
  	},
@@ -160,6 +203,7 @@ angular.module('coreControllerMod', ['graphMod','dynamicdataMod','detectMod','ht
 	"css" : {
 				"label":"SCSS", 
 				"src":"scss/svgPolyline.scss", 
+				"psrc":"css/svgPolyline.css",
 				"icon":"fa fa-css3"
 	}
  	},
@@ -194,12 +238,12 @@ angular.module('coreControllerMod', ['graphMod','dynamicdataMod','detectMod','ht
 	"css" : {
 				"label":"SCSS", 
 				"src":"scss/contact.scss", 
+				"psrc":"css/contact.css", 
 				"icon":"fa fa-css3"
 	}
  	}
  	};
  	
- 
     ap.getMyCtrlScope = function() {
     	return $scope;
     }
@@ -210,12 +254,6 @@ angular.module('coreControllerMod', ['graphMod','dynamicdataMod','detectMod','ht
 	console.log(ap);
 	
 })
-
-
-
-
-
-
 });
 
 
