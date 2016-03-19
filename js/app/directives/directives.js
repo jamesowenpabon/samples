@@ -105,69 +105,176 @@ angular.module('directivesMod', [])
 	};
 })
 
-// draggableItem Directive
-.directive('draggableItem', ['$document', function($document){
+
+
+
+
+// touchable Directive
+.directive('touchableItem', ['$document','$swipe', function($document,$swipe){
 	return	{
-		link: function(scope,element,attrs)	{
-			element.on('dragstart', function(event) {
-				event.originalEvent.dataTransfer.effectAllowed='move';
-				var wordHomeRow = 'r4';
-				var dragTargetParentId = $('#'+event.target.id).parent().attr('id');
-				var	dragStartListRegion = dragTargetParentId.slice(0,2);
-				var	dragStartListLocation = dragTargetParentId.slice(2);
-				event.originalEvent.dataTransfer.setData("text", event.target.id);
-				if(dragStartListRegion != wordHomeRow)	{
-				 	$( "#c2" + dragStartListLocation).attr('class','box--noresult');
+	link: function(scope,element,attrs)	{
+		
+	var dropArray =	attrs.touchableItem;
+
+	
+		// Touch Events
+		element.on('touchstart',function(event){
+			event.preventDefault() ;
+			event.stopPropagation();
+			var sourceContainerId = event.target.parentElement.id; 
+			var sourceContainerRow = event.target.parentElement.dataset.row;
+			if(sourceContainerRow != 'homeRow')	{
+		 	$( "#center" + sourceContainerRow).attr('class','box--noresult');
+			}
+		});
+		
+		element.on('touchmove',function(event){
+  			event.preventDefault() ;
+  			event.stopPropagation();
+		});
+		
+		// Touch Events
+		element.on('touchend',function(event){
+  			event.preventDefault() ;
+  			event.stopPropagation();
+		    
+		    var touchedElementId = event.target.id;
+		    
+		    var sourceContainer = event.target.parentElement;
+		    var sourceContainerId = event.target.parentElement.id;
+		    var sourceContainerRow = sourceContainer.dataset.row;
+		    console.log(touchedElementId);
+		    
+		    var xPos = event.originalEvent.changedTouches[0].pageX;
+		    var yPos = event.originalEvent.changedTouches[0].pageY;
+		    var destinationContainer = document.elementFromPoint(xPos, yPos);
+			var destinationContainerRow = destinationContainer.dataset.row;
+			var destinationContainerId = destinationContainer.id != "" ? destinationContainer.id : 'noId';
+			
+			console.log(destinationContainerId);
+			//console.log(dropArray.indexOf(destinationContainerId));
+			
+
+			if (dropArray.indexOf(destinationContainerId) != -1)	{
+			    $( "#" + destinationContainerId).html(event.target);
+			    $( "#" + destinationContainerId).removeClass( "box--empty" );
+	  			$( "#" + destinationContainerId).addClass( "box" );
+	  			$( "#" + sourceContainerId).removeClass( "box" );
+				$( "#" + sourceContainerId).addClass( "box--empty" );
+				
+			}
+			
+			if (touchedElementId != destinationContainerId && destinationContainerId != 'noId') {
+			
+				var left = $( "#left" + destinationContainerRow + " span:first-of-type" ).attr('data-match');
+				var right = $( "#right" + destinationContainerRow + " span:first-of-type" ).attr('data-match');
+				
+				//console.log(left);
+				//console.log(right);
+				
+				if(left != undefined && right != undefined)	{
+				    if(left == right)	{
+				    	$( "#center" + destinationContainerRow).attr('class','box--match') 	;	
+				    }else if (left != right)	{
+				    	$( "#center" + destinationContainerRow).attr('class','box--mismatch') 	;	
+				    }
 				}
-				$( "#" + dragTargetParentId).removeClass( "box" );
-				$( "#" + dragTargetParentId).addClass( "box--empty" );
-      		});
-      		element.on('dragend', function(event)	{
-				event.preventDefault();
-				var dropTargetId = event.target.id;
-			    var dragTargetParentId = $('#'+dropTargetId).parent().attr('id');
-			    var dropTargetRow = dragTargetParentId.slice(2);
-			    $( "#" + dragTargetParentId).removeClass( "box--empty" );
-      			$( "#" + dragTargetParentId).addClass( "box" );
-      			var compairOneId = $( "#c1" + dropTargetRow + " span:first-of-type" ).attr('id');
-			    var compairThreeId = $( "#c3" + dropTargetRow + " span:first-of-type" ).attr('id');
-			    var compairOne = compairOneId ? compairOneId.slice(0,2) : 'empty';
-			   	var compairThree = compairThreeId ? compairThreeId.slice(0,2) : 'empty';
-			    if(compairOne != "empty" && compairThree != "empty")	{
-			    if(compairOne == compairThree)	{
-			    	$( "#c2" + dropTargetRow).attr('class','box--match') 	;	
-			    }else if (compairOne != compairThree)	{
-			    	$( "#c2" + dropTargetRow).attr('class','box--mismatch') 	;	
-			    }
-			    }
-      		});
-		}
+			
+			} else {
+				var left = $( "#left" + sourceContainerRow + " span:first-of-type" ).attr('data-match');
+				var right = $( "#right" + sourceContainerRow + " span:first-of-type" ).attr('data-match');
+				
+				
+				if(left != undefined && right != undefined)	{
+				    if(left == right)	{
+				    	$( "#center" + sourceContainerRow).attr('class','box--match') 	;	
+				    }else if (left != right)	{
+				    	$( "#center" + sourceContainerRow).attr('class','box--mismatch') 	;	
+				    }
+				}
+				
+				console.log("#center" + sourceContainerRow);
+				
+			}
+		});
+		
+		
+		
+	}
 	};
 }])
 
+
+
+
+
+
 // draggableItem Directive
-.directive('dropableItem', function(){
+.directive('draggableItem', ['$document','$swipe', function($document,$swipe){
 	return	{
-		link: function(scope,element,attrs)	{
-			element.on('drop', function(event) {
-				event.preventDefault();
-				var draggableElement = 'd';
-				var data = event.originalEvent.dataTransfer.getData("text");
-			    var dropTargetId = event.target.id;
-			    var dropTargetRow = dropTargetId.slice(2);
-			    var dropTarget = dropTargetId.substring(0, 1);
-			    var dropTargetChild = $("#" + dropTargetId + " span:first-of-type").attr('id');
-			    if (!dropTargetChild && dropTarget != draggableElement)	{
-			    	event.target.appendChild($('#'+data)[0]);
-			    }
-			});
-			element.on('dragover', function(event) {
-				  event.preventDefault();
-				  event.originalEvent.dataTransfer.dropEffect='move';
-			})
+	link: function(scope,element,attrs)	{
+		
+	
+	//console.log($swipe.bind(element, "mouse"));
+		
+		//Drag Events
+		element.on('dragstart', function(event) {
+		event.originalEvent.dataTransfer.effectAllowed='move';
+		var sourceContainerId = event.target.parentElement.id;
+		var sourceContainerRow = event.target.parentElement.dataset.row;
+		event.originalEvent.dataTransfer.setData("text", event.target.id);
+		if(sourceContainerRow != 'homeRow')	{
+		 	$( "#center" + sourceContainerRow).attr('class','box--noresult');
 		}
+		$( "#" + sourceContainerId).removeClass( "box" );
+		$( "#" + sourceContainerId).addClass( "box--empty" );
+  		});
+  		
+  		element.on('dragend', function(event)	{
+		event.preventDefault();
+	    var destinationContainerId = event.target.parentElement.id;
+	    var destinationContainerRow = event.target.parentElement.dataset.row;
+	    $( "#" + destinationContainerId).removeClass( "box--empty" );
+  		$( "#" + destinationContainerId).addClass( "box" );
+  		var left = $( "#left" + destinationContainerRow + " span:first-of-type" ).attr('data-match');
+	    var right = $( "#right" + destinationContainerRow + " span:first-of-type" ).attr('data-match');
+	    if(left != undefined && right != undefined)	{
+		    if(left == right)	{
+		    	$( "#center" + destinationContainerRow).attr('class','box--match') 	;	
+		    }else if (left != right)	{
+		    	$( "#center" + destinationContainerRow).attr('class','box--mismatch') 	;	
+		    }
+	    }
+  		});
 	}
-})
+	};
+}])
+
+// dropableItem Directive
+.directive('dropableItem', ['$document', function($document){
+	return	{
+	link: function(scope,element,attrs)	{
+		
+		
+		
+		//Drag Events
+		element.on('drop', function(event) {
+		event.preventDefault();
+		var draggableElement = event.target.draggable;
+		var data = event.originalEvent.dataTransfer.getData("text");
+	    var destinationContainerId = event.target.id;
+	    var destinationContainerChild = $("#" + destinationContainerId + " span:first-of-type").attr('id');
+	    if (!destinationContainerChild && !draggableElement)	{
+	    	event.target.appendChild($('#'+data)[0]);
+	    }
+		});
+		element.on('dragover', function(event) {
+		event.preventDefault();
+		event.originalEvent.dataTransfer.dropEffect='move';
+		});
+	}
+	};
+}]);
 });
 
 

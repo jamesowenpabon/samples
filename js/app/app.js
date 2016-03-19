@@ -1,8 +1,9 @@
 //Application Definition//
 
-define (['angular-route'], function(){
+define (['angular-route','angular-touch'], function(){
 angular.module('codingExamples', 
 				['ngRoute',
+				'ngTouch',
 				'ng.deviceDetector',
 				'coreControllerMod',
 				'servicesMod', 

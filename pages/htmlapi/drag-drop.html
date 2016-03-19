@@ -12,41 +12,41 @@ data-target="#commonModal" ex-src="dragDrop">View Example Source</div>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-xs-5 col-sm-5 col-md-4">
-            <div dropable-item id="c1r1" class="box--empty"></div>
-            <div dropable-item id="c1r2" class="box--empty"></div>
-            <div dropable-item id="c1r3" class="box--empty"></div>
+            <div data-row="1" dropable-item id="left1" class="box--empty"></div>
+            <div data-row="2" dropable-item id="left2" class="box--empty"></div>
+            <div data-row="3" dropable-item id="left3" class="box--empty"></div>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2">
-            <div class="box--noresult" id="c2r1"></div>
-            <div class="box--noresult" id="c2r2"></div>
-            <div class="box--noresult" id="c2r3"></div>
+            <div data-row="1" class="box--noresult" id="center1"></div>
+            <div data-row="2" class="box--noresult" id="center2"></div>
+            <div data-row="3" class="box--noresult" id="center3"></div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-4">
-            <div dropable-item id="c3r1" class="box--empty"></div>
-            <div dropable-item id="c3r2" class="box--empty"></div>
-            <div dropable-item id="c3r3" class="box--empty"></div>
+            <div data-row="1" dropable-item id="right1" class="box--empty"></div>
+            <div data-row="2" dropable-item id="right2" class="box--empty"></div>
+            <div data-row="3" dropable-item id="right3" class="box--empty"></div>
         </div>
         <div class="col-md-1"></div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div dropable-item id="r4c1" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-            <span class="box--draggable" draggable-item draggable="true" id="da1" height="31">Gregarious</span>
+            <div data-row="homeRow" dropable-item id="r4c1" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span data-match="a" class="box--draggable" draggable-item touchable-item="{{ha.dropList}}" draggable="true" id="da1">Gregarious</span>
             </div>
-            <div dropable-item id="r4c2" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-            <span class="box--draggable" draggable-item draggable="true" id="db1">Apostolic</span>
+            <div data-row="homeRow" dropable-item id="r4c2" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span data-match="b" class="box--draggable" draggable-item touchable-item="{{ha.dropList}}" draggable="true" id="db1">Apostolic</span>
             </div>
-            <div dropable-item id="r4c3" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-            <span class="box--draggable" draggable-item draggable="true" id="dc1">Conjugate</span>
+            <div data-row="homeRow" dropable-item id="r4c3" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span data-match="c" class="box--draggable" draggable-item touchable-item="{{ha.dropList}}" draggable="true" id="dc1">Conjugate</span>
             </div>
-            <div dropable-item id="r4c4" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-            <span class="box--draggable" draggable-item draggable="true" id="db2">Parsonish</span>
+            <div data-row="homeRow" dropable-item id="r4c4" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span data-match="b" class="box--draggable" draggable-item touchable-item="{{ha.dropList}}" draggable="true" id="db2">Parsonish</span>
             </div>
-            <div dropable-item id="r4c5" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-            <span class="box--draggable" draggable-item draggable="true" id="dc2">Affix</span>
+            <div data-row="homeRow" dropable-item id="r4c5" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span data-match="c" class="box--draggable" draggable-item touchable-item="{{ha.dropList}}" draggable="true" id="dc2">Affix</span>
             </div>
-            <div dropable-item id="r4c6" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-            <span class="box--draggable" draggable-item draggable="true" id="da2">Convivial</span>
+            <div data-row="homeRow" dropable-item id="r4c6" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+            <span data-match="a" class="box--draggable" draggable-item touchable-item="{{ha.dropList}}" draggable="true" id="da2">Convivial</span>
             </div>
         </div>
     </div>
