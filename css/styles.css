@@ -20,7 +20,15 @@
     float: left; } }
 @media only screen and (max-width: 376px) {
   #table-box--display, .row {
-    font-size: 11px; } }
+    font-size: 11px; }
+
+  .banner--jumbo .panel {
+    margin: 0;
+    font-size: 17px; } }
+@media only screen and (min-width: 377px) {
+  .banner--jumbo .panel {
+    margin: 0;
+    font-size: 19px; } }
 @media only screen and (min-width: 600px) {
   /* For tablets: */
   .col-c-1 {
@@ -100,7 +108,10 @@
     width: 700px; }
 
   .modal-header {
-    height: 60px; } }
+    height: 60px; }
+
+  .navbar-right .dropdown-menu {
+    right: inherit; } }
 #contentView {
   position: relative;
   min-height: 300px; }
@@ -119,9 +130,6 @@
 
 h2 {
   margin-top: 0; }
-
-.banner--jumbo .panel {
-  margin: 0; }
 
 pre.view-code {
   font-size: 10px; }
@@ -186,3 +194,7 @@ xmp {
 
 .dropdown-submenu:hover > a:after {
   border-left-color: #fff; }
+
+.callout {
+  color: #285e8e;
+  font-weight: 570; }

@@ -80,3 +80,26 @@
 .body-container {
     margin-top:30px 0;
 }
+
+@media only screen and (max-width: 376px) {
+  .ghostdrag--moving {
+    font-size: 11px; } 
+}
+
+.ghostdrag {
+    visibility:hidden;
+}
+
+.ghostdrag--moving {
+    @extend .box;
+    text-align:center;
+    display: -webkit-flex;
+    display: flex;
+    @include align-items(center);
+    @include justify-content(center);
+    margin:0;
+    border:1px solid #aaaaaa;
+    position:absolute;
+    visibility:visible;
+    width:15%;
+}

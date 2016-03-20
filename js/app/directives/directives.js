@@ -105,176 +105,55 @@ angular.module('directivesMod', [])
 	};
 })
 
-
-
-
-
 // touchable Directive
-.directive('touchableItem', ['$document','$swipe', function($document,$swipe){
+.directive('touchableItem', function(){
 	return	{
 	link: function(scope,element,attrs)	{
-		
-	var dropArray =	attrs.touchableItem;
-
-	
-		// Touch Events
-		element.on('touchstart',function(event){
-			event.preventDefault() ;
-			event.stopPropagation();
-			var sourceContainerId = event.target.parentElement.id; 
-			var sourceContainerRow = event.target.parentElement.dataset.row;
-			if(sourceContainerRow != 'homeRow')	{
-		 	$( "#center" + sourceContainerRow).attr('class','box--noresult');
-			}
-		});
-		
-		element.on('touchmove',function(event){
-  			event.preventDefault() ;
-  			event.stopPropagation();
-		});
-		
-		// Touch Events
-		element.on('touchend',function(event){
-  			event.preventDefault() ;
-  			event.stopPropagation();
-		    
-		    var touchedElementId = event.target.id;
-		    
-		    var sourceContainer = event.target.parentElement;
-		    var sourceContainerId = event.target.parentElement.id;
-		    var sourceContainerRow = sourceContainer.dataset.row;
-		    console.log(touchedElementId);
-		    
-		    var xPos = event.originalEvent.changedTouches[0].pageX;
-		    var yPos = event.originalEvent.changedTouches[0].pageY;
-		    var destinationContainer = document.elementFromPoint(xPos, yPos);
-			var destinationContainerRow = destinationContainer.dataset.row;
-			var destinationContainerId = destinationContainer.id != "" ? destinationContainer.id : 'noId';
-			
-			console.log(destinationContainerId);
-			//console.log(dropArray.indexOf(destinationContainerId));
-			
-
-			if (dropArray.indexOf(destinationContainerId) != -1)	{
-			    $( "#" + destinationContainerId).html(event.target);
-			    $( "#" + destinationContainerId).removeClass( "box--empty" );
-	  			$( "#" + destinationContainerId).addClass( "box" );
-	  			$( "#" + sourceContainerId).removeClass( "box" );
-				$( "#" + sourceContainerId).addClass( "box--empty" );
-				
-			}
-			
-			if (touchedElementId != destinationContainerId && destinationContainerId != 'noId') {
-			
-				var left = $( "#left" + destinationContainerRow + " span:first-of-type" ).attr('data-match');
-				var right = $( "#right" + destinationContainerRow + " span:first-of-type" ).attr('data-match');
-				
-				//console.log(left);
-				//console.log(right);
-				
-				if(left != undefined && right != undefined)	{
-				    if(left == right)	{
-				    	$( "#center" + destinationContainerRow).attr('class','box--match') 	;	
-				    }else if (left != right)	{
-				    	$( "#center" + destinationContainerRow).attr('class','box--mismatch') 	;	
-				    }
-				}
-			
-			} else {
-				var left = $( "#left" + sourceContainerRow + " span:first-of-type" ).attr('data-match');
-				var right = $( "#right" + sourceContainerRow + " span:first-of-type" ).attr('data-match');
-				
-				
-				if(left != undefined && right != undefined)	{
-				    if(left == right)	{
-				    	$( "#center" + sourceContainerRow).attr('class','box--match') 	;	
-				    }else if (left != right)	{
-				    	$( "#center" + sourceContainerRow).attr('class','box--mismatch') 	;	
-				    }
-				}
-				
-				console.log("#center" + sourceContainerRow);
-				
-			}
-		});
-		
-		
-		
+		var attrsobj =	angular.fromJson(attrs.touchableItem);
+		var touchFunction = attrsobj.touchFunction;
+		var localScope = attrsobj.localScope;
+		if(localScope)	{
+			scope[localScope][touchFunction](scope,element,attrs);
+		} else {
+			scope[localScope][touchFunction](scope,element,attrs);
+		}
 	}
 	};
-}])
-
-
-
-
-
+})
 
 // draggableItem Directive
-.directive('draggableItem', ['$document','$swipe', function($document,$swipe){
+.directive('draggableItem', function(){
 	return	{
 	link: function(scope,element,attrs)	{
-		
-	
-	//console.log($swipe.bind(element, "mouse"));
-		
-		//Drag Events
-		element.on('dragstart', function(event) {
-		event.originalEvent.dataTransfer.effectAllowed='move';
-		var sourceContainerId = event.target.parentElement.id;
-		var sourceContainerRow = event.target.parentElement.dataset.row;
-		event.originalEvent.dataTransfer.setData("text", event.target.id);
-		if(sourceContainerRow != 'homeRow')	{
-		 	$( "#center" + sourceContainerRow).attr('class','box--noresult');
+		var attrsobj =	angular.fromJson(attrs.draggableItem);
+		var dragFunction = attrsobj.dragFunction;
+		var localScope = attrsobj.localScope;
+		if(localScope)	{
+			scope[localScope][dragFunction](scope,element,attrs);
+		} else {
+			scope[localScope][dragFunction](scope,element,attrs);
 		}
-		$( "#" + sourceContainerId).removeClass( "box" );
-		$( "#" + sourceContainerId).addClass( "box--empty" );
-  		});
-  		
-  		element.on('dragend', function(event)	{
-		event.preventDefault();
-	    var destinationContainerId = event.target.parentElement.id;
-	    var destinationContainerRow = event.target.parentElement.dataset.row;
-	    $( "#" + destinationContainerId).removeClass( "box--empty" );
-  		$( "#" + destinationContainerId).addClass( "box" );
-  		var left = $( "#left" + destinationContainerRow + " span:first-of-type" ).attr('data-match');
-	    var right = $( "#right" + destinationContainerRow + " span:first-of-type" ).attr('data-match');
-	    if(left != undefined && right != undefined)	{
-		    if(left == right)	{
-		    	$( "#center" + destinationContainerRow).attr('class','box--match') 	;	
-		    }else if (left != right)	{
-		    	$( "#center" + destinationContainerRow).attr('class','box--mismatch') 	;	
-		    }
-	    }
-  		});
 	}
 	};
-}])
+})
 
 // dropableItem Directive
-.directive('dropableItem', ['$document', function($document){
+.directive('dropableItem', function(){
 	return	{
 	link: function(scope,element,attrs)	{
 		
-		
-		
-		//Drag Events
-		element.on('drop', function(event) {
-		event.preventDefault();
-		var draggableElement = event.target.draggable;
-		var data = event.originalEvent.dataTransfer.getData("text");
-	    var destinationContainerId = event.target.id;
-	    var destinationContainerChild = $("#" + destinationContainerId + " span:first-of-type").attr('id');
-	    if (!destinationContainerChild && !draggableElement)	{
-	    	event.target.appendChild($('#'+data)[0]);
-	    }
-		});
-		element.on('dragover', function(event) {
-		event.preventDefault();
-		event.originalEvent.dataTransfer.dropEffect='move';
-		});
+		var attrsobj =	angular.fromJson(attrs.dropableItem);
+		var dopFunction = attrsobj.dropFunction;
+		var localScope = attrsobj.localScope;
+		if(localScope)	{
+			scope[localScope][dopFunction](scope,element,attrs);
+		} else {
+			scope[localScope][dopFunction](scope,element,attrs);
+		}
 	}
 	};
-}]);
+});
+
 });
 
 

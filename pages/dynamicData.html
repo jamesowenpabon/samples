@@ -98,9 +98,9 @@ ex-src="dynamicData">View Example Source</div>
 			</div>
 
 			</form>
+			<div class="table-row"><div style="height:5px;" class="tcol12"></div></div>
 			<form name="addForm" class="table-row" ng-show="dd.tableLoaded" 
 			ng-submit="adding = false; dd.dataPoster(dd.newDataItem,'insert')">
-				
 			<div ng-init="dd.setForm(addForm);" 
 			class="tcol2 table-cell table-cell-action-left" ng-hide="adding" 
 			ng-click="dd.newRecord(); adding = true">Click to Add</div>

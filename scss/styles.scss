@@ -31,7 +31,17 @@
 	#table-box--display, .row{
 		font-size:11px;
 	}
-	
+	.banner--jumbo .panel	{
+		margin:0;
+		font-size:17px;
+	}
+}
+
+@media only screen and (min-width: 377px) {
+.banner--jumbo .panel	{
+	margin:0;
+	font-size:19px;
+}
 }
 
 @media only screen and (min-width: 600px) {
@@ -90,6 +100,10 @@
 	.modal-header	{
 		height:60px;
 	}
+	
+	.navbar-right .dropdown-menu {
+	    right: inherit;
+	}
 }
 
 #contentView {
@@ -114,9 +128,7 @@ h2	{
 	margin-top:0;
 }
 
-.banner--jumbo .panel	{
-	margin:0;
-}
+
 
 pre.view-code	{
 	font-size:10px;
@@ -195,5 +207,9 @@ xmp	{
     border-left-color: #fff;
 }
 
+.callout {
+	color:#285e8e;
+	font-weight:570;
+}
 
 

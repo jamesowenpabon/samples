@@ -3,7 +3,6 @@ require.config({
     "paths" : {
         "angular" : "../lib/angular.min",
         "angular-route" : "../lib/angular-route.min",
-        "angular-touch" : "../lib/angular-touch.min",
         "jquery" : "../lib/jquery.min",
         "bootstrap" : "../lib/bootstrap.min",
         "app" : "app",
@@ -25,9 +24,6 @@ require.config({
             "deps" : ['jquery']
         },
         "angular-route" : {
-            "deps" : ['angular']
-        },
-        "angular-touch" : {
             "deps" : ['angular']
         },
         "ng-device-detector" : {
