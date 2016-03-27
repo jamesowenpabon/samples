@@ -94,6 +94,7 @@
     @extend .box;
     text-align:center;
     display: -webkit-flex;
+    display: -ms-flex;
     display: flex;
     @include align-items(center);
     @include justify-content(center);

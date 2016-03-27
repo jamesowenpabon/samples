@@ -64,6 +64,7 @@
 .ghostdrag--moving {
   text-align: center;
   display: -webkit-flex;
+  display: -ms-flex;
   display: flex;
   -webkit-align-items: center;
   -moz-align-items: center;
