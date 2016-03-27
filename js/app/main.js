@@ -9,6 +9,7 @@ require.config({
         "coreController" : "./controllers/coreController",
         "detectController" : "./controllers/detectController",
         "htmlAPIController" : "./controllers/htmlAPIController",
+        "geoAPIController" : "./controllers/geoAPIController",
         "graphController" : "./controllers/graphController",
         "dynamicdataController" : "./controllers/dynamicdataController",
         "services" : "./services/services",
@@ -37,10 +38,14 @@ require.config({
                         'graphController',
                         'dynamicdataController',
                         'detectController',
-                        'htmlAPIController'
+                        'htmlAPIController',
+                        'geoAPIController',
                     ]
         },
          "htmlAPIController" : {
+            "deps" : ['angular']
+        },
+         "geoAPIController" : {
             "deps" : ['angular']
         },
          "graphController" : {

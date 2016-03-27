@@ -1,0 +1,45 @@
+<!-- geo-locate.html -->
+<div id="responsive-container" class="container"> 
+<div class="container modal-link" id="source-link" data-toggle="modal" 
+data-target="#commonModal" ex-src="geolocate">View Example Source</div>
+<h2>HTML5 API Geolocate with Google Map API</h2>
+<p>Angular HTML5 CSS3 SASS Bootstrap GoogleMapAPI</p>
+<div class="body-container">
+	<div class="row">
+	<div class="col-sm-12 col-md-12">
+	<div class="intro">
+	Take me for a walk or a spin [hands free only please] and always know where (U) are. 
+	</div>
+	</div>
+	</div>
+	<div class="row">
+	<div class="col-sm-6 col-md-6">
+	<div class="map-controls clearfix">
+	<button class="btn btn-info btn-xs" ng-click="gl.changeMap(gl.roadMap)">Road Map</button> 
+	<button class="btn btn-info btn-xs" ng-click="gl.changeMap(gl.satelliteMap)">Satellite Map</button>
+	<button class="btn btn-info btn-xs" ng-click="gl.changeMap(gl.streetView)">Street View</button>
+	<button class="btn btn-warning btn-xs" ng-click="gl.changeMap(gl.me)">Find (M)e.</button>
+	</div>
+	<div class="map-container">
+		<img ng-show="!gl.errorMessage" class="map-img" ng-attr-src="{{gl.mapUrl}}">
+		<span class="text-danger">{{gl.errorMessage}}</span>
+	</div>
+	</div>
+	<div class="col-sm-6 col-md-6">
+		<div class="map-stats">
+		<div class="map-tracking">
+		<button class="btn btn-success btn-xs" ng-show="gl.tracker" 
+		ng-click="gl.tracker=false; gl.watchMap('start')">Start Stracking</button>
+		<button class="btn btn-danger btn-xs" ng-hide="gl.tracker" 
+		ng-click="gl.tracker=true; gl.watchMap('stop')">Stop Stracking</button>
+		</div>
+		<b>Latitude:</b> {{gl.gpsLocationData.lat}}</br>
+		<b>Longitude:</b> {{gl.gpsLocationData.long}}</br>
+		<b>Coords Altitiude:</b> {{gl.gpsLocationData.altitude}}</br>
+		<b>Coords Heading:</b> {{gl.gpsLocationData.heading}}</br>
+		<b>Coords Speed:</b> {{gl.gpsLocationData.speed}}</br>
+		</div>
+	</div>
+	</div>
+</div>	
+</div>

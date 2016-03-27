@@ -7,7 +7,8 @@ angular.module('codingExamples',
 				'coreControllerMod',
 				'servicesMod', 
 				'directivesMod',
-				'htmlMod'])
+				'htmlMod',
+				'geoMod'])
 
 //Routes//
 .config(function($routeProvider, $locationProvider){
@@ -19,6 +20,10 @@ angular.module('codingExamples',
 		//Drag & Drop Example
 		.when("/examples/htmlapi/drag-drop",{
 		  templateUrl: "pages/htmlapi/drag-drop.html", controller: 'htmlAPI', controllerAs: 'ha'
+		})
+		//Geolocate Example
+		.when("/examples/htmlapi/geolocate",{
+		  templateUrl: "pages/htmlapi/geolocate.html", controller: 'geoAPI', controllerAs: 'gl'
 		})
 		//Dynamic Data Example
 		.when("/examples/dynamic-data",{

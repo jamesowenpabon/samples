@@ -3,7 +3,6 @@
 define (function(){
 angular.module('coreControllerMod', ['graphMod','dynamicdataMod','detectMod','htmlMod'])
 
-//Controllers//
 //Main Application Controller
 .controller('AppCtrl', function($scope, $http, $window, srcCollection) {
 	var ap = this;
@@ -89,6 +88,46 @@ angular.module('coreControllerMod', ['graphMod','dynamicdataMod','detectMod','ht
 				"label":"SCSS", 
 				"src":"scss/dragDrop.scss", 
 				"psrc":"css/dragDrop.css",
+				"icon":"fa fa-css3"
+	}
+ 	},
+ 	'geolocate':	{
+ 	"html" : {	"label":"HTML", 
+ 				"src":"pages/htmlapi/geolocate.html", 
+ 				"icon":"fa fa-html5"
+ 	},
+ 	"main" : {	"label":"MainJS", 
+ 				"src":"js/app/main.js", 
+ 				"icon":"fa fa-dot-circle-o"
+ 	},
+ 	"app" : {	"label":"AppJS", 
+ 				"src":"js/app/app.js", 
+ 				"icon":"fa fa-dot-circle-o"
+ 	},
+	"coreController" : {	
+				"label":"CoreCtrlr", 
+				"src":"js/app/controllers/coreController.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"geoAPIController" : {
+				"label":"geoAPICtrlr", 
+				"src":"js/app/controllers/geoAPIController.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"directives" : {
+				"label":"Directives", 
+				"src":"js/app/directives/directives.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"services" : {
+				"label":"Services", 
+				"src":"js/app/services/services.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"css" : {
+				"label":"SCSS", 
+				"src":"scss/geolocate.scss", 
+				"psrc":"css/geolocate.css",
 				"icon":"fa fa-css3"
 	}
  	},

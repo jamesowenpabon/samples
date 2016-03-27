@@ -1,0 +1,39 @@
+@mixin align-items($alignValue) {
+	-webkit-align-items: $alignValue;
+	-moz-align-items: $alignValue;
+	-ms-align-items: $alignValue;
+	align-items: $alignValue;
+}
+
+@mixin justify-content($justifyValue) {
+	-webkit-justify-content: $justifyValue;
+	-moz-justify-content: $justifyValue;
+	-ms-justify-content: $justifyValue;
+	justify-content: $justifyValue;
+}
+
+.map-img {
+    width:100%;
+}
+
+.map-controls {
+	margin-bottom:2px;
+}
+
+.map-stats {
+    margin-top:25px;
+}
+
+.map-tracking {
+    margin-bottom:5px;
+}
+
+.map-container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    @include align-items(center);
+    @include justify-content(center);
+    min-height:250px;
+    border:solid 1px gray;
+}

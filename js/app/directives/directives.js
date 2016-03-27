@@ -115,7 +115,7 @@ angular.module('directivesMod', [])
 		if(localScope)	{
 			scope[localScope][touchFunction](scope,element,attrs);
 		} else {
-			scope[localScope][touchFunction](scope,element,attrs);
+			scope[touchFunction](scope,element,attrs);
 		}
 	}
 	};
@@ -131,7 +131,7 @@ angular.module('directivesMod', [])
 		if(localScope)	{
 			scope[localScope][dragFunction](scope,element,attrs);
 		} else {
-			scope[localScope][dragFunction](scope,element,attrs);
+			scope[dragFunction](scope,element,attrs);
 		}
 	}
 	};
@@ -148,7 +148,7 @@ angular.module('directivesMod', [])
 		if(localScope)	{
 			scope[localScope][dopFunction](scope,element,attrs);
 		} else {
-			scope[localScope][dopFunction](scope,element,attrs);
+			scope[dopFunction](scope,element,attrs);
 		}
 	}
 	};
