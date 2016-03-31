@@ -79,3 +79,6 @@
   position: absolute;
   visibility: visible;
   width: 15%; }
+
+#container-main {
+  visibility: visible; }

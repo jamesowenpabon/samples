@@ -114,3 +114,6 @@ input:-moz-submit-invalid {
 
 input:-moz-ui-invalid {
   box-shadow: none; }
+
+#container-main {
+  visibility: visible; }

@@ -1,8 +1,8 @@
-define (function(){
-angular.module('dynamicdataMod', [])
-
 //Dynamic Data Controller
-.controller('dynamicdata',function($scope, $http, $window, srcCollection){
+
+define (['app'], function(sampleApp){
+
+sampleApp.register.controller('dynamicdata',function($scope, $http, $window, srcCollection){
 	var dd = this;
 	
 	$scope.$on('$viewContentLoaded', function() {
@@ -43,20 +43,21 @@ angular.module('dynamicdataMod', [])
 		.success(function (rdata, status, headers, config) {
 		dd.PostDataResponse = rdata;	
 		if (action == "insert")	{
+		var temp = dd.selectedOrder
+		dd.selectedOrder = '';
 		dd.dataList.push({
 			'ID':rdata,
 			'name':data.name,
 			'rating':parseInt(data.rating),
 			'collection':data.collection
 		});
-		console.log('before call');
-		dd.dataBoxResize('table-box--display-inner','table-box--display');
-		console.log('after call');
+		dd.selectedOrder = temp;
+		dd.dataBoxResize('table-box--display-inner','table-box--display',(40));
 		}
 		if (action == "remove")	{
 			var index = dd.dataList.indexOf(data);
 			dd.dataList.splice(index, 1);
-			dd.dataBoxResize('table-box--display-inner','table-box--display',(-30));
+			dd.dataBoxResize('table-box--display-inner','table-box--display',(-32));
 		}
 		})
 		.error(function (rdata, status, header, config) {

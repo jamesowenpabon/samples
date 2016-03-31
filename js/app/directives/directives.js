@@ -152,7 +152,53 @@ angular.module('directivesMod', [])
 		}
 	}
 	};
+})
+
+.directive('cg', function(){
+	return {
+		restrict : "E",
+		link: function(scope,element) {
+			angular.element(element).css('color' , 'green' );
+		}
+	}
+})
+
+.directive('cm', function(){
+	return {
+		restrict : "E",
+		link: function(scope,element) {
+			angular.element(element).css('color' , 'red' );
+		}
+	}
+})
+
+.directive('co', function(){
+	return {
+		restrict : "E",
+		link: function(scope,element) {
+			angular.element(element).css('color' , 'orange' );
+		}
+	}
+})
+
+.directive('cb', function(){
+	return {
+		restrict : "E",
+		link: function(scope,element) {
+			angular.element(element).css('color' , 'blue' );
+		}
+	}
+})
+
+.directive('cp', function(){
+	return {
+		restrict : "E",
+		link: function(scope,element) {
+			angular.element(element).css('color' , 'purple' );
+		}
+	}
 });
+
 
 });
 

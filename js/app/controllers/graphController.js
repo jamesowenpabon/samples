@@ -1,10 +1,10 @@
-define (function(){
-angular.module('graphMod', [])
-
 //SVGPolyline Controller
-.controller('graphs', function()	{
-	var pg = this;
 
+define (['app'], function(sampleApp){
+
+ sampleApp.register.controller('graphs', function()	{
+	var pg = this;
+	
 	pg.graphData = (function()	{
 	
 		function graphdata(obj) {

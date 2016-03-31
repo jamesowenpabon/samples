@@ -1,8 +1,8 @@
-define(['ng-device-detector'], function()   {
-angular.module('detectMod', ['ng.deviceDetector'])
-    
 //Browser Detect Controller
-.controller('detect',['deviceDetector',function(deviceDetector){
+
+define(['app'], function(sampleApp)   {
+
+sampleApp.register.controller('detect',['deviceDetector',function(deviceDetector){
 	var bd = this;
 	data = deviceDetector;
 	allData = JSON.stringify(data, null, 2);

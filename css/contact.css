@@ -136,3 +136,5 @@
     background-color: #ffffff; }
   to {
     background-color: #428bca; } }
+#container-main {
+  visibility: visible; }

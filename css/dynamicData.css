@@ -96,3 +96,6 @@ div.table-box {
 caption {
   background-color: #f8f8f8;
   border-radius: 25px 25px 0 0; }
+
+#container-main {
+  visibility: visible; }

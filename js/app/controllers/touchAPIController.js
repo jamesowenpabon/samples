@@ -1,10 +1,8 @@
-//HTML API Controller
+//Touch API Controller
 
-define (function(){
-angular.module('htmlMod', [])
+define(['app'], function(sampleApp){
 
-//HTML API Controller
-.controller('htmlAPI', function($scope)	{
+sampleApp.register.controller('touchAPI', function($scope)	{
 	var ha = this;
 
 	ha.touchConfigObj = 
@@ -28,7 +26,6 @@ angular.module('htmlMod', [])
 		var touchedElementId = event;
 		var touchedElementText = touchedElementId.currentTarget.childNodes[0].nodeValue;
 		var sourceContainerRow = event.target.parentElement.dataset.row;
-		console.log(sourceContainerRow);
 		if(sourceContainerRow != 'homeRow')	{
 	 		$( "#center" + sourceContainerRow).attr('class','box--noresult');
 		}
@@ -56,14 +53,8 @@ angular.module('htmlMod', [])
 		var sourceContainerRow = sourceContainer.dataset.row;
 		var xPos = event.originalEvent.changedTouches[0].clientX;
 		var yPos = event.originalEvent.changedTouches[0].clientY;
-		
-		console.log(event.originalEvent.changedTouches[0]);
-		
 		var destinationContainer = document.elementFromPoint(xPos, yPos);
-		console.log(destinationContainer);
-		
 		var destinationContainerRow = destinationContainer.dataset.row;
-		
 		var destinationContainerId = destinationContainer.id != "" ? destinationContainer.id : 'noId';
 		
 		if (dropList.indexOf(destinationContainerId) != -1)	{

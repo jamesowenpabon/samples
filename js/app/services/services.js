@@ -18,9 +18,7 @@ angular.module('servicesMod', [])
 
 .factory('geolocateSvc', ['$q', '$window', function($q, $window)	{
 	function getCurrentGPS()	{
-		
 		var deferred = $q.defer();
-		
 		if (!$window.navigator.geolocation)  {
 			deferred.reject('Geo Locate Not Supported');
 		} else {
@@ -38,7 +36,16 @@ angular.module('servicesMod', [])
 	return {
 		getCurrentGPS : getCurrentGPS
 	};
-}]);
+}])
+
+.factory('lzLoadSvc', function() {
+	function loadCtrl(arg, promise)	{
+		require([arg], function()	{
+			promise.resolve();
+		});
+	}
+	return { loadCtrl:loadCtrl };
+});
 
 });
 

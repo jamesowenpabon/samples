@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+#container-main {
+	visibility:hidden;
+}
+
 .row:after {
 	content: "";
 	clear: both;
@@ -31,17 +35,6 @@
 	#table-box--display, .row{
 		font-size:11px;
 	}
-	.banner--jumbo .panel	{
-		margin:0;
-		font-size:17px;
-	}
-}
-
-@media only screen and (min-width: 377px) {
-.banner--jumbo .panel	{
-	margin:0;
-	font-size:19px;
-}
 }
 
 @media only screen and (min-width: 600px) {
@@ -205,11 +198,6 @@ xmp	{
 
 .dropdown-submenu:hover>a:after {
     border-left-color: #fff;
-}
-
-.callout {
-	color:#285e8e;
-	font-weight:570;
 }
 
 .intro {

@@ -6,12 +6,11 @@ require.config({
         "jquery" : "../lib/jquery.min",
         "bootstrap" : "../lib/bootstrap.min",
         "app" : "app",
-        "coreController" : "./controllers/coreController",
-        "detectController" : "./controllers/detectController",
-        "htmlAPIController" : "./controllers/htmlAPIController",
-        "geoAPIController" : "./controllers/geoAPIController",
-        "graphController" : "./controllers/graphController",
-        "dynamicdataController" : "./controllers/dynamicdataController",
+        "detect" : "./controllers/detectController",
+        "touchAPI" : "./controllers/touchAPIController",
+        "geoAPI" : "./controllers/geoAPIController",
+        "graphs" : "./controllers/graphController",
+        "dynamicdata" : "./controllers/dynamicdataController",
         "services" : "./services/services",
         "directives" : "./directives/directives",
         "ng-device-detector" : "../lib/ng-device-detector",
@@ -31,31 +30,7 @@ require.config({
             "deps" : ['angular','re-tree']
         },
          "app" : {
-            "deps" : ['angular','coreController','services','directives']
-        },
-         "coreController" : {
-            "deps" : [  'angular',
-                        'graphController',
-                        'dynamicdataController',
-                        'detectController',
-                        'htmlAPIController',
-                        'geoAPIController',
-                    ]
-        },
-         "htmlAPIController" : {
-            "deps" : ['angular']
-        },
-         "geoAPIController" : {
-            "deps" : ['angular']
-        },
-         "graphController" : {
-            "deps" : ['angular']
-        },
-        "dynamicdataController" : {
-            "deps" : ['angular']
-        },
-        "detectController" : {
-            "deps" : ['angular']
+            "deps" : ['angular','services','directives']
         },
          "services" : {
             "deps" : ['angular']

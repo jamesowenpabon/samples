@@ -124,7 +124,7 @@
 		content: "25% @ 992px or larger";
 	}
 
-	#responsive-container.container {
+	#container-main.container {
 		max-width: 750px;
 	}
 
@@ -132,4 +132,8 @@
 	.row--second{height:300px;}
 	.row--third{height:200px;}
 	.row--fourth{height:150px;}
+}
+
+#container-main {
+	visibility:visible;
 }

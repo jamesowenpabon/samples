@@ -1,20 +1,25 @@
 <!-- home.html -->
-<div class="container"> 
+
+<div id="container-main" class="container"> 
 <div class="container modal-link" id="source-link" data-toggle="modal" 
 data-target="#commonModal" ex-src="home">View Example Source</div>
 
 <div class="col-c-12 jumbotron text-center banner--jumbo">
-	<div class="col-c-1"></div>
 	
-	<div class="col-c-10 panel panel-default">
-		<div class="panel-body"><p class="container">This site is a 
-		<span class="callout">Mobile</span> compatible single 
-		page <span class="callout">Responsive AngularJS</span> 
-		application utilizing <span class="callout">RequireJS, JavaScript, JQuery, Ajax, 
-		JSON, Bootstrap, SASS(SCSS), CSS3, HTML5, SVG, PHP & MySQL</span></p></div>
-		<pre>{{bd.message}}</pre>
+	<div class="box-intro panel panel-default">
+		<div class="panel-body"><p class="container">This site is an example of a
+		<cg>Mobile</cg> compatible single 
+		page <co>Modularized</co>, <co>Lazy Loading</co>, <cg>Responsive</cg>, 
+		<co>AngularJS</co> application utilizing <cm>RequireJS</cm>, 
+		<cm>JavaScript</cm>, <cm>JQuery</cm>, <cm>Ajax</cm>, <cm>JSON</cm>, 
+		<cg>Bootstrap</cg>, <cg>SASS(SCSS)</cg>, <cg>CSS3</cg>, <cb>HTML5</cb>, 
+		<cp>PHP</cp> & <cp>MySQL</cp></p></div>
+		<div class="box-detection-info">
+			<h4>Browser Detect Information</h4>
+			<pre>{{bd.message}}</pre>
+		</div>
 	</div>
 	
-	<div class="col-c-1"></div>
+	
 </div>
 </div>

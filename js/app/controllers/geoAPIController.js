@@ -1,9 +1,8 @@
 //Geolocate API Controller
 
-define (function(){
-angular.module('geoMod', [])
+define(['app'], function(sampleApp){
 
-.controller('geoAPI', function($scope, geolocateSvc)	{
+sampleApp.register.controller('geoAPI', function($scope, geolocateSvc)	{
 	var gl = this;
 
     $scope.$on('$viewContentLoaded', function() {
@@ -154,7 +153,6 @@ angular.module('geoMod', [])
     gl.watchMap = function(arg)    {
     if (arg == 'start') {
     gl.watchID = navigator.geolocation.watchPosition(function(position) {
-        console.log('start:'+gl.watchID);
         $scope.$apply(function(){
         $scope.position = position;
         var cords = $scope.position.coords;
