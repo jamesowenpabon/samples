@@ -1,4 +1,4 @@
-/* Responsive Page   */ 
+/* MQ Responsive Page   */ 
 
 @mixin align-items($alignValue) {
 	-webkit-align-items: $alignValue;
@@ -7,7 +7,7 @@
 	align-items: $alignValue;
 }
 
-@mixin justify-content($justifyValue) {
+@mixin justify-content($justifyValue) { 
 	-webkit-justify-content: $justifyValue;
 	-moz-justify-content: $justifyValue;
 	-ms-justify-content: $justifyValue;
@@ -103,6 +103,10 @@
 	
 	.row div:last-of-type div.row--third	{
 		height:100px;
+	}
+	
+	.row div:last-of-type.col-sm-12{
+		clear:both;
 	}
 }
 

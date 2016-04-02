@@ -47,9 +47,18 @@ $routeProvider
 	controller: 'dynamicdata', 
 	controllerAs: 'dd'
 })
-//Responsive Example
-.when("/examples/responsive",{
-		templateUrl: "pages/responsive.html",
+//MQ Responsive Example
+.when("/examples/layout/m-q-responsive",{
+		templateUrl: "pages/layout/m-q-responsive.html"
+})
+//RJS Responsive Example
+.when("/examples/layout/r-js-responsive",{
+		templateUrl: "pages/layout/r-js-responsive.html",
+		resolve:{
+		deps:function(lzLoadSvc, $q) {var d=$q.defer();lzLoadSvc.loadCtrl('rjsresponsive', d);return d.promise;}
+		},
+		controller: 'rjsresponsive', 
+		controllerAs: 'rr'
 })
 //SVGPolyline Example
 .when("/examples/svg-polyline",{
@@ -235,9 +244,9 @@ sampleApp.controller('appCtrl', function($scope, $http, $window, srcCollection) 
 				"icon":"fa fa-css3"
 	}
  	},
- 	'responsive' :	{
+ 	'mQResponsive' :	{
  	"html" : {	"label":"HTML", 
- 				"src":"pages/responsive.html", 
+ 				"src":"pages/layout/m-q-responsive.html", 
  				"icon":"fa fa-html5"
  	},
  	"main" : {	"label":"MainJS", 
@@ -265,8 +274,43 @@ sampleApp.controller('appCtrl', function($scope, $http, $window, srcCollection) 
 	},
 	"css" : {
 				"label":"SCSS", 
-				"src":"scss/responsive.scss", 
-				"psrc":"css/responsive.css", 
+				"src":"scss/m-q-responsive.scss", 
+				"psrc":"css/m-q-responsive.css", 
+				"icon":"fa fa-css3"
+	}
+ 	},
+ 	'rJsResponsive' :	{
+ 	"html" : {	"label":"HTML", 
+ 				"src":"pages/layout/r-js-responsive.html", 
+ 				"icon":"fa fa-html5"
+ 	},
+ 	"main" : {	"label":"MainJS", 
+ 				"src":"js/app/main.js", 
+ 				"icon":"fa fa-dot-circle-o"
+ 	},
+ 	"app" : {	"label":"AppJS", 
+ 				"src":"js/app/app.js", 
+ 				"icon":"fa fa-dot-circle-o"
+ 	},
+	"coreController" : {	
+				"label":"CoreCtrlr", 
+				"src":"js/app/controllers/coreController.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"directives" : {
+				"label":"Directives", 
+				"src":"js/app/directives/directives.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"services" : {
+				"label":"Services", 
+				"src":"js/app/services/services.js", 
+				"icon":"fa fa-dot-circle-o"
+	},
+	"css" : {
+				"label":"SCSS", 
+				"src":"scss/r-js-responsive.scss", 
+				"psrc":"css/r-js-responsive.css", 
 				"icon":"fa fa-css3"
 	}
  	},

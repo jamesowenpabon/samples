@@ -11,10 +11,12 @@ require.config({
         "geoAPI" : "./controllers/geoAPIController",
         "graphs" : "./controllers/graphController",
         "dynamicdata" : "./controllers/dynamicdataController",
+        "rjsresponsive" : "./controllers/rjsResponsiveController",
         "services" : "./services/services",
         "directives" : "./directives/directives",
         "ng-device-detector" : "../lib/ng-device-detector",
-        "re-tree" : "../lib/re-tree"
+        "re-tree" : "../lib/re-tree",
+        "response" : "../lib/response"
     },
     "shim"  : {
         "angular" : {
