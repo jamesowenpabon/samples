@@ -6,12 +6,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- load bootstrap and fontawesome -->
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
-		<link rel="stylesheet" href="css/styles.css" />
+		<!-- load bundled CSS Libs -->
+		<link rel="stylesheet" href="css/lib/bundlelib.min.css" />
+		<link rel="stylesheet" href="css/app/styles.css" />
 		<link rel="stylesheet" ng-href="{{ap.modalSourceObject[ap.modalCollection]['css']['psrc']}}" />
-		<script src="js/lib/require.js" data-main="js/app/main.js" ></script>
+		<script src="js/lib/require.min.js" data-main="js/app/main.js" ></script>
 		<base href="/">
 	</head>
 	<!-- define angular controller -->
