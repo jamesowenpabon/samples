@@ -26,5 +26,8 @@ sampleApp.register.controller('mqresponsive', function($rootScope, exSrcConSrv, 
 	
     $rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj); 
     
-})
+    console.log("-----mq Controller Scope-----");
+	console.log(mq);
+    
+});
 })

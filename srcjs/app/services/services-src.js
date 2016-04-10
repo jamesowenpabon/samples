@@ -38,7 +38,7 @@ angular.module('servicesMod', [])
 
 .service('exSrcConSrv', function()	{
 	
-	exSrcCon = (function ()	{
+	var exSrcCon = (function ()	{
 		
 		function exsrccon(obj)	{
 			this.html = obj.html;
