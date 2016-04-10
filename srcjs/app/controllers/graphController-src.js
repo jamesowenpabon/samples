@@ -2,8 +2,31 @@
 
 define (['app'], function(sampleApp){
 
- sampleApp.register.controller('graphs', function()	{
+sampleApp.register.controller('graphs', function($rootScope, exSrcConSrv, arryObjSrv)	{
 	var pg = this;
+	
+	$rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+	{
+		"html" : {	"label":"HTML", 
+ 				"src":"pages/svgPolyline.html", 
+ 				"icon":"fa fa-html5"
+	 	},
+		"controller" : {	
+					"label":"GraphCtrlr", 
+					"src":"srcjs/app/controllers/graphController-src.js", 
+					"icon":"fa fa-dot-circle-o"
+		},
+		"css" : {
+					"label":"SCSS", 
+					"src":"scss/app/svgPolyline.scss", 
+					"psrc":"css/app/svgPolyline.css",
+					"icon":"fa fa-css3"
+		}
+	});
+	
+	
+	$rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj);
+	
 	
 	pg.graphData = (function()	{
 	

@@ -38,18 +38,10 @@ angular.module('directivesMod', [])
 //modalWindow Directive
 .directive('modalWindow', function() {
 	return {
+		scope: false,
 		templateUrl : "modalWindow.html"
 	};
 })
-
-//exSrc Directive
-.directive('exSrc', ['srcCollection', function() {
-	return{
-		controller: function($scope, $element, $attrs, srcCollection)	{
-			srcCollection.setExSrcValue($attrs.exSrc);
-		}
-	};
-}])
 
 //Dynamic Data OnLastRepeat Data Box Size Directive
 .directive('onLastRepeat', function() {

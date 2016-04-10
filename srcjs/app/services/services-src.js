@@ -4,17 +4,6 @@ define (function(){
 angular.module('servicesMod', [])
 
 //Services//
-.factory('srcCollection', function() {
-	var exSrcValue;
-	return { 
-		setExSrcValue : function(arg)	{
-			exSrcValue = arg;	
-		},
-		getExSrcValue : function()	{
-			return exSrcValue;		
-		}
-	};
-})
 
 .factory('geolocateSvc', ['$q', '$window', function($q, $window)	{
 	function getCurrentGPS()	{
@@ -45,7 +34,66 @@ angular.module('servicesMod', [])
 		});
 	}
 	return { loadCtrl:loadCtrl };
+})
+
+.service('exSrcConSrv', function()	{
+	
+	exSrcCon = (function ()	{
+		
+		function exsrccon(obj)	{
+			this.html = obj.html;
+			this.controller = obj.controller;
+			this.css = obj.css;
+		} 
+		
+		exsrccon.prototype.main =  {
+			"label":"MainJS", 
+ 			"src":"srcjs/app/main-src.js", 
+ 			"icon":"fa fa-dot-circle-o"	
+		};
+		
+		exsrccon.prototype.app =  {	
+			"label":"AppJS", 
+			"src":"srcjs/app/app-src.js",
+			"icon":"fa fa-dot-circle-o"
+	 	};
+	 	
+	 	exsrccon.prototype.directives =  {
+			"label":"Directives", 
+			"src":"srcjs/app/directives/directives-src.js", 
+			"icon":"fa fa-dot-circle-o"
+		};
+		
+		exsrccon.prototype.services =  {
+			"label":"Services", 
+			"src":"srcjs/app/services/services-src.js", 
+			"icon":"fa fa-dot-circle-o"
+		};
+		
+		return exsrccon;
+		
+	})();
+	
+		
+	return { exSrcCon:exSrcCon }
+	
+})
+
+.factory('arryObjSrv', function()	{ 
+
+	function parseObj(obj)	{
+		var value;
+		var key;
+		for (key in obj){
+			value = obj[key];
+			obj[key]=value;
+		}
+	 return  obj;	
+	}
+	
+	return { parseObj:parseObj,};
 });
+
 
 });
 

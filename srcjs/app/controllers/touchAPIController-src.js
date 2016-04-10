@@ -2,8 +2,29 @@
 
 define(['app'], function(sampleApp){
 
-sampleApp.register.controller('touchAPI', function($scope)	{
+sampleApp.register.controller('touchAPI', function($rootScope, $scope, exSrcConSrv, arryObjSrv)	{
 	var ha = this;
+	
+	$rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+    {
+    	"html" : {	"label":"HTML", 
+ 				"src":"pages/htmlapi/drag-drop.html", 
+ 				"icon":"fa fa-html5"
+	 	},
+		"touchAPIController" : {
+					"label":"TouchAPICtrlr", 
+					"src":"srcjs/app/controllers/touchAPIController-src.js", 
+					"icon":"fa fa-dot-circle-o"
+		},
+		"css" : {
+					"label":"SCSS", 
+					"src":"scss/app/dragDrop.scss", 
+					"psrc":"css/app/dragDrop.css",
+					"icon":"fa fa-css3"
+		}
+    });
+    
+    $rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj);
 
 	ha.touchConfigObj = 
 	{

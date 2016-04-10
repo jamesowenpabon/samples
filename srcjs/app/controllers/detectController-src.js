@@ -2,8 +2,31 @@
 
 define(['app'], function(sampleApp)   {
 
-sampleApp.register.controller('detect',['deviceDetector',function(deviceDetector){
+sampleApp.register.controller('detect', function($rootScope, $scope, deviceDetector, exSrcConSrv, arryObjSrv){
 	var bd = this;
+	
+	$rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+	{
+		"html" : {	"label":"HTML", 
+		"src":"pages/home.html", 
+		"icon":"fa fa-html5"
+		},
+		"controller" : {
+		"label":"DetectCtrlr", 
+		"src":"srcjs/app/controllers/detectController-src.js", 
+		"icon":"fa fa-dot-circle-o"
+		},
+		"css" : {
+		"label":"SCSS", 
+		"src":"scss/app/home.scss", 
+		"psrc":"css/app/home.css",
+		"icon":"fa fa-css3"
+		}
+	});
+	
+	
+	$rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj); 
+
 	data = deviceDetector;
 	allData = JSON.stringify(data, null, 2);
 	
@@ -54,6 +77,6 @@ sampleApp.register.controller('detect',['deviceDetector',function(deviceDetector
 	console.log("-----bd Controller Scope-----");
 	console.log(bd);
 	
-}]);
+});
 });
 

@@ -7,14 +7,14 @@
       <div class="modal-header">
   	  <button type="button" class="close" data-dismiss="modal">&times;</button>
   	  <ul class="nav-modal nav navbar-nav navbar-left">
-				<li ng-repeat = "(key, value) in ap.modalSourceObject[ap.modalCollection]">
-  	      <span ng-click=" ap.getMyCtrlScope().exSrcType = key"><i class="{{value.icon}}"></i> {{value.label}}</span></li>
+  	    <li ng-repeat = "(key, value) in exSrcLinkArray">
+  	      <span ng-click="changeSrcType(key)"><i class="{{value.icon}}"></i> {{value.label}}</span>
   	    </li>
-  		</ul>
+  		</ul> 
       </div>
       <div class="modal-body">
-	    <div>{{ap.modalSourceObject[ap.modalCollection][exSrcType]['src']}}</div>
-      <pre class="view-code"><xmp ng-include="ap.modalSourceObject[ap.modalCollection][exSrcType]['src']"></xmp></pre>
+	    <div>{{exSrcLinkArray[exSrcType]['src']}}</div> 
+      <pre class="view-code"><xmp ng-include="exSrcLinkArray[exSrcType]['src']"></xmp></pre>
       </div>
       <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

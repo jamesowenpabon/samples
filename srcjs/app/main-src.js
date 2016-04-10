@@ -10,11 +10,13 @@ require.config({
         "geoAPI" : "./controllers/geoAPIController",
         "graphs" : "./controllers/graphController",
         "dynamicdata" : "./controllers/dynamicdataController",
-        "rjsresponsive" : "./controllers/rjsResponsiveController"
+        "rjsresponsive" : "./controllers/rjsResponsiveController",
+        "contact" : "./controllers/contactController",
+        "mqresponsive" : "./controllers/mqResponsiveController"
     },
     "shim"  : {
          "app" : {
-            "deps" : ['services','directives']
+            "deps" : ['services','directives'] 
         },
          "services" : {
             "deps" : ['bundle']

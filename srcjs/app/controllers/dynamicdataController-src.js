@@ -2,8 +2,32 @@
 
 define (['app'], function(sampleApp){
 
-sampleApp.register.controller('dynamicdata',function($scope, $http, $window, srcCollection){
+sampleApp.register.controller('dynamicdata',function($rootScope, $scope, $http, $window, exSrcConSrv, arryObjSrv){
 	var dd = this;
+	
+	
+	$rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+	{
+		"html" : {	"label":"HTML", 
+ 				"src":"pages/dynamicData.html", 
+ 				"icon":"fa fa-html5"
+	 	},
+		"controller" : {
+					"label":"DynamicDataCtrlr", 
+					"src":"srcjs/app/controllers/dynamicdataController-src.js", 
+					"icon":"fa fa-dot-circle-o"
+		},
+		"css" : {
+					"label":"SCSS", 
+					"src":"scss/app/dynamicData.scss", 
+					"psrc":"css/app/dynamicData.css",
+					"icon":"fa fa-css3"
+		}
+	});
+	
+	
+	$rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj); 
+	
 	
 	$scope.$on('$viewContentLoaded', function() {
 		dd.newDataItem = {
