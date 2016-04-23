@@ -1,0 +1,58 @@
+<!-- jsconcepts.html -->
+
+<div id="container-main" class="container"> 
+<div class="container modal-link" id="source-link" data-toggle="modal" 
+data-target="#commonModal">View Example Source</div>
+
+<h2>JavaScript Concepts</h2>
+<p>Common concepts of Javascript programming language.</p>
+
+<div id="exampleContainer" class="body-Container">
+<div ng-repeat="example in jc.concept track by $index">   
+    <div class="row row--definition">
+        <div class="col-xs-12 col-sm-9 col-md-9">
+            <h3>{{trust(example.name)}}</h3>
+        <blockquote>
+            <p ng-bind-html="trust(example.def)"></p>
+            <footer><cite ng-bind-html="trust(example.cite)"></cite></footer>
+        </blockquote>
+        <p ng-bind-html="trust(example.defDesc)"></p>
+        </div>
+    </div>
+    <div class="row row--code-example">
+        <div class="col-xs-12 col-sm-9 col-md-9">
+        <pre>
+            {{example.code}}
+        </pre>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 example-box">
+            <div class="example-box--results">
+                <span ng-bind-html="trust(example.resultsLabel)"></span> 
+                <span ng-bind-html="trust(example.result)"></span>
+            </div>
+            <div class="example-box--buttons" template-content="{{example.controls.type}}"></div>
+            <div class="example-box--description" ng-bind-html="trust(example.xboxDesc)"></div>
+        </div>
+    </div>
+</div>    
+</div>
+</div>
+
+
+<script type="text/template" id="button-two"> 
+    <button 
+        ng-click="example
+            .action(example.controls.buttonProps.b1Func)">
+        {{example.controls.buttonProps.b1text}}
+    </button>
+    <button 
+        ng-click="example
+            .action(example.controls.buttonProps.b2Func)">
+        {{example.controls.buttonProps.b2text}}
+    </button>
+</script>
+
+<script type="text/template" id="test-div">
+    <div><b>{{example.controls.templateHead}}</b></div>
+    <div id="{{example.controls.objPrpName}}"></div>
+</script>

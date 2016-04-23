@@ -7,7 +7,8 @@ sampleApp.register.controller('contact', function($rootScope, exSrcConSrv, arryO
 
     $rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
 	{
-        "html" : {	"label":"HTML", 
+        "html" : {	
+        "label":"HTML", 
         "src":"pages/contact.html", 
         "icon":"fa fa-html5"
         },

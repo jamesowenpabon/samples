@@ -7,7 +7,8 @@ sampleApp.register.controller('detect', function($rootScope, $scope, deviceDetec
 	
 	$rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
 	{
-		"html" : {	"label":"HTML", 
+		"html" : {	
+		"label":"HTML", 
 		"src":"pages/home.html", 
 		"icon":"fa fa-html5"
 		},

@@ -35,7 +35,11 @@ gulp.task('minappsass', function()    {
 
 //Concatinates the lib CSS files
 gulp.task('concatlibcss', function()    {
-    gulp.src('scss/lib/**/*.css')
+    var srcList = [
+           'node_modules/bootstrap/dist/css/bootstrap.css',
+           'node_modules/font-awesome/css/font-awesome.css'
+        ];
+    gulp.src(srcList)
     .pipe(sourcemaps.init())
         .pipe(concat('bundlelib.min.css'))
         .pipe(cleancss())
@@ -46,13 +50,13 @@ gulp.task('concatlibcss', function()    {
 //Concatinates the lib JS files
 gulp.task('concatlibjs', function() {
     var srcList = [
-           'srcjs/lib/jquery.js',
-           'srcjs/lib/angular.js',
-           'srcjs/lib/bootstrap.js',
-           'srcjs/lib/angular-route.js',
-           'srcjs/lib/re-tree.js',
-           'srcjs/lib/ng-device-detector.js',
-           'srcjs/lib/response.js'
+           'node_modules/jquery/dist/jquery.js',
+           'node_modules/angular/angular.js',
+           'node_modules/bootstrap/dist/js/bootstrap.js',
+           'node_modules/angular-route/angular-route.js',
+           'node_modules/ng-device-detector/node_modules/re-tree/re-tree.js',
+           'node_modules/ng-device-detector/ng-device-detector.js',
+           'node_modules/response.js/response.js'
         ];
     gulp.src(srcList)
     .pipe(sourcemaps.init())

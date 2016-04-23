@@ -7,7 +7,8 @@ sampleApp.register.controller('mqresponsive', function($rootScope, exSrcConSrv, 
     
     $rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
 	{
-		"html" : {	"label":"HTML", 
+		"html" : {	
+		"label":"HTML", 
  		"src":"pages/layout/m-q-responsive.html", 
  		"icon":"fa fa-html5"
  	    },

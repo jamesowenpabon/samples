@@ -146,6 +146,22 @@ angular.module('directivesMod', [])
 	};
 })
 
+
+.directive('templateContent', function($compile)	{
+	return {
+		link: function(scope, element, attrs)	{
+			var source = $("#"+attrs.templateContent);
+			var sourceHTML = source.html();
+			//console.log(sourceHTML);
+			var compiledSrc = $compile(sourceHTML);
+			var newElem = compiledSrc(scope);
+			//console.log(newElem);
+			$(element).html(newElem); 
+		}
+	}
+})
+
+
 .directive('cg', function(){
 	return {
 		restrict : "E",

@@ -13,21 +13,22 @@ sampleApp.register.controller('geoAPI', function($rootScope, $scope, geolocateSv
     
     $rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
 	{
-		"html" : {	"label":"HTML", 
- 				"src":"pages/htmlapi/geolocate.html",   
- 				"icon":"fa fa-html5"
-     	},
-    	"controller" : {
-    				"label":"geoAPICtrlr", 
-    				"src":"srcjs/app/controllers/geoAPIController-src.js", 
-    				"icon":"fa fa-dot-circle-o"
-    	},
-    	"css" : {
-    				"label":"SCSS", 
-    				"src":"scss/app/geolocate.scss", 
-    				"psrc":"css/app/geolocate.css",
-    				"icon":"fa fa-css3"
-    	}
+        "html" : {	
+        "label":"HTML", 
+        "src":"pages/htmlapi/geolocate.html",   
+        "icon":"fa fa-html5"
+        },
+        "controller" : {
+        "label":"geoAPICtrlr", 
+        "src":"srcjs/app/controllers/geoAPIController-src.js", 
+        "icon":"fa fa-dot-circle-o"
+        },
+        "css" : {
+        "label":"SCSS", 
+        "src":"scss/app/geolocate.scss", 
+        "psrc":"css/app/geolocate.css",
+        "icon":"fa fa-css3"
+        }
 	});
 	
     $rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj); 

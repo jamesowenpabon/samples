@@ -20,6 +20,15 @@ $routeProvider
 	controller: 'detect', 
 	controllerAs: 'bd'
 })
+//JavaScript Concepts
+.when("/examples/js-concepts", {
+	templateUrl: "pages/jsconcepts.html",
+	resolve: {
+		deps:function(lzLoadSvc, $q) {var d=$q.defer();lzLoadSvc.loadCtrl('jsconcepts', d);return d.promise;}
+	},
+	controller: 'jsconcepts',
+	controllerAs: 'jc'
+})
 //Drag & Drop Example
 .when("/examples/htmlapi/drag-drop",{
 	templateUrl: "pages/htmlapi/drag-drop.html", 
@@ -83,6 +92,7 @@ $routeProvider
 	controller: 'contact',
 	controllerAs: 'cc'
 });
+
 }]);
 
 //Application Controller

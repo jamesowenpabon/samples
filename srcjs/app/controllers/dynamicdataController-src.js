@@ -8,20 +8,21 @@ sampleApp.register.controller('dynamicdata',function($rootScope, $scope, $http, 
 	
 	$rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
 	{
-		"html" : {	"label":"HTML", 
- 				"src":"pages/dynamicData.html", 
- 				"icon":"fa fa-html5"
-	 	},
+		"html" : {	
+		"label":"HTML", 
+		"src":"pages/dynamicData.html", 
+		"icon":"fa fa-html5"
+		},
 		"controller" : {
-					"label":"DynamicDataCtrlr", 
-					"src":"srcjs/app/controllers/dynamicdataController-src.js", 
-					"icon":"fa fa-dot-circle-o"
+		"label":"DynamicDataCtrlr", 
+		"src":"srcjs/app/controllers/dynamicdataController-src.js", 
+		"icon":"fa fa-dot-circle-o"
 		},
 		"css" : {
-					"label":"SCSS", 
-					"src":"scss/app/dynamicData.scss", 
-					"psrc":"css/app/dynamicData.css",
-					"icon":"fa fa-css3"
+		"label":"SCSS", 
+		"src":"scss/app/dynamicData.scss", 
+		"psrc":"css/app/dynamicData.css",
+		"icon":"fa fa-css3"
 		}
 	});
 	

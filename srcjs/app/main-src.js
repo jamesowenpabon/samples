@@ -12,7 +12,8 @@ require.config({
         "dynamicdata" : "./controllers/dynamicdataController",
         "rjsresponsive" : "./controllers/rjsResponsiveController",
         "contact" : "./controllers/contactController",
-        "mqresponsive" : "./controllers/mqResponsiveController"
+        "mqresponsive" : "./controllers/mqResponsiveController",
+        "jsconcepts" : "./controllers/jsConceptsController"
     },
     "shim"  : {
          "app" : {

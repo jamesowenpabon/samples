@@ -92,6 +92,15 @@ angular.module('servicesMod', [])
 	}
 	
 	return { parseObj:parseObj,};
+})
+
+.factory("logOutputSrv", function(){
+	function print(el, value, classname, tag)	{
+		var classAttr = classname ? "class='"+classname+"' " : "";
+		var node = $("<"+tag+" "+classAttr+">").text(value);
+		$("#"+el).append(node)
+	}	
+	return{print:print};
 });
 
 

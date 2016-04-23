@@ -7,26 +7,30 @@ sampleApp.register.controller('graphs', function($rootScope, exSrcConSrv, arryOb
 	
 	$rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
 	{
-		"html" : {	"label":"HTML", 
- 				"src":"pages/svgPolyline.html", 
- 				"icon":"fa fa-html5"
-	 	},
+		"html" : {	
+		"label":"HTML", 
+		"src":"pages/svgPolyline.html", 
+		"icon":"fa fa-html5"
+		},
 		"controller" : {	
-					"label":"GraphCtrlr", 
-					"src":"srcjs/app/controllers/graphController-src.js", 
-					"icon":"fa fa-dot-circle-o"
+		"label":"GraphCtrlr", 
+		"src":"srcjs/app/controllers/graphController-src.js", 
+		"icon":"fa fa-dot-circle-o"
 		},
 		"css" : {
-					"label":"SCSS", 
-					"src":"scss/app/svgPolyline.scss", 
-					"psrc":"css/app/svgPolyline.css",
-					"icon":"fa fa-css3"
+		"label":"SCSS", 
+		"src":"scss/app/svgPolyline.scss", 
+		"psrc":"css/app/svgPolyline.css",
+		"icon":"fa fa-css3"
 		}
 	});
 	
 	
 	$rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj);
 	
+	console.log("-------------");
+	console.log(Array.isArray($rootScope.exSrcLinkArray));
+	console.log("-------------");
 	
 	pg.graphData = (function()	{
 	

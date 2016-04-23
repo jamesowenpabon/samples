@@ -35,6 +35,14 @@
 	#table-box--display, .row{
 		font-size:11px;
 	}
+	
+
+}
+
+@media screen and (max-width: 600px) {
+	.navbar-header {
+		padding-bottom:0;
+	}
 }
 
 @media only screen and (min-width: 600px) {
@@ -62,6 +70,7 @@
 	.navbar-right {
 		float: right!important;
 	}
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -84,6 +93,10 @@
 	.navbar-brand	{
 		padding-top:0;
 		padding-bottom:0;
+	}
+	
+	.signature {
+		padding-left:15px;
 	}
 }
 
@@ -178,4 +191,10 @@ xmp	{
 
 .clear-both {
 	clear:both;
+}
+
+.signature-name {
+	font-style:italic;
+	font-weight:bold;
+	text-decoration:underline;
 }

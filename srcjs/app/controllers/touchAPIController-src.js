@@ -7,20 +7,21 @@ sampleApp.register.controller('touchAPI', function($rootScope, $scope, exSrcConS
 	
 	$rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
     {
-    	"html" : {	"label":"HTML", 
- 				"src":"pages/htmlapi/drag-drop.html", 
- 				"icon":"fa fa-html5"
-	 	},
+		"html" : {	
+		"label":"HTML", 
+		"src":"pages/htmlapi/drag-drop.html", 
+		"icon":"fa fa-html5"
+		},
 		"controller" : {
-					"label":"TouchAPICtrlr", 
-					"src":"srcjs/app/controllers/touchAPIController-src.js", 
-					"icon":"fa fa-dot-circle-o"
+		"label":"TouchAPICtrlr", 
+		"src":"srcjs/app/controllers/touchAPIController-src.js", 
+		"icon":"fa fa-dot-circle-o"
 		},
 		"css" : {
-					"label":"SCSS", 
-					"src":"scss/app/dragDrop.scss", 
-					"psrc":"css/app/dragDrop.css",
-					"icon":"fa fa-css3"
+		"label":"SCSS", 
+		"src":"scss/app/dragDrop.scss", 
+		"psrc":"css/app/dragDrop.css",
+		"icon":"fa fa-css3"
 		}
     });
     
