@@ -43,9 +43,9 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	var iifeResult = 	"globalVariable = " + globalVariable + "<br>" +
 						"localGlobal = " + localGlobal + "<br>"+
 						"myIIFE = " + myIIFE + "<br>";
+		
 						
 	// Namespacing
-	
 	var newSpace = newSpace || {};
 	(function(o)	{
 		//console.log(o);
@@ -80,6 +80,7 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 							"| Global prop1: "+prop1 + "<br>" +
 							"----------------------" + "<br>";
 
+
     // Enclosure Example
     var arithmetic = (function () {
 		var counter = 0;
@@ -96,8 +97,8 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	})();
 	
 	
-	// This Example
 	
+	// This Example
 	var funcExp = function(invoType)	{
 		this.name = "funcExp";
 		thisResult += "| " + this.name + " " + invoType + "<br>";
@@ -147,6 +148,7 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	
 	//Object Example
 	
+	// Function Constructor
 	function PersonObjConstr()	{
 		this.firstname = "John";
 		this.lastname = "Doe";
@@ -156,6 +158,7 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 		};
 	}
 	
+	// Object Literal
 	var personObjLit = {
 		firstname : "John",
 		lastname: "Doe",
@@ -164,30 +167,68 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 			" " + this.lastname;	
 		}
 	};
+	 
 	
 	var james = new PersonObjConstr();
-	console.log(james.greetFullName());
 	james.firstname = "James";
 	james.lastname = "Pabon";
-	console.log(james.greetFullName());
-	
 	PersonObjConstr.prototype.formalGreet = function() {
 		return "Good day " + this.lastname + ", " + this.firstname;
 	};
-	console.log(james.formalGreet());
-	
 
-	console.log(personObjLit.greetFullName());
+	
 	var valerie = Object.create(personObjLit);
 	valerie.firstname = "Valerie";
-	console.log("valerie.firstname: " + valerie.firstname);
-	console.log(valerie.greetFullName());
-	
     personObjLit.formalGreet = function() {
 		return "Good day " + this.lastname + ", " + this.firstname;
 	};
+
+    
+    var protoResult = "---------------------------" + "</br>";
+	protoResult += "| Create James with PersonObjConstr() & call james.greetFullName()" + "</br>";
+	var james = new PersonObjConstr();
+	protoResult += "| " + james.greetFullName() + "</br>";
+	james.firstname = "James";
+	james.lastname = "Pabon";
+	protoResult += "| Change james.firstname: " + james.firstname + "</br>";
+	protoResult += "| Change james.lastname: " + james.lastname + "</br>";
+	protoResult += "| Call james.greetFullName() again." + "</br>";
+	protoResult += "| " + james.greetFullName() + "</br>";
+	protoResult += "---------------------------" + "</br>";
 	
-	console.log(valerie.formalGreet());
+	protoResult += "---------------------------" + "</br>";
+	protoResult += "| Add .formalGreet() to PersonObjConstr.prototype" + "</br>";
+	PersonObjConstr.prototype.formalGreet = function() {
+		return "Good day " + this.lastname + ", " + this.firstname;
+	};
+	protoResult += "| Call james.formalGreet()" + "</br>";
+	protoResult += "| " + james.formalGreet() + "</br>";
+	protoResult += "---------------------------" + "</br>";
+	
+	protoResult += "---------------------------" + "</br>";
+	protoResult += "| Call personObjLit.greetFullName()" + "</br>";
+	protoResult += "| " + personObjLit.greetFullName() + "</br>";
+	protoResult += "| Create Valerie object with Object.create(personObjLit)" + "</br>";
+	var valerie = Object.create(personObjLit);
+	valerie.firstname = "Valerie";
+	protoResult += "| Change valerie.firstname: " + valerie.firstname + "</br>";
+	protoResult += "| Call valerie.greetFullName() again." + "</br>";
+	protoResult += "| " + valerie.greetFullName() + "</br>";
+	protoResult += "---------------------------" + "</br>";
+	
+	protoResult += "---------------------------" + "</br>";
+	protoResult += "| Add .formalGreet() to personObjLit" + "</br>";
+    personObjLit.formalGreet = function() {
+		return "Good day " + this.lastname + ", " + this.firstname;
+	};
+	protoResult += "| Call valerie.formalGreet()" + "</br>";
+	protoResult += "| " + valerie.formalGreet() + "</br>";
+    protoResult += "---------------------------" + "</br>";
+    
+    
+    
+    
+    
     
     
     jc.concept = [
@@ -398,11 +439,120 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 				"\t console.log(\"| obj.name: \" + obj.name);\n"+
 				"\t console.log(\"---------------------------\");\n",
 	"resultsLabel" : "<b>console.log output</b><br>",
-	"controls" :	{	"objPrpName" : "namespace"
+	"controls" :	{	"objPrpName" : "this"
 					},
 	"result" : thisResult,
 	"xboxDesc" : 	"The above output shows the value of <code>this</code> as well "+
             		"as the <code>name</code> variable under differnt lexical & invocation conditions."
+	},
+	{
+	"name" : "Object Creation and Prototypal Inheritance",
+	"def" :	"<dfn>Prototypal Inheritance</dfn> is the ability of any "+
+			"JavaScript object to access properties and methods of its "+
+			"prototype (the object from which it was created).",
+	"cite" : "Me",
+	"defDesc" : "The code below shows three methods of creating an object, Object Literal "+
+				"syntax, a Function Constructor and <code>Object.create()</code>. "+
+				"Object literal syntax simply creates and object on the fly and as such its "+
+				"<code>__prototype__</code> is the <code>Object</code> object and it will "+
+				"have access to all the properties and methods of <code>Object</code>. "+
+				"<p></p>"+
+				"The function constructor has a special property named <code>.prototype</code>. "+
+				"This property will become the <code>__prototype__</code> of any objects "+
+				"created by the function constructor. All properties and methods added to "+
+				"the <code>.prototype</code> property of a function contructor will be "+
+				"available to all objects it creates. "+
+				"<p></p>"+
+				"Creating objects with <code>Object.create()</code> utilizes an object "+
+				"literal as a <code>__prototype__</code> for the objects created by this method. "+
+				"All properties and methods added to the object literal will be "+
+				"available to all objects created from it.",
+	"code" :	"\n"+					
+				"\t //Object Example\n"+
+				"\n"+
+				"\t // Function Constructor\n"+
+				"\t function PersonObjConstr()	{\n"+
+				"\t\t this.firstname = \"John\";\n"+
+				"\t\t this.lastname = \"Doe\";\n"+
+				"\t\t this.greetFullName = function()	{\n"+
+				"\t\t\t return \"PersonObjConstr says: Hello \" + this.firstname +\n"+ 
+				"\t\t\t	\", \" + this.lastname;\n"+
+				"\t\t };\n"+
+				"\t }\n"+
+				"\n"+
+				"\t // Object Literal\n"+
+				"\t var personObjLit = {\n"+
+				"\t\t firstname : \"John\",\n"+
+				"\t\t lastname: \"Doe\",\n"+
+				"\t\t greetFullName : function() {\n"+
+				"\t\t\t	return \"personObjLit says: Hello \" + this.firstname +\n"+ 
+				"\t\t\t	\", \" + this.lastname;\n"+	
+				"\t\t }\n"+
+				"\t };\n"+
+				"\n"+
+				"\t console.log(\"---------------------------\");\n"+
+				"\t console.log(\"| Create James with PersonObjConstr() & call james.greetFullName()\");\n"+
+				"\t var james = new PersonObjConstr();\n"+
+				"\t console.log(\"| \" + james.greetFullName());\n"+
+				"\n"+
+				"\t james.firstname = \"James\";\n"+
+				"\t james.lastname = \"Pabon\";\n"+
+				"\t console.log(\"| Change james.firstname: \" + james.firstname);\n"+
+				"\t console.log(\"| Change james.lastname: \" + james.lastname);\n"+
+				"\t console.log(\"| Call james.greetFullName() again.\");\n"+
+				"\t console.log(\"| \" + james.greetFullName());\n"+
+				"\t console.log(\"---------------------------\");\n"+
+				"\n"+
+				"\t console.log(\"---------------------------\");\n"+
+				"\t console.log(\"| Add .formalGreet() to PersonObjConstr.prototype\");\n"+
+				"\t PersonObjConstr.prototype.formalGreet = function() {\n"+
+				"\t\t return \"Good day \" + this.lastname + \", \" + this.firstname;\n"+
+				"\t };\n"+
+				"\n"+
+				"\t console.log(\"| Call james.formalGreet()\");\n"+
+				"\t console.log(\"| \" + james.formalGreet());\n"+
+				"\t console.log(\"---------------------------\");\n"+
+				"\n"+
+				"\t console.log(\"---------------------------\");\n"+
+				"\t console.log(\"| Call personObjLit.greetFullName()\");\n"+
+				"\t console.log(personObjLit.greetFullName());\n"+
+				"\n"+
+				"\t console.log(\"| Create Valerie object with Object.create(personObjLit)\");\n"+
+				"\t var valerie = Object.create(personObjLit);\n"+
+				"\n"+
+				"\t valerie.firstname = \"Valerie\";\n"+
+				"\t console.log(\"| Change valerie.firstname: \" + valerie.firstname);\n"+
+				"\t console.log(\"| Call valerie.greetFullName() again.\");\n"+
+				"\t console.log(\"| \" + valerie.greetFullName());\n"+
+				"\t console.log(\"---------------------------\");\n"+
+				"\n"+
+				"\t console.log(\"---------------------------\");\n"+
+				"\t console.log(\"| Add .formalGreet() to personObjLit\");\n"+
+			    "\t personObjLit.formalGreet = function() {\n"+
+				"\t\t return \"Good day \" + this.lastname + \", \" + this.firstname;\n"+
+				"\t };\n"+
+				"\n"+
+				"\t console.log(\"| Call valerie.formalGreet()\");\n"+
+				"\t console.log(\"| \" + valerie.formalGreet());\n"+
+			    "\t console.log(\"---------------------------\");\n",
+	"resultsLabel" : "<b>console.log output</b><br>",
+	"controls" :	{	"objPrpName" : "proto"
+					},
+	"result" : protoResult,
+	"xboxDesc" : 	"<p>"+
+					"The above output first shows the creation of the <code>james</code> object by "+
+            		"a function constructor and the addition of <code>.formalGreet()</code> to the "+
+            		"<code>.prototype</code> property of <code>PersonObjConstr</code> making it "+
+            		"available to the james object through prototypal inheritance. "+
+            		"</p>"+
+            		"<p>"+
+            		"Next it "+
+            		"shows the creation of the <code>valerie</code> object by using Object.create() "+
+            		"and making the <code>personObjLit</code> object literal, the <code>__proto__</code> "+
+            		"of the <code>valerie</code> object. Similarly <code>.formalGreet()</code> is added "+
+            		"to <code>personObjLit</code> "+
+            		"making it available to the <code>valerie</code> object through prototypal inheritance."+
+            		"</p>"
 	}
 	];
 	
