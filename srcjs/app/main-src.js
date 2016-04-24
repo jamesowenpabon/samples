@@ -1,4 +1,4 @@
-//Main JS - Require JS config
+//Main JS - Require JS config 
 require.config({
     "paths" : {
         "bundle" : "../lib/bundlelib.min",

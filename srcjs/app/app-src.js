@@ -1,4 +1,4 @@
-//Application Definition//
+//Application Definition// 
 
 define (['bundle'], function(){ 
 	var sampleApp = angular.module('codingExamples',  

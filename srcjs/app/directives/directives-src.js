@@ -1,4 +1,4 @@
-//Directives Mod Definition//
+//Directives Mod Definition// 
 
 define (function(){
 angular.module('directivesMod', [])
