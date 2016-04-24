@@ -243,11 +243,11 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 		        "their code within a local scope thus avoiding naming collisions with other "+
 		        "libraries and application JavaScript code. "+
 				"The code below shows how the IIFE creates a new execution context "+ 
-		        "where a new varibale named <code>localGlobal</code> is mutated and "+
-		        "the local reference of the window object is utalized to modify the DOM. "+
-		        "Note that the two varibales named <code>localGlobal</code> point "+
-		        "to seperate locations in memory for their values because of the "+
-		        "differnt executions contexts in which they were created.",
+		        "where a new variable named <code>localGlobal</code> is mutated and "+
+		        "the local reference of the window object is utilized to modify the DOM. "+
+		        "Note that the two variables named <code>localGlobal</code> point "+
+		        "to separate locations in memory for their values because of the "+
+		        "different  executions contexts in which they were created.",
 		        
 	"code" :	"\n"+
 				"\t // IIFE\n"+
@@ -266,18 +266,18 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	"resultsLabel" : "<b>console.log output</b><br>",
 	"controls" :	{	"objPrpName" : "iife",
 						"type": "test-div",
-						"templateHead" : "Contents of testDiv"
+						"templateHead" : "Contents of testDiv" 
 					},
 	"result" : iifeResult,
 	"xboxDesc" : 	"The above shows the <code>globalVariable</code> maintaining  "+
-            		"its value, two diffent values of the two <code>localGlobal</code> "+
-            		"varibles, the value of <code>myIIFE</code> which is assigned "+
+            		"its value, two different values of the two <code>localGlobal</code> "+
+            		"variables, the value of <code>myIIFE</code> which is assigned "+
             		"the return value of the anonymous function and the window object referenced "+
             		"within the IIFE local scope setting the HTML of <code>#testDiv</code>"
 	},	
 	{
 	"name" : "Namespacing",
-	"def" :	"A <dfn>Namespace</dfn> is a seperate execution context which "+
+	"def" :	"A <dfn>Namespace</dfn> is a separate execution context which "+
 			"encapsulates a block of code to avoid collisions with other "+
 			"objects or variables.",
 	"cite" : "Me",
@@ -331,14 +331,14 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	"defDesc" : "The code below shows a closure around the <code>add: function(){...}</code> "+ 
 		        "and <code>subtract: function(){...}</code>. A closure is a special "+
 		        "property of JavaScript which preserves the scope chain for functions "+
-		        "which have utalized free variables that were created in execution contexts "+
-		        "which are no longer in memeory. This allows the "+
+		        "which have utilized free variables that were created in execution contexts "+
+		        "which are no longer in memory. This allows the "+
 		        "<code>add: function(){return counter += 1;}</code> and <code>subtract: "+ 
 		        "function(){return counter -= 1;}</code> to retain access to the "+
 		        "counter variable even after the anonymous execution context which created "+ 
 		        "it has ended. In the example <code>var arithmetic</code> is assigned an "+
 		        "<abbr title='Immediately Invoked Function Element'>IFFE</abbr>, "+
-		        "however creating a closure does not need to utalize immediately invoked "+
+		        "however creating a closure does not need to utilize immediately invoked "+
 		        "functions.",
 	"code" :"\n"+
 			"\t // Closures\n"+
@@ -373,18 +373,18 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	"def" :	"<dfn><code>this</code></dfn> is a JavaScript keyword with a value that "+
 			"is determined by its lexical context and method of invocation.",
 	"cite" : "Me",
-	"defDesc" : "The code below shows three differnt function definitions, function "+ 
+	"defDesc" : "The code below shows three different  function definitions, function "+ 
 		        "expression, function statement & function as a method of an object. "+
 		        "There are 4 different ways to invoke a function, as a function, with "+
 		        "a constructor, as an object method and with a function method. "+
 		        "When invoked as a function, <code>this</code> references the Global "+
 		        "object. When invoked with a constructor <code>this</code> references  "+
-		        "the an empy object created by use of the <code>new</code> keyword  "+
+		        "the empty object created by use of the <code>new</code> keyword  "+
 		        "which is returned to the variable in constructor assignment. When "+ 
 		        "invoked as a method of an object <code>this</code> references the "+
 		        "object the invoked method is sitting on. Note however that if a method "+
 		        "is invoked with a constructor the <code>this</code> variable still references "+
-		        "the empy object created by use of the <code>new</code> keyword which "+
+		        "the empty object created by use of the <code>new</code> keyword which "+
 		        "is why <code>objAsConst.name</code> "+
 		        "is undefined in the output below. Finally when invoked with a function "+
 		        "method this takes the value of the context passed to it which is why "+
@@ -443,7 +443,7 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 					},
 	"result" : thisResult,
 	"xboxDesc" : 	"The above output shows the value of <code>this</code> as well "+
-            		"as the <code>name</code> variable under differnt lexical & invocation conditions."
+            		"as the <code>name</code> variable under different  lexical & invocation conditions."
 	},
 	{
 	"name" : "Object Creation and Prototypal Inheritance",
@@ -460,7 +460,7 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 				"The function constructor has a special property named <code>.prototype</code>. "+
 				"This property will become the <code>__prototype__</code> of any objects "+
 				"created by the function constructor. All properties and methods added to "+
-				"the <code>.prototype</code> property of a function contructor will be "+
+				"the <code>.prototype</code> property of a function constructor will be "+
 				"available to all objects it creates. "+
 				"<p></p>"+
 				"Creating objects with <code>Object.create()</code> utilizes an object "+
