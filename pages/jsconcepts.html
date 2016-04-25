@@ -1,5 +1,4 @@
 <!-- jsconcepts.html -->
-
 <div id="container-main" class="container"> 
 <div class="container modal-link" id="source-link" data-toggle="modal" 
 data-target="#commonModal">View Example Source</div>
@@ -30,7 +29,9 @@ data-target="#commonModal">View Example Source</div>
                 <span ng-bind-html="trust(example.resultsLabel)"></span> 
                 <span ng-bind-html="trust(example.result)"></span>
             </div>
-            <div class="example-box--buttons" template-content="{{example.controls.type}}"></div>
+            <div ng-if="example.controls.type" class="example-box--buttons">
+                <ng-include src="'/pages/partials/'+ example.controls.type + '.html'"></ng-include>
+            </div>
             <div class="example-box--description" ng-bind-html="trust(example.xboxDesc)"></div>
         </div>
     </div>
@@ -39,20 +40,6 @@ data-target="#commonModal">View Example Source</div>
 </div>
 
 
-<script type="text/template" id="button-two"> 
-    <button 
-        ng-click="example
-            .action(example.controls.buttonProps.b1Func)">
-        {{example.controls.buttonProps.b1text}}
-    </button>
-    <button 
-        ng-click="example
-            .action(example.controls.buttonProps.b2Func)">
-        {{example.controls.buttonProps.b2text}}
-    </button>
-</script>
 
-<script type="text/template" id="test-div">
-    <div><b>{{example.controls.templateHead}}</b></div>
-    <div id="{{example.controls.objPrpName}}"></div>
-</script>
+
+ 

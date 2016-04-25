@@ -31,18 +31,22 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
     
     $scope.trust = $sce.trustAsHtml;
     
+    
     //IIFE Example
     var localGlobal = 0;
     var globalVariable = 5;
 	var myIIFE = (function(localGlobal, localWindow)	{
  		localGlobal = 100;
- 		setTimeout(function(){localWindow.document.getElementById(("iife")).innerHTML="YES"});
+ 		setTimeout(function(){
+ 			angular.element("#iife").html("YES");
+ 			
+ 		},500);
  		return localGlobal;
  	})(globalVariable, window);
 
-	var iifeResult = 	"globalVariable = " + globalVariable + "<br>" +
-						"localGlobal = " + localGlobal + "<br>"+
-						"myIIFE = " + myIIFE + "<br>";
+	var iifeResult ="globalVariable = " + globalVariable + "<br>" +
+					"localGlobal = " + localGlobal + "<br>"+
+					"myIIFE = " + myIIFE + "<br>"; 
 		
 						
 	// Namespacing
@@ -51,49 +55,39 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 		//console.log(o);
 		o.prop1 = "NewSpace Value";
 		o.func1 = function()	{
-			//console.log("----------------------");
-			//console.log("| This is NewSpace func1");
-			//console.log("| NewSpace prop1: "+o.prop1);
-			//console.log("| Global prop1: "+prop1);
-			//console.log("----------------------"); 
 		}
 	})(newSpace)
 						
-	var	prop1 = "Global Value";
+	var prop1 = "Global Value";
 	var func1 = function()	{
-		//console.log("----------------------");
-		//console.log("| This is Global func1");
-		//console.log("| Global prop1: "+prop1);
-		//console.log("| NewSpace prop1: "+newSpace.prop1);
-		//console.log("----------------------");
 	}()			
 	newSpace.func1();
 	
 	var namespaceResult =	"----------------------" + "<br>"+
-							"| This is Global func1" + "<br>"+
-							"| Global prop1: "+prop1 + "<br>"+
-							"| NewSpace prop1: "+newSpace.prop1 + "<br>"+
-							"----------------------" + "<br>"+
-							"----------------------" + "<br>" +
-							"| This is NewSpace func1" + "<br>" +
-							"| NewSpace prop1: "+newSpace.prop1 + "<br>" +
-							"| Global prop1: "+prop1 + "<br>" +
-							"----------------------" + "<br>";
+				"| This is Global func1" + "<br>"+
+				"| Global prop1: "+prop1 + "<br>"+
+				"| NewSpace prop1: "+newSpace.prop1 + "<br>"+
+				"----------------------" + "<br>"+
+				"----------------------" + "<br>" +
+				"| This is NewSpace func1" + "<br>" +
+				"| NewSpace prop1: "+newSpace.prop1 + "<br>" +
+				"| Global prop1: "+prop1 + "<br>" +
+				"----------------------" + "<br>";
 
 
-    // Enclosure Example
-    var arithmetic = (function () {
+    // Closure Example
+	var arithmetic = (function () {
 		var counter = 0;
-		return {
-			add: function(){
-				counter += 1; 
-				return  counter.toString();
-			},
-			subtract: function(){
-				counter -= 1; 
-				return counter.toString()
-			}
-		};
+			return {
+				add: function(){
+					counter += 1; 
+					return  counter.toString();
+				},
+				subtract: function(){
+					counter -= 1; 
+					return counter.toString()
+				}
+			};
 	})();
 	
 	
@@ -112,11 +106,11 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	}
 	
 	var obj = {
-			name : "obj",
-			method1 : function(invoType)	{
-				thisResult += "| " + this.name + " " + invoType + "<br>";
-				thisResult += "| this = " + this + "<br>";
-			}
+		name : "obj",
+		method1 : function(invoType)	{
+			thisResult += "| " + this.name + " " + invoType + "<br>";
+			thisResult += "| this = " + this + "<br>";
+		}
 	}
 	
 	var thisResult = "---------------------------" + "<br>";
@@ -179,7 +173,7 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	
 	var valerie = Object.create(personObjLit);
 	valerie.firstname = "Valerie";
-    personObjLit.formalGreet = function() {
+	personObjLit.formalGreet = function() {
 		return "Good day " + this.lastname + ", " + this.firstname;
 	};
 
@@ -218,18 +212,15 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	
 	protoResult += "---------------------------" + "</br>";
 	protoResult += "| Add .formalGreet() to personObjLit" + "</br>";
-    personObjLit.formalGreet = function() {
+	personObjLit.formalGreet = function() {
 		return "Good day " + this.lastname + ", " + this.firstname;
 	};
 	protoResult += "| Call valerie.formalGreet()" + "</br>";
 	protoResult += "| " + valerie.formalGreet() + "</br>";
-    protoResult += "---------------------------" + "</br>";
+	protoResult += "---------------------------" + "</br>";
     
     
-    
-    
-    
-    
+    //Concept content
     
     jc.concept = [
     	
@@ -238,36 +229,34 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	"def" :	"A <dfn><abbr title='Immediately Invoked Function Element'>IIFE</abbr></dfn> "+
 			"is a JavaScript function that runs as soon as it is defined.",
 	"cite" : "MDN - https://developer.mozilla.org/en-US/docs/Glossary/IIFE",
-	"defDesc" : 
-				"IIFE's are commonly used by JS libraries and frameworks to place "+
+	"defDesc" :	"IIFE's are commonly used by JS libraries and frameworks to place "+
 		        "their code within a local scope thus avoiding naming collisions with other "+
-		        "libraries and application JavaScript code. "+
-				"The code below shows how the IIFE creates a new execution context "+ 
+		        "libraries and application JavaScript code. "+ 
+		        "The code below shows how the IIFE creates a new execution context "+ 
 		        "where a new variable named <code>localGlobal</code> is mutated and "+
 		        "the local reference of the window object is utilized to modify the DOM. "+
 		        "Note that the two variables named <code>localGlobal</code> point "+
 		        "to separate locations in memory for their values because of the "+
 		        "different  executions contexts in which they were created.",
-		        
 	"code" :	"\n"+
 				"\t // IIFE\n"+
 				"\n"+
 				"\t var localGlobal = 0;\n"+
 				"\t var globalVariable = 5;\n"+
 				"\t var myIIFE = (function(localGlobal, localWindow) {\n"+
-			 	"\t\t localGlobal = 100;\n"+
-			 	"\t\t localWindow.document.getElementById((\"testDiv\")).innerHTML=\"YES\";\n"+ 
-			 	"\t\t return localGlobal;\n"+
-			 	"\t })(globalVariable, window);\n"+
+				"\t\t localGlobal = 100;\n"+
+				"\t\t localWindow.document.getElementById((\"testDiv\")).innerHTML=\"YES\";\n"+ 
+				"\t\t return localGlobal;\n"+
+				"\t })(globalVariable, window);\n"+
 				"\n"+
 				"\t console.log(\"globalVariable = \" + globalVariable);\n"+
 				"\t console.log(\"localGlobal = \" + localGlobal);\n"+
 				"\t console.log(\"myIIFE = \" + myIIFE);\n",
 	"resultsLabel" : "<b>console.log output</b><br>",
-	"controls" :	{	"objPrpName" : "iife",
-						"type": "test-div",
-						"templateHead" : "Contents of testDiv" 
-					},
+	"controls" :{	"objPrpName" : "iife",
+					"type": "test-div",
+					"templateHead" : "Contents of testDiv" 
+				},
 	"result" : iifeResult,
 	"xboxDesc" : 	"The above shows the <code>globalVariable</code> maintaining  "+
             		"its value, two different values of the two <code>localGlobal</code> "+
@@ -281,15 +270,15 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 			"encapsulates a block of code to avoid collisions with other "+
 			"objects or variables.",
 	"cite" : "Me",
-	"defDesc" : "The code below shows a new execution context created by an  "+ 
-		        "IFFE. An empty objected named <code>var newSpace</code> is defined, "+
-		        "and set as an argument for the function. The "+
-		        "<code>o.prop1 = \"NewSpace Value\"</code> property "+
-		        "and the <code>o.func1 = function() {...}</code> method are defined  "+
-		        "on the empty object and can then be accessed via "+
-		        "<code>newSpace.prop1</code> &  "+ 
-		        "<code>newSpace.func1</code> so as not to collide with the global "+
-		        "<code>var prop1</code> & <code>var func1</code>.",
+	"defDesc" :	"The code below shows a new execution context created by an  "+ 
+				"IFFE. An empty objected named <code>var newSpace</code> is defined, "+
+				"and set as an argument for the function. The "+
+				"<code>o.prop1 = \"NewSpace Value\"</code> property "+
+				"and the <code>o.func1 = function() {...}</code> method are defined  "+
+				"on the empty object and can then be accessed via "+
+				"<code>newSpace.prop1</code> &  "+ 
+				"<code>newSpace.func1</code> so as not to collide with the global "+
+				"<code>var prop1</code> & <code>var func1</code>.",
 	"code" :	"\n"+					
 				"\t // Namespacing\n"+
 				"\n"+
@@ -344,7 +333,7 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 			"\t // Closures\n"+
 			"\n"+
 			"\t var arithmetic = (function () {\n"+
-	        "\t\t var counter = 0;\n"+
+			"\t\t var counter = 0;\n"+
 			"\t\t return {\n"+
 			"\t\t\t add: function(){return counter += 1;},\n"+
 			"\t\t\t subtract: function(){return counter -= 1;}\n"+
@@ -353,10 +342,11 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	"resultsLabel" : "<b>count</b> = ",
 	"controls" : {	"type": "button-two", 
 					"objPrpName" : "closure", 
-					"buttonProps" : {	"b1text": "Add", 
-										"b1Func" : "add", 
-										"b2text" : "subtract", 
-										"b2Func" : "subtract"
+					"buttonProps" : {	
+						"b1text": "Add", 
+						"b1Func" : "add", 
+						"b2text" : "subtract", 
+						"b2Func" : "subtract"
 									}
 				},
 	"result" : "0",
@@ -528,7 +518,7 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 				"\n"+
 				"\t console.log(\"---------------------------\");\n"+
 				"\t console.log(\"| Add .formalGreet() to personObjLit\");\n"+
-			    "\t personObjLit.formalGreet = function() {\n"+
+				"\t personObjLit.formalGreet = function() {\n"+
 				"\t\t return \"Good day \" + this.lastname + \", \" + this.firstname;\n"+
 				"\t };\n"+
 				"\n"+
@@ -539,38 +529,25 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 	"controls" :	{	"objPrpName" : "proto"
 					},
 	"result" : protoResult,
-	"xboxDesc" : 	"<p>"+
-					"The above output first shows the creation of the <code>james</code> object by "+
-            		"a function constructor and the addition of <code>.formalGreet()</code> to the "+
-            		"<code>.prototype</code> property of <code>PersonObjConstr</code> making it "+
-            		"available to the james object through prototypal inheritance. "+
-            		"</p>"+
-            		"<p>"+
-            		"Next it "+
-            		"shows the creation of the <code>valerie</code> object by using Object.create() "+
-            		"and making the <code>personObjLit</code> object literal, the <code>__proto__</code> "+
-            		"of the <code>valerie</code> object. Similarly <code>.formalGreet()</code> is added "+
-            		"to <code>personObjLit</code> "+
-            		"making it available to the <code>valerie</code> object through prototypal inheritance."+
-            		"</p>"
+	"xboxDesc" :	"<p>"+
+			"The above output first shows the creation of the <code>james</code> object by "+
+        		"a function constructor and the addition of <code>.formalGreet()</code> to the "+
+        		"<code>.prototype</code> property of <code>PersonObjConstr</code> making it "+
+        		"available to the james object through prototypal inheritance. "+
+        		"</p>"+
+        		"<p>"+
+        		"Next it "+
+        		"shows the creation of the <code>valerie</code> object by using Object.create() "+
+        		"and making the <code>personObjLit</code> object literal, the <code>__proto__</code> "+
+        		"of the <code>valerie</code> object. Similarly <code>.formalGreet()</code> is added "+
+        		"to <code>personObjLit</code> "+
+        		"making it available to the <code>valerie</code> object through prototypal inheritance."+
+        		"</p>"
 	}
 	];
-	
-
-    
-    
-	
-		
-		
-            
-    
         
     console.log("-----jc Controller Scope-----");
 	console.log(jc);    
-	
-	
-	
-    	
         
 });    
 })
