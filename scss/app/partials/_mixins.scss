@@ -1,0 +1,78 @@
+@mixin min275 {
+    @media only screen and (min-width: 275px) {   
+	    @content;
+    }
+}
+
+@mixin max599 {
+    @media only screen and (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin min600 {
+    @media only screen and (min-width: 600px) { 
+        @content;
+    }
+}
+
+@mixin max767 {
+   @media only screen and (max-width: 767px) { 
+       @content;
+   }
+}
+
+@mixin min768 {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin animation-name($aniName) {
+	-webkit-animation-name: $aniName;
+	-moz-animation-name: $aniName;
+	-ms-animation-name: $aniName;
+	animation-name: $aniName;
+}
+
+@mixin animation-duration($duration) {
+	-webkit-animation-duration: $duration;
+	-moz-animation-duration: $duration;
+	-ms-animation-duration: $duration;
+	animation-duration: $duration;
+}
+
+@mixin animation-fill-mode($fillMode) {
+	-webkit-animation-fill-mode: $fillMode;
+	-moz-animation-fill-mode: $fillMode;
+	-ms-animation-fill-mode: $fillMode;
+	animation-fill-mode: $fillMode;
+}
+
+@mixin animation-timing-function($timing) {
+	-webkit-animation-timing-function: $timing;
+	-moz-animation-timing-function: $timing;
+	-ms-animation-timing-function: $timing;
+	animation-timing-function: $timing;
+}
+
+@mixin animation-delay($delay) {
+	-webkit-animation-delay: $delay;
+	-moz-animation-delay: $delay;
+	-ms-animation-delay: $delay;
+	animation-delay:$delay;
+}
+
+@mixin align-items($alignValue) {
+	-webkit-align-items: $alignValue;
+	-moz-align-items: $alignValue;
+	-ms-align-items: $alignValue;
+	align-items: $alignValue;
+}
+
+@mixin justify-content($justifyValue) {
+	-webkit-justify-content: $justifyValue;
+	-moz-justify-content: $justifyValue;
+	-ms-justify-content: $justifyValue;
+	justify-content: $justifyValue;
+}

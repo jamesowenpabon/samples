@@ -30,7 +30,7 @@ sampleApp.register.controller('dynamicdata',function($rootScope, $scope, $http, 
 	$rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj); 
 	
 	
-	$scope.$on('$viewContentLoaded', function() {
+	$scope.$on('$viewContentLoaded', function() { 
 		dd.newDataItem = {
 			name : '',
 			rating : ''

@@ -14,7 +14,7 @@ sampleApp.register.controller('touchAPI', function($rootScope, $scope, exSrcConS
 		},
 		"controller" : {
 		"label":"TouchAPICtrlr", 
-		"src":"srcjs/app/controllers/touchAPIController-src.js", 
+		"src":"srcjs/app/controllers/touchAPIController-src.js",  
 		"icon":"fa fa-dot-circle-o"
 		},
 		"css" : {

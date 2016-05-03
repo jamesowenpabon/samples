@@ -63,7 +63,7 @@ angular.module('directivesMod', [])
 	link: function(scope,element,attrs)	{
 		element.find('td.table-datalist-item').on('click',  function (event) {
 			element.find('td.alt-active').removeClass('alt-active');
-			angular.element(this).addClass('alt-active');
+			angular.element(this).addClass('alt-active'); 
 		});
 	}
 	};

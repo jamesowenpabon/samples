@@ -27,7 +27,7 @@ sampleApp.register.controller('contact', function($rootScope, exSrcConSrv, arryO
 	
 	$rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj); 
 	
-	console.log("-----cc Controller Scope-----");
+	console.log("-----cc Controller Scope-----"); 
 	console.log(cc);
 
 });

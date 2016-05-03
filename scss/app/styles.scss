@@ -1,53 +1,18 @@
 /* Core Styles   */  
 
+@import 'partials/mixins';   
+
 * {
 	box-sizing: border-box;
 }
 
-#container-main {
-	visibility:hidden;
-}
-
-.row:after {
-	content: "";
-	clear: both;
-	display: block; 
-}
-
-[class*="col-c-"] {
+[class*="col-c-"] { 
 	float: left;
 	padding: 15px;
-}
-
-/* For mobile phones: */
-[class*="col-c-"] {
 	width: 100%;
 }
 
-
-@media only screen and (min-width: 275px) {
-	.navbar-nav>li {
-		float:left;
-	}
-}
-
-@media only screen and (max-width: 376px) {
-	#table-box--display, .row{
-		font-size:11px;
-	}
-	
-	#container-main {	
-		width:99%;
-	}
-}
-
-@media screen and (max-width: 600px) {
-	.navbar-header {
-		padding-bottom:0;
-	}
-}
-
-@media only screen and (min-width: 600px) {
+@include min600 {
 	/* For tablets: */
 	.col-c-1 {width: 8.33%;}
 	.col-c-2 {width: 16.66%;}
@@ -66,57 +31,24 @@
 	.tcol2 {width: 16.66%;}
 	.tcol3 { width:25%;}
 	.tcol7 {width: 58.33%;}
-
-	.button-box button	{width:80px;}
-
-	.navbar-right {
-		float: right!important;
-	}
-
 }
 
-@media only screen and (max-width: 767px) {
-	.navbar-nav .open .dropdown-menu {
-		position: absolute;
-		float: left;
-		width: inherit;
-		margin-top: 2px;
-		background-color: #fff;
-		border: 1px solid rgba(0,0,0,0.15);
-		box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-	}
+h2	{
+	margin-top:0;
+}
 
-	#nav-bar-container div	{
-		margin:0;
-		padding-top:0;
-		padding-bottom:0;
-	}
+#container-main {
+	visibility:hidden;
+}
 
-	.navbar-brand	{
-		padding-top:0;
-		padding-bottom:0;
-	}
-	
-	.signature {
-		padding-left:15px;
+@include max767 {
+	#container-main {	
+		width:99%;
 	}
 }
 
-@media only screen and (min-width: 768px) {
-	/* For desktop: */
-	.modal-dialog {width: 700px;}
-	.modal-header	{
-		height:60px;
-	}
-	
-	.navbar-right .dropdown-menu {
-	    right: inherit;
-	}
-}
-
-#contentView {
-  position:relative;
-  min-height:300px;
+.clear-both {
+	clear:both;
 }
 
 .loadimage {
@@ -132,36 +64,10 @@
 	background-position:center;
 }
 
-h2	{
-	margin-top:0;
-}
-
-
-
-pre.view-code	{
-	font-size:10px;
-}
-
-.nav-modal li span	{
-	padding: 0 10px 0 0;
-	cursor:pointer;
-	font-size:13px;
-}
-
-.modal-header .navbar-nav	{
-	margin:0;
-}
-
-.modal-link	{
-	cursor:pointer;
-	text-align:right;
-	color:red;
-	text-decoration:underline;
-	float:right;
-}
-
-.navbar-nav	{
-	padding:8px 0 0 0;
+.row:after {
+	content: "";
+	clear: both;
+	display: block; 
 }
 
 .alt-active	{
@@ -175,28 +81,111 @@ pre.view-code	{
 	padding:0;
 }
 
-xmp	{
-	white-space:pre-wrap;
+@include max767 {
+	.signature {
+		padding-left:15px;
+	}
 }
 
-.intro {
-	margin-bottom:20px;
+.signature-name {
+	font-style:italic;
+	font-weight:bold;
+	text-decoration:underline; 
 }
 
-.navbar-nav .open .dropdown-menu {
-	left:-65px;
+@media only screen and (max-width: 600px) {
+	.navbar-header {
+		padding-bottom:0;
+	}
+}
+
+.navbar-nav {
+	padding:8px 0 0 0;
+	.open {
+		.dropdown-menu {
+			left:-65px;
+			background-color: #fff;
+			border: 1px solid rgba(0,0,0,0.15);
+			box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+		}
+		@include max767 {
+			.dropdown-menu {
+				position: absolute;
+				margin-top: 2px;
+			}
+		}
+		@include min768 {
+			.dropdown-menu {
+			    right: inherit; 
+			}
+		}
+	}
+}
+
+@include max767 {
+	.navbar-nav	{
+		margin:0;
+		padding-top:0;
+		padding-bottom:0;
+	}
+}
+
+@include min600 {
+	#siteHeader .navbar-nav {
+		float: right!important;
+	}
+}
+
+#contentView {
+  position:relative;
+  min-height:300px;
 }
 
 .body-container {
 	margin-bottom:40px; 
 }
 
-.clear-both {
-	clear:both;
+.intro {
+	margin-bottom:20px;
 }
 
-.signature-name {
-	font-style:italic;
-	font-weight:bold;
+pre.view-code	{
+	font-size:10px;
+}
+
+.modal-link	{
+	cursor:pointer;
+	text-align:right;
+	color:red;
 	text-decoration:underline;
+	float:right;
+}
+
+.modal-header {
+	.nav-modal {
+		margin:0;
+		li span	{
+			padding: 0 10px 0 0;
+			cursor:pointer;
+			font-size:13px;
+		}
+		@include min275 {
+			li {
+				float:left;
+			}
+		}
+	}
+}
+
+@include min768 {
+	.modal-header	{
+		height:60px;
+	}
+	.modal-dialog {
+		width: 700px;
+	}
+}
+
+xmp	{
+	white-space:pre-wrap;
 }

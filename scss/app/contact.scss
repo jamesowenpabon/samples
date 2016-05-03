@@ -1,39 +1,6 @@
 /* Contact Page */ 
  
-@mixin animation-name($aniName) {
-	-webkit-animation-name: $aniName;
-	-moz-animation-name: $aniName;
-	-ms-animation-name: $aniName;
-	animation-name: $aniName;
-}
-
-@mixin animation-duration($duration) {
-	-webkit-animation-duration: $duration;
-	-moz-animation-duration: $duration;
-	-ms-animation-duration: $duration;
-	animation-duration: $duration;
-}
-
-@mixin animation-fill-mode($fillMode) {
-	-webkit-animation-fill-mode: $fillMode;
-	-moz-animation-fill-mode: $fillMode;
-	-ms-animation-fill-mode: $fillMode;
-	animation-fill-mode: $fillMode;
-}
-
-@mixin animation-timing-function($timing) {
-	-webkit-animation-timing-function: $timing;
-	-moz-animation-timing-function: $timing;
-	-ms-animation-timing-function: $timing;
-	animation-timing-function: $timing;
-}
-
-@mixin animation-delay($delay) {
-	-webkit-animation-delay: $delay;
-	-moz-animation-delay: $delay;
-	-ms-animation-delay: $delay;
-	animation-delay:$delay;
-}
+@import 'partials/mixins';
 
 .contact-container	{
 	min-height:100px;
@@ -48,22 +15,20 @@
 	padding-right:2px;
 	height:120px;
 	width:inherit;
-}
-
-.animation-line	{
-	width: 0px;
-	overflow:hidden;
-	white-space: nowrap;
-	border-right:solid 2px #ddd;
-	@include animation-name(contactInfo);
-	@include animation-duration(4s);
-	@include animation-fill-mode(forwards);
-}
-
-.animation-box{
-	float:right;
-	min-height:100%;
-	width:25%;
+	.animation-line	{
+		width: 0px;
+		overflow:hidden;
+		white-space: nowrap;
+		border-right:solid 2px #ddd;
+		@include animation-name(contactInfo);
+		@include animation-duration(4s);
+		@include animation-fill-mode(forwards);
+	}
+	.animation-box{
+		float:right;
+		min-height:100%;
+		width:25%;
+	}
 }
 
 #blank-top {

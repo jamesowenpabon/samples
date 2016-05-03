@@ -83,7 +83,7 @@ sampleApp.register.controller('graphs', function($rootScope, exSrcConSrv, arryOb
 			return this.dataFieldHeight() / this.yIncriment;
 		};		
 		
-		return graphdata;
+		return graphdata; 
 		
 	})();
 	

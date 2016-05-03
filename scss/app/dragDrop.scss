@@ -1,18 +1,6 @@
 /*   Drag & Drop Page */
 
-@mixin align-items($alignValue) {
-	-webkit-align-items: $alignValue;
-	-moz-align-items: $alignValue;
-	-ms-align-items: $alignValue;
-	align-items: $alignValue;
-}
-
-@mixin justify-content($justifyValue) {
-	-webkit-justify-content: $justifyValue;
-	-moz-justify-content: $justifyValue;
-	-ms-justify-content: $justifyValue;
-	justify-content: $justifyValue;
-}
+@import 'partials/mixins';   
 
 .box {
     height:35px;
@@ -81,11 +69,6 @@
     margin-top:30px 0;
 }
 
-@media only screen and (max-width: 376px) {
-  .ghostdrag--moving {
-    font-size: 11px; } 
-}
-
 .ghostdrag {
     visibility:hidden;
 }
@@ -103,6 +86,11 @@
     position:absolute;
     visibility:visible;
     width:15%;
+}
+
+@media only screen and (max-width: 376px) {
+  .ghostdrag--moving {
+    font-size: 11px; } 
 }
 
 #container-main {

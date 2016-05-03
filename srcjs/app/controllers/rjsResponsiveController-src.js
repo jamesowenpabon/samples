@@ -9,7 +9,7 @@ define (['app'] , function(sampleApp)    {
     {
         "html" : {	
         "label":"HTML", 
-        "src":"pages/layout/r-js-responsive.html", 
+        "src":"pages/layout/r-js-responsive.html",  
         "icon":"fa fa-html5"
         },
         "controller" : {

@@ -46,6 +46,12 @@ angular.module('servicesMod', [])
 			this.css = obj.css;
 		} 
 		
+		exsrccon.prototype.style =  {
+			"label":"MainStyle", 
+			"src":"scss/app/styles.scss", 
+			"icon":"fa fa-css3"
+		};
+		
 		exsrccon.prototype.main =  {
 			"label":"MainJS", 
  			"src":"srcjs/app/main-src.js", 
@@ -60,7 +66,7 @@ angular.module('servicesMod', [])
 	 	
 	 	exsrccon.prototype.directives =  {
 			"label":"Directives", 
-			"src":"srcjs/app/directives/directives-src.js", 
+			"src":"srcjs/app/directives/directives-src.js",  
 			"icon":"fa fa-dot-circle-o"
 		};
 		
@@ -94,14 +100,6 @@ angular.module('servicesMod', [])
 	return { parseObj:parseObj,};
 })
 
-.factory("logOutputSrv", function(){
-	function print(el, value, classname, tag)	{
-		var classAttr = classname ? "class='"+classname+"' " : "";
-		var node = $("<"+tag+" "+classAttr+">").text(value);
-		$("#"+el).append(node)
-	}	
-	return{print:print};
-});
 
 
 });

@@ -8,7 +8,7 @@ define (['bundle'], function(){
 sampleApp.config(['$routeProvider', '$controllerProvider', '$locationProvider', 
 function($routeProvider, $controllerProvider, $locationProvider){
 	
-sampleApp.register = {controller: $controllerProvider.register};
+sampleApp.register = {controller: $controllerProvider.register}; 
             
 $routeProvider
 //Home Page

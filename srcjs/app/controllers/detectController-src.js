@@ -20,7 +20,7 @@ sampleApp.register.controller('detect', function($rootScope, $scope, deviceDetec
 		"css" : {
 		"label":"SCSS", 
 		"src":"scss/app/home.scss", 
-		"psrc":"css/app/home.css",
+		"psrc":"css/app/home.css", 
 		"icon":"fa fa-css3"
 		}
 	});

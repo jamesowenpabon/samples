@@ -1,18 +1,6 @@
 /* MQ Responsive Page   */ 
 
-@mixin align-items($alignValue) {
-	-webkit-align-items: $alignValue;
-	-moz-align-items: $alignValue;
-	-ms-align-items: $alignValue;
-	align-items: $alignValue;
-}
-
-@mixin justify-content($justifyValue) { 
-	-webkit-justify-content: $justifyValue;
-	-moz-justify-content: $justifyValue;
-	-ms-justify-content: $justifyValue;
-	justify-content: $justifyValue;
-}
+@import 'partials/mixins';  
 
 .content-block	{
 	border:solid 1px black;
@@ -73,8 +61,6 @@
 	.row--fourth{height:75px;}
 }
 
-
-
 @media(min-width:768px) and (max-width:991px){
 	.row--first span:before	{
 		content: "50% @ 768px or larger";
@@ -109,8 +95,6 @@
 		clear:both;
 	}
 }
-
-
 
 @media(min-width:992px){
 	.row--first span:before	{

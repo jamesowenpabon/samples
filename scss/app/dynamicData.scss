@@ -27,10 +27,9 @@ table, th	{
 
 .table-row{
 	display:table-row;
-}
-
-.table-row:hover{
-	background-color: #f5f5f5;
+	&:hover {
+			background-color: #f5f5f5;
+	}
 }
 
 .table-cell{
@@ -77,7 +76,7 @@ table, th	{
 	visibility:hidden;
 }
 
-div.table-box	{
+.table-box	{
 	border:solid 1px black;
 	border-radius: 25px;
 	padding:0;
@@ -88,6 +87,12 @@ div.table-box	{
 	overflow:hidden;
 	transition: height 1s;
 	margin:0 0 50px 0;
+}
+
+@media only screen and (max-width: 376px) {
+	#table-box--display, .row{
+		font-size:11px;
+	}
 }
 
 .form-input{
@@ -124,4 +129,6 @@ caption{
 	visibility:visible;
 }
 
-
+@media only screen and (min-width: 600px) {
+	.button-box button	{width:80px;}
+}

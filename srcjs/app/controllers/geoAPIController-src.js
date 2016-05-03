@@ -129,7 +129,7 @@ sampleApp.register.controller('geoAPI', function($rootScope, $scope, geolocateSv
         gl.constructMapUrl();
     };
     
-    gl.constructMapUrl = function(arg) {
+    gl.constructMapUrl = function(arg) { 
         
     if(isNaN(gl.gpsLocationData.heading) || gl.gpsLocationData.heading == null) {
         gl.gpsLocationData.heading = '';    

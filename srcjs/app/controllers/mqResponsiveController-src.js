@@ -9,7 +9,7 @@ sampleApp.register.controller('mqresponsive', function($rootScope, exSrcConSrv, 
 	{
 		"html" : {	
 		"label":"HTML", 
- 		"src":"pages/layout/m-q-responsive.html", 
+ 		"src":"pages/layout/m-q-responsive.html",  
  		"icon":"fa fa-html5"
  	    },
 		"controller" : {

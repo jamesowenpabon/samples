@@ -1,18 +1,6 @@
 /* RJS Responsive Page   */ 
 
-@mixin align-items($alignValue) {
-	-webkit-align-items: $alignValue;
-	-moz-align-items: $alignValue;
-	-ms-align-items: $alignValue;
-	align-items: $alignValue;
-}
-
-@mixin justify-content($justifyValue) {
-	-webkit-justify-content: $justifyValue;
-	-moz-justify-content: $justifyValue;
-	-ms-justify-content: $justifyValue;
-	justify-content: $justifyValue;
-}
+@import 'partials/mixins';
 
 .content-block	{
 	border:solid 1px black;

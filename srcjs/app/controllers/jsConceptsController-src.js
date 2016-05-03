@@ -2,7 +2,7 @@
 
 define(["app"], function(sampleApp)    {
     
-sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, exSrcConSrv, arryObjSrv, logOutputSrv)  {
+sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, exSrcConSrv, arryObjSrv)  {
     var jc = this;
         
     $rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
@@ -21,7 +21,7 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
 		"label":"SCSS", 
 		"src":"scss/app/js-concepts.scss", 
 		"psrc":"css/app/js-concepts.css",
-		"icon":"fa fa-css3"
+		"icon":"fa fa-css3" 
 		}
 	}); 
         
