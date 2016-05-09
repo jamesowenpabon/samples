@@ -17,7 +17,7 @@
 	<body>
 	<!-- HEADER AND NAVBAR -->
 		<header>
-			<nav class="navbar navbar-default" site-navigation-buttons>
+			<nav class="navbar navbar-default">
 			<div id="siteHeader" class="container">
 				<div class="navbar-header col-c-5">
 					<div class="signature">
@@ -26,34 +26,32 @@
 					</div>
 				</div>
 				<div id="nav-bar-container" class="col-c-7">
-				<div class="btn-group navbar-nav navbar-right">
-					<a href="#/" id="home" class="btn btn-primary site-nav-link"><i class="fa fa-home"></i> Home</a>
-					<div class="btn-group">
-					<button id="examples" type="button" class="btn btn-primary dropdown-toggle site-nav-link-button" data-toggle="dropdown">
-					<i class="fa fa-html5"></i> Examples <span class="caret"></span></button>
-					<ul class="dropdown-menu" role="menu">
+				<div set-load-active = "active" class="btn-group navbar-nav navbar-right">
+					<a toggle-sibs="active" href="#/" id="home" class="btn btn-primary site-nav-link"><i class="fa fa-home"></i> Home</a>
+					<a id="examples" class="btn btn-primary site-nav-link-button" data-toggle="dropdown">
+					<i class="fa fa-html5"></i> Examples <span class="caret"></span></a>
+					<ul toggle-prev="active" class="dropdown-menu" role="menu">
 					<li class="dropdown-header">Concepts</li>
-					<li><a id="js-concepts" href="#examples/js-concepts" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> JavaScript Concepts</a></li>
+					<li toggle-sibs="active"><a id="js-concepts" href="#examples/js-concepts" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> JavaScript Concepts</a></li>
 					<li role="separator" class="divider"></li>
 					<li class="dropdown-header">HTML API Examples</li>
-          			<li><a id="drag-drop" href="#examples/htmlapi/drag-drop" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> HTML5 API Drag & Drop</a></li>
-          			<li><a id="geolocate" href="#examples/htmlapi/geolocate" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> HTML5 API Geo Locate</a></li>
+          			<li toggle-sibs="active"><a id="drag-drop" href="#examples/htmlapi/drag-drop" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> HTML5 API Drag & Drop</a></li>
+          			<li toggle-sibs="active"><a id="geolocate" href="#examples/htmlapi/geolocate" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> HTML5 API Geo Locate</a></li>
           			<li role="separator" class="divider"></li>
           			<!--li><a class="site-nav-link-dropdown" href="#">Local Storage</a></li>
           			<li><a class="site-nav-link-dropdown" href="#">Web Workers</a></li>
           			<li><a class="site-nav-link-dropdown" href="#">Server Sent Events</a></li-->
           			<li class="dropdown-header">Responsive Layout Examples</li>
-					<li><a id="responsive" href="#examples/layout/m-q-responsive" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Media Query Responsive Layout</a></li>
-					<li><a id="responsejs" href="#examples/layout/r-js-responsive" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> ResponseJS Responsive Layout</a></li>
+					<li toggle-sibs="active"><a id="responsive" href="#examples/layout/m-q-responsive" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Media Query Responsive Layout</a></li>
+					<li toggle-sibs="active"><a id="responsejs" href="#examples/layout/r-js-responsive" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> ResponseJS Responsive Layout</a></li>
 					<li role="separator" class="divider"></li>
 					<li class="dropdown-header">Data Binding Examples</li>
-					<li><a id="svg-polyline" href="#examples/svg-polyline" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> SVG Polyline Graphs</a></li>
+					<li toggle-sibs="active"><a id="svg-polyline" href="#examples/svg-polyline" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> SVG Polyline Graphs</a></li>
 					<li role="separator" class="divider"></li>
 					<li class="dropdown-header">Forms & Data Examples</li>
-					<li><a id="dynamic-data" href="#examples/dynamic-data" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Dynamic Data</a></li>
+					<li toggle-sibs="active"><a id="dynamic-data" href="#examples/dynamic-data" class="site-nav-link-dropdown"><i class="fa fa-html5"></i> Dynamic Data</a></li>
 					</ul>
-					</div>
-					<a href="#contact" id="contact" class="btn btn-primary site-nav-link"><i class="fa fa-comment"></i> Contact</a>
+					<a toggle-sibs="active" href="#contact" id="contact" class="btn btn-primary site-nav-link"><i class="fa fa-comment"></i> Contact</a>
 				</div>
 				</div>
 			</div>

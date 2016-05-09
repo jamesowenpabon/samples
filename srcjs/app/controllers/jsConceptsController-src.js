@@ -5,7 +5,9 @@ define(["app"], function(sampleApp)    {
 sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, exSrcConSrv, arryObjSrv)  {
     var jc = this;
         
-    $rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+   	$rootScope.exSrcObj = exSrcConSrv;
+	
+	$rootScope.exSrcObj.exsrccon(
 	{
 		"html" : {	
 		"label":"HTML", 
@@ -221,7 +223,7 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
     
     
     //Concept content
-    
+    //For example purposes data written out below could come from DB or JSON
     jc.concept = [
     	
     {
@@ -545,6 +547,9 @@ sampleApp.register.controller('jsconcepts', function($sce, $scope, $rootScope, e
         		"</p>"
 	}
 	];
+	
+	console.log("-----Controller Scope-----");
+	console.log($scope);
         
     console.log("-----jc Controller Scope-----");
 	console.log(jc);    

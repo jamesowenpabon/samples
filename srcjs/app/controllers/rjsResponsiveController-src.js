@@ -5,7 +5,9 @@ define (['app'] , function(sampleApp)    {
     sampleApp.register.controller('rjsresponsive', function($rootScope, $scope, exSrcConSrv, arryObjSrv)   {
     var rr = this;
     
-    $rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+    $rootScope.exSrcObj = exSrcConSrv;
+	
+	$rootScope.exSrcObj.exsrccon(
     {
         "html" : {	
         "label":"HTML", 
@@ -35,6 +37,9 @@ define (['app'] , function(sampleApp)    {
         });
         
     })
+    
+    console.log("-----Controller Scope-----");
+	console.log($scope);
     
     console.log("-----rr Controller Scope-----");
     console.log(rr);

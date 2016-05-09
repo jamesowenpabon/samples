@@ -2,11 +2,12 @@
 
 define (['app'], function(sampleApp){
 
-sampleApp.register.controller('dynamicdata',function($rootScope, $scope, $http, $window, exSrcConSrv, arryObjSrv){
+sampleApp.register.controller('dynamicdata',function($rootScope, $scope, $http, exSrcConSrv, arryObjSrv){
 	var dd = this;
 	
+	$rootScope.exSrcObj = exSrcConSrv;
 	
-	$rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+	$rootScope.exSrcObj.exsrccon(
 	{
 		"html" : {	
 		"label":"HTML", 
@@ -26,19 +27,17 @@ sampleApp.register.controller('dynamicdata',function($rootScope, $scope, $http, 
 		}
 	});
 	
-	
 	$rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj); 
-	
 	
 	$scope.$on('$viewContentLoaded', function() { 
 		dd.newDataItem = {
 			name : '',
 			rating : ''
-		}
+		};
 		dd.reverse = '';
 		dd.selectedOrder = '';
-		dd.lastDisplayTarget = '';
-	 })
+		$scope.lastDisplayTarget = ''; 
+	 });
 	 
 	//Load Data
 	dd.dataLoader = function(arg)	{
@@ -51,50 +50,50 @@ sampleApp.register.controller('dynamicdata',function($rootScope, $scope, $http, 
 			});
 			dd.newRecord();
 		});
-	}
+	};
 	
 	//Post Data
 	dd.dataPoster = function(data,action)	{
 		data.editState = undefined;
 		data.name = (data.name.replace(/[^a-zA-Z0-9\s]/g, "")); 
 		data.action = action;
-		dataString = 'data='+JSON.stringify(data);
-		$http({
-			method : 'POST',
-			url : './dataList.php',
-			data: dataString,
-			headers : {'Content-Type': 'application/x-www-form-urlencoded'}  
-		})
-		.success(function (rdata, status, headers, config) {
-		dd.PostDataResponse = rdata;	
-		if (action == "insert")	{
-		var temp = dd.selectedOrder
-		dd.selectedOrder = '';
-		dd.dataList.push({
-			'ID':rdata,
-			'name':data.name,
-			'rating':parseInt(data.rating),
-			'collection':data.collection
-		});
-		dd.selectedOrder = temp;
-		dd.dataBoxResize('table-box--display-inner','table-box--display',(40));
-		}
-		if (action == "remove")	{
-			var index = dd.dataList.indexOf(data);
-			dd.dataList.splice(index, 1);
-			dd.dataBoxResize('table-box--display-inner','table-box--display',(-32));
-		}
-		})
-		.error(function (rdata, status, header, config) {
-			dd.ResponseDetails = rdata;
-		});
-	}
+		var dataString = 'data='+JSON.stringify(data);
+		$http.post(
+			"./dataList.php", 
+			dataString, 
+			{headers : {'Content-Type': 'application/x-www-form-urlencoded'}} 
+		)
+		.then(
+			function (response) {
+				if (action == "insert")	{
+				var temp = dd.selectedOrder;
+				dd.selectedOrder = '';
+				dd.dataList.push({
+					'ID':response.data,
+					'name':data.name,
+					'rating':parseInt(data.rating),
+					'collection':data.collection
+				});
+				dd.selectedOrder = temp;
+				dd.dataBoxResize('table-box--display-inner','table-box--display',(40));
+				}
+				if (action == "remove")	{
+					var index = dd.dataList.indexOf(data);
+					dd.dataList.splice(index, 1);
+					dd.dataBoxResize('table-box--display-inner','table-box--display',(-32));
+				}
+			}, 
+			function (rdata, status, header, config) {
+				dd.ResponseDetails = rdata;
+			}
+		);
+	};
 	 
 	//Order Data
 	dd.orderController = function(arg)	{
 		dd.reverse = (dd.selectedOrder === arg) ? !dd.reverse : false;
 		dd.selectedOrder = arg;
-	}
+	};
 	
 	//Cancell Action
 	dd.cancelAction = function(data)	{
@@ -102,12 +101,12 @@ sampleApp.register.controller('dynamicdata',function($rootScope, $scope, $http, 
 		dd.dataList[recordID].name = data.editState.name;
 		dd.dataList[recordID].rating = data.editState.rating;
 		data.editState = undefined;
-	}
+	};
 	
 	//Set Edit State
 	dd.setEditState = function(data)	{
 		data.editState = angular.copy(data);
-	}
+	};
 	
 	//New Record
 	dd.newRecord = function()	{
@@ -115,14 +114,14 @@ sampleApp.register.controller('dynamicdata',function($rootScope, $scope, $http, 
 			name : '',
 			rating : '',
 			collection : dd.sqlTableName
-		}
+		};
 		dd.myForm.$setPristine();
 		dd.myForm.$setUntouched();
-	}
+	};
 	
 	//Resize Data Box
 	dd.dataBoxResize = function(dataBox, containerBox, offset)	{
-		var offset = (!offset) ? 5 : offset;
+		offset = (!offset) ? 5 : offset;
 		var dataBoxHeight = angular.element('#'+dataBox).prop('offsetHeight')+offset
 		angular.element('#'+containerBox).css('height',dataBoxHeight);
 	}
@@ -130,6 +129,10 @@ sampleApp.register.controller('dynamicdata',function($rootScope, $scope, $http, 
 	dd.setForm = function (form) {
 		dd.myForm = form;
 	}
+	
+	console.log("-----Controller Scope-----");
+	console.log($scope);
+	
 	console.log("-----dd Controller Scope-----");
 	console.log(dd);
 })

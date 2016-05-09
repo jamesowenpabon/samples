@@ -2,10 +2,12 @@
 
 define (['app'], function(sampleApp){
 
-sampleApp.register.controller('graphs', function($rootScope, exSrcConSrv, arryObjSrv)	{
+sampleApp.register.controller('graphs', function($rootScope, $scope, exSrcConSrv, arryObjSrv)	{
 	var pg = this;
 	
-	$rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+	$rootScope.exSrcObj = exSrcConSrv;
+	
+	$rootScope.exSrcObj.exsrccon(
 	{
 		"html" : {	
 		"label":"HTML", 
@@ -28,10 +30,7 @@ sampleApp.register.controller('graphs', function($rootScope, exSrcConSrv, arryOb
 	
 	$rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj);
 	
-	console.log("-------------");
-	console.log(Array.isArray($rootScope.exSrcLinkArray));
-	console.log("-------------");
-	
+	// Using IIFE to create function constructor via a function expression
 	pg.graphData = (function()	{
 	
 		function graphdata(obj) {
@@ -88,7 +87,7 @@ sampleApp.register.controller('graphs', function($rootScope, exSrcConSrv, arryOb
 	})();
 	
 	
-			
+	//For example purposes data written out below could come from DB or JSON		
 	pg.nflPassing = new pg.graphData(
 	{
 		'graphTitle':'NFL Quarterback Passing Yards',
@@ -143,7 +142,7 @@ sampleApp.register.controller('graphs', function($rootScope, exSrcConSrv, arryOb
 				]
 	}
 	);
-	
+	//For example purposes data written out below could come from DB or JSON
 	pg.nflSacks = new pg.graphData(
 	{
 		'graphTitle':'NFL Quarterback Sacks',
@@ -207,7 +206,7 @@ sampleApp.register.controller('graphs', function($rootScope, exSrcConSrv, arryOb
 				]
 	}	
 	);
-	
+	//For example purposes data written out below could come from DB or JSON
 	pg.yourData = new pg.graphData(
 	{
 		'graphTitle':'Your Data Chart',
@@ -278,11 +277,15 @@ sampleApp.register.controller('graphs', function($rootScope, exSrcConSrv, arryOb
 		
 	var init = function()	{
 		pg.graphSwitch(pg.yourData);
-		console.log("-----pg Controller Scope-----");
-		console.log(pg);
 	};
 	
 	init();
+	
+	console.log("-----Controller Scope-----");
+	console.log($scope);
+	
+	console.log("-----pg Controller Scope-----");
+	console.log(pg);
 });
 
 });

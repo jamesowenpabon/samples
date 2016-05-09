@@ -24,7 +24,7 @@ $routeProvider
 .when("/examples/js-concepts", {
 	templateUrl: "pages/jsconcepts.html",
 	resolve: {
-		deps:function(lzLoadSvc, $q) {var d=$q.defer();lzLoadSvc.loadCtrl('jsconcepts', d);return d.promise;}
+	deps:function(lzLoadSvc, $q) {var d=$q.defer();lzLoadSvc.loadCtrl('jsconcepts', d);return d.promise;}
 	},
 	controller: 'jsconcepts',
 	controllerAs: 'jc'

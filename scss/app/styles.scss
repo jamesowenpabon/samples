@@ -1,6 +1,6 @@
 /* Core Styles   */  
 
-@import 'partials/mixins';   
+@import 'partials/mixins';    
 
 * {
 	box-sizing: border-box;
@@ -9,7 +9,7 @@
 [class*="col-c-"] { 
 	float: left;
 	padding: 15px;
-	width: 100%;
+	width: 100%; 
 }
 
 @include min600 {
@@ -101,23 +101,21 @@ h2	{
 
 .navbar-nav {
 	padding:8px 0 0 0;
-	.open {
+	.dropdown-menu {
+		left:12px;
+		background-color: #fff;
+		border: 1px solid rgba(0,0,0,0.15);
+		box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+	}
+	@include max767 {
 		.dropdown-menu {
-			left:-65px;
-			background-color: #fff;
-			border: 1px solid rgba(0,0,0,0.15);
-			box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+			position: absolute;
+			margin-top: 2px;
 		}
-		@include max767 {
-			.dropdown-menu {
-				position: absolute;
-				margin-top: 2px;
-			}
-		}
-		@include min768 {
-			.dropdown-menu {
-			    right: inherit; 
-			}
+	}
+	@include min768 {
+		.dropdown-menu {
+		    right: inherit; 
 		}
 	}
 }

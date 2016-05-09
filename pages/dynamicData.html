@@ -9,14 +9,14 @@ data-target="#commonModal">View Example Source</div>
 
 <div class="body-container">
 	<div class="col-c-3 table-box">
-		<table dynamic-selector-list class="table table-hover">
+		<table class="table table-hover">
 
 		<caption class="table-caption"><h4>Data Selection List</h4></caption>
 
 			<tbody>
-			<tr><td class="table-datalist-item" ng-click="dd.dataLoader('movies')">Movies</td></tr>
-			<tr><td class="table-datalist-item" ng-click="dd.dataLoader('food')">Food</td></tr>
-			<tr><td class="table-datalist-item" ng-click="dd.dataLoader('cars')">Cars</td></tr>
+			<tr toggle-sibs="alt-active"><td  class="table-datalist-item" ng-click="dd.dataLoader('movies')">Movies</td></tr>
+			<tr toggle-sibs="alt-active"><td  class="table-datalist-item" ng-click="dd.dataLoader('food')">Food</td></tr>
+			<tr toggle-sibs="alt-active"><td  class="table-datalist-item" ng-click="dd.dataLoader('cars')">Cars</td></tr>
 			</tbody>
 
 		</table>
@@ -27,12 +27,12 @@ data-target="#commonModal">View Example Source</div>
 		<div class="table"> 
 		<div class="table-caption"><h4>Data Display Table</h4>
 		<h5>(Click fields to edit)(Click heads to order)</h5></div> 
-			<div dynamic-display-list class="table-header-group">
+			<div class="table-header-group">
 			<div class="table-row">
 
 			<div class="tcol2 table-cell">
 			<div class="table-data-display-header" ng-click="dd.orderController('ID')">
-			<div class="button-box">
+			<div toggle-caret="caret-box" class="button-box">
 				<button class="btn btn-sm btn-primary" type="button">ID 
 				<span class="caret-box"></span></button>
 			</div>
@@ -41,7 +41,7 @@ data-target="#commonModal">View Example Source</div>
 
 			<div class="tcol7 table-cell">
 			<div class="table-data-display-header" ng-click="dd.orderController('name')">
-			<div class="button-box">
+			<div toggle-caret="caret-box" class="button-box">
 				<button class="btn btn-sm btn-primary" type="button">Name 
 				<span class="caret-box"></span></button>
 			</div>
@@ -50,7 +50,7 @@ data-target="#commonModal">View Example Source</div>
 
 			<div class="tcol2 table-cell">
 			<div class="table-data-display-header" ng-click="dd.orderController('rating')">
-			<div class="button-box">
+			<div toggle-caret="caret-box" class="button-box">
 				<button class="btn btn-sm btn-primary" type="button">Rating 
 				<span class="caret-box"></span></button>
 			</div>
@@ -63,8 +63,8 @@ data-target="#commonModal">View Example Source</div>
 			</div>
 			<div class="table-row-group">
 			<form name="editForm" 
-			on-last-repeat="['table-box--display-inner','table-box--display']" 
-			ng-repeat="dataItem in dd.dataList | orderBy:dd.selectedOrder:dd.reverse" 
+			on-last-repeat="dd.dataBoxResize('table-box--display-inner','table-box--display')" 
+			ng-repeat="dataItem in dd.dataList | orderBy:dd.selectedOrder:dd.reverse" last = {{$last}}
 			class="table-row" ng-submit="editing = false; dd.dataPoster(dataItem,'update')">
 
 			<div class="tcol2 table-cell" ng-hide="editing">{{dataItem.ID}}</div> 

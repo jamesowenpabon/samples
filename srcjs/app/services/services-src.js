@@ -37,52 +37,36 @@ angular.module('servicesMod', [])
 })
 
 .service('exSrcConSrv', function()	{
-	
-	var exSrcCon = (function ()	{
-		
-		function exsrccon(obj)	{
-			this.html = obj.html;
-			this.controller = obj.controller;
-			this.css = obj.css;
-		} 
-		
-		exsrccon.prototype.style =  {
+	this.exsrccon = function (obj)	{
+		this.html = obj.html;
+		this.controller = obj.controller;
+		this.css = obj.css;
+		this.style =  {
 			"label":"MainStyle", 
 			"src":"scss/app/styles.scss", 
 			"icon":"fa fa-css3"
 		};
-		
-		exsrccon.prototype.main =  {
+		this.main =  {
 			"label":"MainJS", 
  			"src":"srcjs/app/main-src.js", 
  			"icon":"fa fa-dot-circle-o"	
 		};
-		
-		exsrccon.prototype.app =  {	
+		this.app =  {	
 			"label":"AppJS", 
 			"src":"srcjs/app/app-src.js",
 			"icon":"fa fa-dot-circle-o"
 	 	};
-	 	
-	 	exsrccon.prototype.directives =  {
+	 	this.directives =  {
 			"label":"Directives", 
 			"src":"srcjs/app/directives/directives-src.js",  
 			"icon":"fa fa-dot-circle-o"
 		};
-		
-		exsrccon.prototype.services =  {
+		this.services =  {
 			"label":"Services", 
 			"src":"srcjs/app/services/services-src.js", 
 			"icon":"fa fa-dot-circle-o"
 		};
-		
-		return exsrccon;
-		
-	})();
-	
-		
-	return { exSrcCon:exSrcCon }
-	
+	};
 })
 
 .factory('arryObjSrv', function()	{ 
@@ -92,19 +76,11 @@ angular.module('servicesMod', [])
 		var key;
 		for (key in obj){
 			value = obj[key];
-			obj[key]=value;
 		}
 	 return  obj;	
 	}
 	
 	return { parseObj:parseObj,};
-})
-
-
-
 });
 
-
-
-	
-	
+});

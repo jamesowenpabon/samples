@@ -1,6 +1,6 @@
 <!-- drag-drop.html -->
 
-<div id="container-main" class="container"> 
+<div id="container-main" class="container" dom-mod on-init="initCallback(interface)"> 
 <div class="container modal-link" id="source-link" data-toggle="modal" 
 data-target="#commonModal">View Example Source</div>
 
@@ -12,9 +12,9 @@ data-target="#commonModal">View Example Source</div>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-xs-5 col-sm-5 col-md-4">
-            <div data-row="1" dropable-item="{{ha.dropConfigObj}}" id="left1" class="box--empty"></div>
-            <div data-row="2" dropable-item="{{ha.dropConfigObj}}" id="left2" class="box--empty"></div>
-            <div data-row="3" dropable-item="{{ha.dropConfigObj}}" id="left3" class="box--empty"></div>
+            <div data-row="1" dropable-item id="left1" class="box--empty"></div>
+            <div data-row="2" dropable-item id="left2" class="box--empty"></div>
+            <div data-row="3" dropable-item id="left3" class="box--empty"></div>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2">
             <div data-row="1" class="box--noresult" id="center1"></div>
@@ -22,37 +22,31 @@ data-target="#commonModal">View Example Source</div>
             <div data-row="3" class="box--noresult" id="center3"></div>
         </div>
         <div class="col-xs-5 col-sm-5 col-md-4">
-            <div data-row="1" dropable-item="{{ha.dropConfigObj}}" id="right1" class="box--empty"></div>
-            <div data-row="2" dropable-item="{{ha.dropConfigObj}}" id="right2" class="box--empty"></div>
-            <div data-row="3" dropable-item="{{ha.dropConfigObj}}" id="right3" class="box--empty"></div>
+            <div data-row="1" dropable-item id="right1" class="box--empty"></div>
+            <div data-row="2" dropable-item id="right2" class="box--empty"></div>
+            <div data-row="3" dropable-item id="right3" class="box--empty"></div>
         </div>
         <div class="col-md-1"></div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-        <div data-row="homeRow" dropable-item="{{ha.dropConfigObj}}" id="r4c1" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-        <span data-match="a" class="box--draggable" draggable-item="{{ha.dragConfigObj}}" 
-        touchable-item="{{ha.touchConfigObj}}" draggable="true" id="da1">Gregarious</span>
+        <div data-row="homeRow" dropable-item id="r4c1" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+        <span data-match="a" class="box--draggable" ddt-item draggable="true" id="da1">Gregarious</span>
         </div>
-        <div data-row="homeRow" dropable-item="{{ha.dropConfigObj}}" id="r4c2" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-        <span data-match="b" class="box--draggable" draggable-item="{{ha.dragConfigObj}}"  
-        touchable-item="{{ha.touchConfigObj}}" draggable="true" id="db1">Apostolic</span>
+        <div data-row="homeRow" dropable-item id="r4c2" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+        <span data-match="b" class="box--draggable" ddt-item draggable="true" id="db1">Apostolic</span>
         </div>
-        <div data-row="homeRow" dropable-item="{{ha.dropConfigObj}}" id="r4c3" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-        <span data-match="c" class="box--draggable" draggable-item="{{ha.dragConfigObj}}"  
-        touchable-item="{{ha.touchConfigObj}}" draggable="true" id="dc1">Conjugate</span>
+        <div data-row="homeRow" dropable-item id="r4c3" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+        <span data-match="c" class="box--draggable" ddt-item draggable="true" id="dc1">Conjugate</span>
         </div>
-        <div data-row="homeRow" dropable-item="{{ha.dropConfigObj}}" id="r4c4" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-        <span data-match="b" class="box--draggable" draggable-item="{{ha.dragConfigObj}}"  
-        touchable-item="{{ha.touchConfigObj}}" draggable="true" id="db2">Parsonish</span>
+        <div data-row="homeRow" dropable-item id="r4c4" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+        <span data-match="b" class="box--draggable" ddt-item draggable="true" id="db2">Parsonish</span>
         </div>
-        <div data-row="homeRow" dropable-item="{{ha.dropConfigObj}}" id="r4c5" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-        <span data-match="c" class="box--draggable" draggable-item="{{ha.dragConfigObj}}"  
-        touchable-item="{{ha.touchConfigObj}}" draggable="true" id="dc2">Affix</span>
+        <div data-row="homeRow" dropable-item id="r4c5" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+        <span data-match="c" class="box--draggable" ddt-item draggable="true" id="dc2">Affix</span>
         </div>
-        <div data-row="homeRow" dropable-item="{{ha.dropConfigObj}}" id="r4c6" class="col-xs-2 col-sm-2 col-md-2 box--inline">
-        <span data-match="a" class="box--draggable" draggable-item="{{ha.dragConfigObj}}"  
-        touchable-item="{{ha.touchConfigObj}}" draggable="true" id="da2">Convivial</span>
+        <div data-row="homeRow" dropable-item id="r4c6" class="col-xs-2 col-sm-2 col-md-2 box--inline">
+        <span data-match="a" class="box--draggable" ddt-item draggable="true" id="da2">Convivial</span>
         </div>
         </div>
     </div>

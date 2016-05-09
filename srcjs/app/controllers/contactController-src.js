@@ -2,10 +2,12 @@
 
 define(['app'], function(sampleApp) {
     
-sampleApp.register.controller('contact', function($rootScope, exSrcConSrv, arryObjSrv) {
+sampleApp.register.controller('contact', function($rootScope, $scope, exSrcConSrv, arryObjSrv) {
     var cc = this;
 
-    $rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+    $rootScope.exSrcObj = exSrcConSrv;
+	
+	$rootScope.exSrcObj.exsrccon(
 	{
         "html" : {	
         "label":"HTML", 
@@ -26,6 +28,9 @@ sampleApp.register.controller('contact', function($rootScope, exSrcConSrv, arryO
 	});
 	
 	$rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj); 
+	
+	console.log("-----Controller Scope-----");
+	console.log($scope);
 	
 	console.log("-----cc Controller Scope-----"); 
 	console.log(cc);

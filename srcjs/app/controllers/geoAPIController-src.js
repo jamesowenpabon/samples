@@ -11,7 +11,9 @@ sampleApp.register.controller('geoAPI', function($rootScope, $scope, geolocateSv
         geolocateSvc.getCurrentGPS().then(gl.setCoords,gl.onerror);
     });
     
-    $rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+    $rootScope.exSrcObj = exSrcConSrv;
+	
+	$rootScope.exSrcObj.exsrccon(
 	{
         "html" : {	
         "label":"HTML", 
@@ -34,6 +36,7 @@ sampleApp.register.controller('geoAPI', function($rootScope, $scope, geolocateSv
     $rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj); 
 
     // Map Object Class 
+    // Using IIFE to create function constructor via a function expression
     gl.mapsData = (function()   {
         function mapsdata(obj){
             this.uri = obj.uri;
@@ -64,6 +67,7 @@ sampleApp.register.controller('geoAPI', function($rootScope, $scope, geolocateSv
     };
 
     //Map Object Constructors
+    //For example purposes data written out below could come from DB or JSON
     gl.populateObjects = function(callback){
          gl.roadMap = new gl.mapsData({
             'uri' : 'https://maps.googleapis.com/maps/api/staticmap',
@@ -214,6 +218,9 @@ sampleApp.register.controller('geoAPI', function($rootScope, $scope, geolocateSv
     gl.onerror = function(err)  {
         gl.errorMessage = err.message;
     };
+    
+    console.log("-----Controller Scope-----");
+	console.log($scope);
     
     console.log("-----gl Controller Scope-----");
 	console.log(gl);

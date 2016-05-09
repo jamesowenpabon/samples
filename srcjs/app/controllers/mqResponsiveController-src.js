@@ -2,10 +2,12 @@
 
 define(['app'], function(sampleApp) {
 
-sampleApp.register.controller('mqresponsive', function($rootScope, exSrcConSrv, arryObjSrv)    {
+sampleApp.register.controller('mqresponsive', function($rootScope, $scope, exSrcConSrv, arryObjSrv)    {
     var mq = this;
     
-    $rootScope.exSrcObj = new exSrcConSrv.exSrcCon(
+   	$rootScope.exSrcObj = exSrcConSrv;
+	
+	$rootScope.exSrcObj.exsrccon(
 	{
 		"html" : {	
 		"label":"HTML", 
@@ -26,6 +28,9 @@ sampleApp.register.controller('mqresponsive', function($rootScope, exSrcConSrv, 
 	});
 	
     $rootScope.exSrcLinkArray = arryObjSrv.parseObj($rootScope.exSrcObj); 
+    
+    console.log("-----Controller Scope-----");
+	console.log($scope);
     
     console.log("-----mq Controller Scope-----");
 	console.log(mq);
